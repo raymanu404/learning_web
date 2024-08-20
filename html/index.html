@@ -3,9 +3,120 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Hello world</title>
+    <title>Learning Web</title>
+    <style>
+      body {
+      }
+      main {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+      }
+    </style>
   </head>
   <body>
-    <h1>Hi there!</h1>
+    <header>
+      <section>
+        <nav>
+          <ul>
+            <li><a href="/home.html">Home</a></li>
+            <li><a href="/applications.html">Applications</a></li>
+            <li>About me</li>
+          </ul>
+        </nav>
+        <section>
+          <h1>Hi there!</h1>
+        </section>
+      </section>
+    </header>
+    <main>
+      <h1>Hi there! I m main</h1>
+      <p
+        role="button"
+        onclick="clickmeHandle()"
+        style="cursor: pointer; text-decoration: none; user-select: none"
+        tabindex="-1"
+      >
+        Click me
+      </p>
+      <button
+        onclick="clickmeHandle()"
+        style="cursor: pointer; text-decoration: none; user-select: none"
+      >
+        Click me
+      </button>
+    </main>
+    <section>
+      <h1>Hi there! I m a section</h1>
+      <ul>
+        <li>
+          <label> Value 1 </label>
+          <input type="checkbox" name="value1" id="value1" />
+        </li>
+        <li>
+          <label> Value 2 </label>
+          <input type="checkbox" name="value2" id="value2" checked />
+        </li>
+        <li>
+          <label> Value 3 </label>
+          <input type="checkbox" name="value3" id="value3" disabled />
+        </li>
+      </ul>
+      <div id="div1">
+        <textarea
+          contenteditable="false"
+          data-some-random-attribute="random_value"
+        ></textarea>
+      </div>
+    </section>
+    <section id="feedback" aria-labelledby="about_feedback">
+      <h2 id="about_feedback">
+        What it's like to learn good and do other stuff good too
+      </h2>
+      <ul>
+        <li>
+          <blackquote
+            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, neque
+            ullam. Modi magni cumque magnam fuga dolorum possimus ab labore
+            optio commodi eum? Blanditiis quas omnis natus maxime nisi
+            asperiores?</blackquote
+          >
+        </li>
+        <li>
+          <p>
+            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
+            impedit possimus eos molestias suscipit alias voluptates quidem aut
+            eius iure est natus, a laudantium tenetur deleniti quos asperiores,
+            delectus perferendis.
+          </p>
+        </li>
+        <li>
+          <q>
+            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
+            commodi amet quibusdam dignissimos odio, consequatur ipsa asperiores
+            perferendis. In placeat voluptas pariatur maxime ducimus labore
+            itaque numquam inventore explicabo nesciunt.
+          </q>
+        </li>
+      </ul>
+    </section>
+    <footer>
+      <h1>Hi there! I m a footer</h1>
+    </footer>
   </body>
+  <script>
+    const clickmeHandle = () => {
+      console.log("hello");
+    };
+    const el = document.getElementById("div1").querySelector("textarea");
+
+    const getElem = document
+      .getElementById("div1")
+      .firstElementChild.getAttribute("data-some-random-attribute");
+
+    console.log(getElem);
+    const myMedia = document.getElementById("value1");
+    myMedia.setAttribute("checked", true);
+  </script>
 </html>
