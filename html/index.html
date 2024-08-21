@@ -6,12 +6,18 @@
     <title>Learning Web</title>
     <style>
       body {
+        padding: 0;
+        margin: 0;
       }
       main {
         display: flex;
         align-items: center;
         justify-content: center;
         flex-direction: column;
+      }
+      section,
+      footer {
+        padding: 0 20px !important;
       }
     </style>
   </head>
@@ -101,7 +107,91 @@
         </li>
       </ul>
     </section>
-    <footer>
+    <section>
+      <h2>Links</h2>
+      <ul>
+        <li>
+          <span><i>/</i> means to point out to home page/index</span>
+          <a href="/">Index page</a>
+        </li>
+        <li>
+          <span>Direct links to another sites, asbolute link:</span>
+          <a href="https://machinelearningworkshop.com"
+            >Machine Learning Workshop</a
+          >
+        </li>
+        <li>
+          <span
+            >Relative URL, point to another path from current protocol, current
+            domain name</span
+          >
+          <a href="home.html">Home</a>
+        </li>
+        <li>
+          <span>Direct link to current page (a.k.a to sections)</span>
+          <a href="#teachers">Our teachers</a>
+        </li>
+        <li>
+          <span>Direct link to another site on specific section</span>
+          <a href="https://machinelearningworkshop.com#teachers"
+            >MLW teachers</a
+          >
+        </li>
+        <li>
+          <span>link to send email</span>
+          <a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
+        </li>
+
+        <li>
+          <span>link to call directly a number </span>
+          <a href="tel:8005551212">Call Hal</a>
+        </li>
+        <li>
+          <span>link to send a sms to a number </span>
+          <a href="sms:+078005551212&body=Hello%20There">Text me</a>
+        </li>
+        <li>
+          <span>link to download a resource</span>
+          <a
+            href="https://unsplash.com/photos/0zDfloZbfG8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fHdhbGxwYXBlciUyMDRrfGVufDB8fHx8MTcyNDE3NjY3OHww&amp;force=true6"
+            download=""
+            target="_self"
+            >download me</a
+          >
+        </li>
+      </ul>
+      <div>
+        <h3>NOTES!</h3>
+        <div
+          style="
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            padding: 0 20px;
+            width: 80%;
+            word-wrap: break-word;
+          "
+        >
+          <span style="font-weight: 800">
+            The href attribute can begin with mailto: or tel: to email or make
+            calls, with the handling of the link depending on the device,
+            operating system, and installed applications.
+          </span>
+          <span style="font-weight: 800">
+            The download attribute should be included when the href points to a
+            downloadable resource. The value of the download attribute is the
+            suggested filename for the resource to be saved in the user's local
+            file system.
+            <i>download</i> attribute to suggest a file name for the
+            downloadable blob that the optimizer creates
+          </span>
+        </div>
+      </div>
+    </section>
+    <section>
+      <h2>Lists</h2>
+    </section>
+    <footer style="background-color: dimgray; width: 100%">
       <h1>Hi there! I m a footer</h1>
     </footer>
   </body>
