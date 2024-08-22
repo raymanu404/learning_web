@@ -3,6 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <title>Learning Web</title>
     <style>
       body {
@@ -190,23 +191,146 @@
     </section>
     <section>
       <h2>Lists</h2>
+      <h3>We have 3 types of lists:</h3>
+      <ul>
+        <li>unordered list (ul)</li>
+        <li>ordered list (ol)</li>
+        <li>description list (dl)</li>
+      </ul>
+
+      <div>
+        <h4>Unordered list</h4>
+        <p>e.g</p>
+        <ul>
+          <li>Here there</li>
+          <li>I m a unordered</li>
+          <li>List</li>
+          <li>I dont care about any rules</li>
+          <li>We are just a unordered elements</li>
+        </ul>
+      </div>
+      <div>
+        <h4>Ordered list</h4>
+        <p>e.g</p>
+        <ol type="1" start="4">
+          <li>First elem</li>
+          <li>Second elem</li>
+          <li>Third one</li>
+        </ol>
+        <ol type="A" reversed>
+          <li>First elem</li>
+          <li>Second elem</li>
+          <li>Third one</li>
+        </ol>
+        <ol type="I" id="custom-ol">
+          <li>First elem</li>
+          <li>Second elem</li>
+          <li>Third one</li>
+        </ol>
+
+        <fieldset>
+          <legend>Choose your fighter</legend>
+          <ul id="custom-ul">
+            <li>
+              <label for="circle">Circle</label
+              ><input
+                type="radio"
+                id="circle"
+                name="radio-group-type"
+                value="circle"
+              />
+            </li>
+            <li>
+              <label for="amerian">Amerian</label
+              ><input
+                type="radio"
+                id="amerian"
+                name="radio-group-type"
+                value="amerian"
+              />
+            </li>
+            <li>
+              <label for="lower-alpha">Lower Alpha</label
+              ><input
+                type="radio"
+                id="lower-alpha"
+                name="radio-group-type"
+                value="lower-alpha"
+              />
+            </li>
+            <li>
+              <label for="decimal-leading-zero">decimal-leading-zero</label
+              ><input
+                type="radio"
+                id="decimal-leading-zero"
+                name="radio-group-type"
+                value="decimal-leading-zero"
+              />
+            </li>
+            <li>
+              <label for="disc">disc</label
+              ><input
+                type="radio"
+                id="disc"
+                name="radio-group-type"
+                value="disc"
+              />
+            </li>
+            <li>
+              <label for="lower-greek">lower-greek</label
+              ><input
+                type="radio"
+                id="lower-greek"
+                name="radio-group-type"
+                value="lower-greek"
+              />
+            </li>
+          </ul>
+        </fieldset>
+      </div>
+      <div>
+        <h4>Description list</h4>
+        <p>
+          Similar to ordered and unordered lists, they can be nested. Unlike
+          ordered and unordered lists, they are made up of key/value pairs.
+          Similar to the ul and ol>, the dl> is the parent container. The dt>
+          and dd> elements are the children of the dl>.
+        </p>
+
+        <dl>
+          <dt>Places where I would like to go</dt>
+          <dd>Spain</dd>
+          <dd>Portugal</dd>
+          <dd>Republic Czech</dd>
+          <dd>Italy</dd>
+          <dd>Netherlands</dd>
+          <dd>Malta</dd>
+          <dd>France</dd>
+          <dd>Croatia</dd>
+          <dt>Places where I wouldn't like to go</dt>
+          <dd>North Korea</dd>
+          <dd>Columbia</dd>
+          <dd>Siria</dd>
+        </dl>
+      </div>
     </section>
     <footer style="background-color: dimgray; width: 100%">
       <h1>Hi there! I m a footer</h1>
     </footer>
   </body>
+  <script src="../js/index.js"></script>
   <script>
     const clickmeHandle = () => {
-      console.log("hello");
-    };
-    const el = document.getElementById("div1").querySelector("textarea");
+      console.log("hello")
+    }
+    const el = document.getElementById("div1").querySelector("textarea")
 
     const getElem = document
       .getElementById("div1")
-      .firstElementChild.getAttribute("data-some-random-attribute");
+      .firstElementChild.getAttribute("data-some-random-attribute")
 
-    console.log(getElem);
-    const myMedia = document.getElementById("value1");
-    myMedia.setAttribute("checked", true);
+    console.log(getElem)
+    const myMedia = document.getElementById("value1")
+    myMedia.setAttribute("checked", true)
   </script>
 </html>
