@@ -10,328 +10,384 @@
         padding: 0;
         margin: 0;
       }
-      main {
+      header {
+        background-color: aqua;
+        top: 0;
+        position: sticky;
+      }
+
+      header ul {
+        margin: 0;
+      }
+
+      .main-navigation {
+        height: 50px;
         display: flex;
         align-items: center;
-        justify-content: center;
-        flex-direction: column;
       }
-      section,
+      .main-navigation nav ul {
+        display: flex;
+        flex-direction: row;
+        height: auto;
+        list-style: none;
+        gap: 20px;
+        list-style-type: none;
+      }
+      .main-navigation nav ul a {
+        text-decoration: none;
+        font-size: 16px;
+        color: black;
+        font-weight: 700;
+        text-transform: uppercase;
+      }
+
+      main {
+        padding: 0 30px;
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        gap: 20px;
+      }
+
+      .right-navigation {
+        background-color: yellow;
+        padding: 50px;
+        font-size: 20px;
+      }
+
       footer {
-        padding: 0 20px !important;
+        margin: 0;
+      }
+
+      footer h1 {
+        margin: 0;
       }
     </style>
   </head>
   <body>
     <header>
-      <section>
-        <nav>
+      <section class="main-navigation">
+        <nav aria-label="Main Navigation">
           <ul>
-            <li><a href="/home.html">Home</a></li>
-            <li><a href="/applications.html">Applications</a></li>
-            <li><a href="#first-section">First Section</a></li>
-            <li><a href="#feedback-section">Feedback</a></li>
-            <li><a href="#links-section">Links</a></li>
-            <li><a href="#lists-section">Lists</a></li>
-            <li>About me</li>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="applications.html">Applications</a></li>
           </ul>
         </nav>
-        <section>
-          <h1>Hi there!</h1>
-        </section>
       </section>
     </header>
     <main>
-      <h1>Hi there! I m main</h1>
-      <p
-        role="button"
-        onclick="clickmeHandle()"
-        style="cursor: pointer; text-decoration: none; user-select: none"
-        tabindex="-1"
-      >
-        Click me
-      </p>
-      <button
-        onclick="clickmeHandle()"
-        style="cursor: pointer; text-decoration: none; user-select: none"
-      >
-        Click me
-      </button>
-    </main>
-
-    <!-- FIRST SECTION -->
-    <section id="first-section">
-      <h1>Hi there! I m a section</h1>
-      <ul>
-        <li>
-          <label> Value 1 </label>
-          <input type="checkbox" name="value1" id="value1" />
-        </li>
-        <li>
-          <label> Value 2 </label>
-          <input type="checkbox" name="value2" id="value2" checked />
-        </li>
-        <li>
-          <label> Value 3 </label>
-          <input type="checkbox" name="value3" id="value3" disabled />
-        </li>
-      </ul>
-      <div id="div1">
-        <textarea
-          contenteditable="false"
-          data-some-random-attribute="random_value"
-        ></textarea>
-      </div>
-    </section>
-
-    <!-- FEEDBACK SECTION -->
-    <section id="feedback-section" aria-labelledby="about_feedback">
-      <h2 id="about_feedback">
-        What it's like to learn good and do other stuff good too
-      </h2>
-      <ul>
-        <li>
-          <blackquote
-            >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum, neque
-            ullam. Modi magni cumque magnam fuga dolorum possimus ab labore
-            optio commodi eum? Blanditiis quas omnis natus maxime nisi
-            asperiores?</blackquote
-          >
-        </li>
-        <li>
-          <p>
-            Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolorem,
-            impedit possimus eos molestias suscipit alias voluptates quidem aut
-            eius iure est natus, a laudantium tenetur deleniti quos asperiores,
-            delectus perferendis.
-          </p>
-        </li>
-        <li>
-          <q>
-            Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis
-            commodi amet quibusdam dignissimos odio, consequatur ipsa asperiores
-            perferendis. In placeat voluptas pariatur maxime ducimus labore
-            itaque numquam inventore explicabo nesciunt.
-          </q>
-        </li>
-      </ul>
-    </section>
-
-    <!-- LINKS SECTION -->
-    <section id="links-section">
-      <h2>Links</h2>
-      <ul>
-        <li>
-          <span><i>/</i> means to point out to home page/index</span>
-          <a href="/">Index page</a>
-        </li>
-        <li>
-          <span>Direct links to another sites, asbolute link:</span>
-          <a href="https://machinelearningworkshop.com"
-            >Machine Learning Workshop</a
-          >
-        </li>
-        <li>
-          <span
-            >Relative URL, point to another path from current protocol, current
-            domain name</span
-          >
-          <a href="home.html">Home</a>
-        </li>
-        <li>
-          <span>Direct link to current page (a.k.a to sections)</span>
-          <a href="#teachers">Our teachers</a>
-        </li>
-        <li>
-          <span>Direct link to another site on specific section</span>
-          <a href="https://machinelearningworkshop.com#teachers"
-            >MLW teachers</a
-          >
-        </li>
-        <li>
-          <span>link to send email</span>
-          <a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
-        </li>
-
-        <li>
-          <span>link to call directly a number </span>
-          <a href="tel:8005551212">Call Hal</a>
-        </li>
-        <li>
-          <span>link to send a sms to a number </span>
-          <a href="sms:+078005551212&body=Hello%20There">Text me</a>
-        </li>
-        <li>
-          <span>link to download a resource</span>
-          <a
-            href="https://unsplash.com/photos/0zDfloZbfG8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fHdhbGxwYXBlciUyMDRrfGVufDB8fHx8MTcyNDE3NjY3OHww&amp;force=true6"
-            download=""
-            target="_self"
-            >download me</a
-          >
-        </li>
-      </ul>
       <div>
-        <h3>NOTES!</h3>
-        <div
-          style="
-            display: flex;
-            flex-direction: column;
-            gap: 10px;
-            padding: 0 20px;
-            width: 80%;
-            word-wrap: break-word;
-          "
+        <h1>Hi there! I m main</h1>
+        <button
+          onclick="clickmeHandle()"
+          style="cursor: pointer; text-decoration: none; user-select: none"
+          tabindex="-1"
         >
-          <span style="font-weight: 800">
-            The href attribute can begin with mailto: or tel: to email or make
-            calls, with the handling of the link depending on the device,
-            operating system, and installed applications.
-          </span>
-          <span style="font-weight: 800">
-            The download attribute should be included when the href points to a
-            downloadable resource. The value of the download attribute is the
-            suggested filename for the resource to be saved in the user's local
-            file system.
-            <i>download</i> attribute to suggest a file name for the
-            downloadable blob that the optimizer creates
-          </span>
-        </div>
-      </div>
-    </section>
-
-    <!-- LISTS -->
-    <section id="lists-section">
-      <h2>Lists</h2>
-      <h3>We have 3 types of lists:</h3>
-      <ul>
-        <li>unordered list (ul)</li>
-        <li>ordered list (ol)</li>
-        <li>description list (dl)</li>
-      </ul>
-
-      <div>
-        <h4>Unordered list</h4>
-        <p>e.g</p>
-        <ul>
-          <li>Here there</li>
-          <li>I m a unordered</li>
-          <li>List</li>
-          <li>I dont care about any rules</li>
-          <li>We are just a unordered elements</li>
-        </ul>
-      </div>
-      <div>
-        <h4>Ordered list</h4>
-        <p>e.g</p>
-        <ol type="1" start="4">
-          <li>First elem</li>
-          <li>Second elem</li>
-          <li>Third one</li>
-        </ol>
-        <ol type="A" reversed>
-          <li>First elem</li>
-          <li>Second elem</li>
-          <li>Third one</li>
-        </ol>
-        <ol type="I" id="custom-ol">
-          <li>First elem</li>
-          <li>Second elem</li>
-          <li>Third one</li>
-        </ol>
-
-        <fieldset>
-          <legend>Choose your fighter</legend>
-          <ul id="custom-ul">
+          Click me
+        </button>
+        <button
+          onclick="clickmeHandle()"
+          style="cursor: pointer; text-decoration: none; user-select: none"
+        >
+          Click me
+        </button>
+        <!-- FIRST SECTION -->
+        <section id="first-section">
+          <h1>Hi there! I m a section</h1>
+          <ul>
             <li>
-              <label for="circle">Circle</label
-              ><input
-                type="radio"
-                id="circle"
-                name="radio-group-type"
-                value="circle"
-              />
+              <label> Value 1 </label>
+              <input type="checkbox" name="value1" id="value1" />
             </li>
             <li>
-              <label for="amerian">Amerian</label
-              ><input
-                type="radio"
-                id="amerian"
-                name="radio-group-type"
-                value="amerian"
-              />
+              <label> Value 2 </label>
+              <input type="checkbox" name="value2" id="value2" checked />
             </li>
             <li>
-              <label for="lower-alpha">Lower Alpha</label
-              ><input
-                type="radio"
-                id="lower-alpha"
-                name="radio-group-type"
-                value="lower-alpha"
-              />
-            </li>
-            <li>
-              <label for="decimal-leading-zero">decimal-leading-zero</label
-              ><input
-                type="radio"
-                id="decimal-leading-zero"
-                name="radio-group-type"
-                value="decimal-leading-zero"
-              />
-            </li>
-            <li>
-              <label for="disc">disc</label
-              ><input
-                type="radio"
-                id="disc"
-                name="radio-group-type"
-                value="disc"
-              />
-            </li>
-            <li>
-              <label for="lower-greek">lower-greek</label
-              ><input
-                type="radio"
-                id="lower-greek"
-                name="radio-group-type"
-                value="lower-greek"
-              />
+              <label> Value 3 </label>
+              <input type="checkbox" name="value3" id="value3" disabled />
             </li>
           </ul>
-        </fieldset>
+          <div id="div1">
+            <textarea
+              contenteditable="false"
+              data-some-random-attribute="random_value"
+            ></textarea>
+          </div>
+        </section>
+
+        <!-- FEEDBACK SECTION -->
+        <section id="feedback-section" aria-labelledby="about_feedback">
+          <h2 id="about_feedback">
+            What it's like to learn good and do other stuff good too
+          </h2>
+          <ul>
+            <li>
+              <blackquote
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
+                neque ullam. Modi magni cumque magnam fuga dolorum possimus ab
+                labore optio commodi eum? Blanditiis quas omnis natus maxime
+                nisi asperiores?</blackquote
+              >
+            </li>
+            <li>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolorem, impedit possimus eos molestias suscipit alias
+                voluptates quidem aut eius iure est natus, a laudantium tenetur
+                deleniti quos asperiores, delectus perferendis.
+              </p>
+            </li>
+            <li>
+              <q>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Debitis commodi amet quibusdam dignissimos odio, consequatur
+                ipsa asperiores perferendis. In placeat voluptas pariatur maxime
+                ducimus labore itaque numquam inventore explicabo nesciunt.
+              </q>
+            </li>
+          </ul>
+        </section>
+
+        <!-- LINKS SECTION -->
+        <section id="links-section">
+          <h2>Links</h2>
+          <ul>
+            <li>
+              <span><i>/</i> means to point out to home page/index</span>
+              <a href="/">Index page</a>
+            </li>
+            <li>
+              <span>Direct links to another sites, asbolute link:</span>
+              <a href="https://machinelearningworkshop.com"
+                >Machine Learning Workshop</a
+              >
+            </li>
+            <li>
+              <span
+                >Relative URL, point to another path from current protocol,
+                current domain name</span
+              >
+              <a href="home.html">Home</a>
+            </li>
+            <li>
+              <span>Direct link to current page (a.k.a to sections)</span>
+              <a href="#teachers">Our teachers</a>
+            </li>
+            <li>
+              <span>Direct link to another site on specific section</span>
+              <a href="https://machinelearningworkshop.com#teachers"
+                >MLW teachers</a
+              >
+            </li>
+            <li>
+              <span>link to send email</span>
+              <a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
+            </li>
+
+            <li>
+              <span>link to call directly a number </span>
+              <a href="tel:8005551212">Call Hal</a>
+            </li>
+            <li>
+              <span>link to send a sms to a number </span>
+              <a href="sms:+078005551212&body=Hello%20There">Text me</a>
+            </li>
+            <li>
+              <span>link to download a resource</span>
+              <a
+                href="https://unsplash.com/photos/0zDfloZbfG8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fHdhbGxwYXBlciUyMDRrfGVufDB8fHx8MTcyNDE3NjY3OHww&amp;force=true6"
+                download=""
+                target="_self"
+                >download me</a
+              >
+            </li>
+          </ul>
+          <div>
+            <h3>NOTES!</h3>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 20px;
+                width: 80%;
+                word-wrap: break-word;
+              "
+            >
+              <span style="font-weight: 800">
+                The href attribute can begin with mailto: or tel: to email or
+                make calls, with the handling of the link depending on the
+                device, operating system, and installed applications.
+              </span>
+              <span style="font-weight: 800">
+                The download attribute should be included when the href points
+                to a downloadable resource. The value of the download attribute
+                is the suggested filename for the resource to be saved in the
+                user's local file system.
+                <i>download</i> attribute to suggest a file name for the
+                downloadable blob that the optimizer creates
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- LISTS -->
+        <section id="lists-section">
+          <h2>Lists</h2>
+          <h3>We have 3 types of lists:</h3>
+          <ul>
+            <li>unordered list (ul)</li>
+            <li>ordered list (ol)</li>
+            <li>description list (dl)</li>
+          </ul>
+
+          <div>
+            <h4>Unordered list</h4>
+            <p>e.g</p>
+            <ul>
+              <li>Here there</li>
+              <li>I m a unordered</li>
+              <li>List</li>
+              <li>I dont care about any rules</li>
+              <li>We are just a unordered elements</li>
+            </ul>
+          </div>
+          <div>
+            <h4>Ordered list</h4>
+            <p>e.g</p>
+            <ol type="1" start="4">
+              <li>First elem</li>
+              <li>Second elem</li>
+              <li>Third one</li>
+            </ol>
+            <ol type="A" reversed>
+              <li>First elem</li>
+              <li>Second elem</li>
+              <li>Third one</li>
+            </ol>
+            <ol type="I" id="custom-ol">
+              <li>First elem</li>
+              <li>Second elem</li>
+              <li>Third one</li>
+            </ol>
+
+            <fieldset>
+              <legend>Choose your fighter</legend>
+              <ul id="custom-ul">
+                <li>
+                  <label for="circle">Circle</label
+                  ><input
+                    type="radio"
+                    id="circle"
+                    name="radio-group-type"
+                    value="circle"
+                  />
+                </li>
+                <li>
+                  <label for="amerian">Amerian</label
+                  ><input
+                    type="radio"
+                    id="amerian"
+                    name="radio-group-type"
+                    value="amerian"
+                  />
+                </li>
+                <li>
+                  <label for="lower-alpha">Lower Alpha</label
+                  ><input
+                    type="radio"
+                    id="lower-alpha"
+                    name="radio-group-type"
+                    value="lower-alpha"
+                  />
+                </li>
+                <li>
+                  <label for="decimal-leading-zero">decimal-leading-zero</label
+                  ><input
+                    type="radio"
+                    id="decimal-leading-zero"
+                    name="radio-group-type"
+                    value="decimal-leading-zero"
+                  />
+                </li>
+                <li>
+                  <label for="disc">disc</label
+                  ><input
+                    type="radio"
+                    id="disc"
+                    name="radio-group-type"
+                    value="disc"
+                  />
+                </li>
+                <li>
+                  <label for="lower-greek">lower-greek</label
+                  ><input
+                    type="radio"
+                    id="lower-greek"
+                    name="radio-group-type"
+                    value="lower-greek"
+                  />
+                </li>
+              </ul>
+            </fieldset>
+          </div>
+          <div>
+            <h4>Description list</h4>
+            <p>
+              Similar to ordered and unordered lists, they can be nested. Unlike
+              ordered and unordered lists, they are made up of key/value pairs.
+              Similar to the ul and ol>, the dl> is the parent container. The
+              dt> and dd> elements are the children of the dl>.
+            </p>
+
+            <dl>
+              <dt>Places where I would like to go</dt>
+              <dd>Spain</dd>
+              <dd>Portugal</dd>
+              <dd>Republic Czech</dd>
+              <dd>Italy</dd>
+              <dd>Netherlands</dd>
+              <dd>Malta</dd>
+              <dd>France</dd>
+              <dd>Croatia</dd>
+              <dt>Places where I wouldn't like to go</dt>
+              <dd>North Korea</dd>
+              <dd>Columbia</dd>
+              <dd>Siria</dd>
+            </dl>
+          </div>
+          <button id="always-on-top"><a href="#">Go to top</a></button>
+        </section>
       </div>
+
       <div>
-        <h4>Description list</h4>
-        <p>
-          Similar to ordered and unordered lists, they can be nested. Unlike
-          ordered and unordered lists, they are made up of key/value pairs.
-          Similar to the ul and ol>, the dl> is the parent container. The dt>
-          and dd> elements are the children of the dl>.
-        </p>
-
-        <dl>
-          <dt>Places where I would like to go</dt>
-          <dd>Spain</dd>
-          <dd>Portugal</dd>
-          <dd>Republic Czech</dd>
-          <dd>Italy</dd>
-          <dd>Netherlands</dd>
-          <dd>Malta</dd>
-          <dd>France</dd>
-          <dd>Croatia</dd>
-          <dt>Places where I wouldn't like to go</dt>
-          <dd>North Korea</dd>
-          <dd>Columbia</dd>
-          <dd>Siria</dd>
-        </dl>
+        <!-- NAVIGATION  -->
+        <section aria-label="table-of-contents-navigation">
+          <h2>Navigation</h2>
+          <div>
+            <nav aria-label="On this page" class="right-navigation">
+              <div>On this page</div>
+              <ul>
+                <li><a href="#first-section">First Section</a></li>
+                <li><a href="#feedback-section">Feedback</a></li>
+                <li><a href="#links-section">Links</a></li>
+                <li><a href="#lists-section">Lists</a></li>
+              </ul>
+            </nav>
+          </div>
+          <div>
+            <h3>NOTES!!!</h3>
+            <p>Types of navigations</p>
+            <ol>
+              <li>Breadcrumbs</li>
+              <li>Local Navigation ( left or right side on the page)</li>
+              <li>Global Navigation (the main navigation)</li>
+            </ol>
+          </div>
+        </section>
       </div>
-      <button id="always-on-top"><a href="#">Go to top</a></button>
-    </section>
-
-    <!-- NAVIGATION  -->
-    <section>
-      <h2>Navigation</h2>
-    </section>
+    </main>
 
     <!-- FOOTER -->
     <footer style="background-color: dimgray; width: 100%">
@@ -341,16 +397,16 @@
   <script src="../js/index.js"></script>
   <script>
     const clickmeHandle = () => {
-      console.log("hello")
-    }
-    const el = document.getElementById("div1").querySelector("textarea")
+      console.log("hello");
+    };
+    const el = document.getElementById("div1").querySelector("textarea");
 
     const getElem = document
       .getElementById("div1")
-      .firstElementChild.getAttribute("data-some-random-attribute")
+      .firstElementChild.getAttribute("data-some-random-attribute");
 
-    console.log(getElem)
-    const myMedia = document.getElementById("value1")
-    myMedia.setAttribute("checked", true)
+    console.log(getElem);
+    const myMedia = document.getElementById("value1");
+    myMedia.setAttribute("checked", true);
   </script>
 </html>
