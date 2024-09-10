@@ -76,7 +76,7 @@
       </section>
     </header>
     <main>
-      <div>
+      <div class="main-container">
         <h1>Hi there! I m main</h1>
         <button
           onclick="clickmeHandle()"
@@ -92,8 +92,8 @@
           Click me
         </button>
         <!-- FIRST SECTION -->
-        <section id="first-section">
-          <h1>Hi there! I m a section</h1>
+        <section id="first-section" class="section-container">
+          <h1 class="section-title">Hi there! I m a section</h1>
           <ul>
             <li>
               <label> Value 1 </label>
@@ -117,7 +117,11 @@
         </section>
 
         <!-- FEEDBACK SECTION -->
-        <section id="feedback-section" aria-labelledby="about_feedback">
+        <section
+          id="feedback-section"
+          aria-labelledby="about_feedback"
+          class="section-container"
+        >
           <h2 id="about_feedback">
             What it's like to learn good and do other stuff good too
           </h2>
@@ -150,8 +154,8 @@
         </section>
 
         <!-- LINKS SECTION -->
-        <section id="links-section">
-          <h2>Links</h2>
+        <section id="links-section" class="section-container">
+          <h2 class="section-title">Links</h2>
           <ul>
             <li>
               <span><i>/</i> means to point out to home page/index</span>
@@ -233,8 +237,8 @@
         </section>
 
         <!-- LISTS -->
-        <section id="lists-section">
-          <h2>Lists</h2>
+        <section id="lists-section" class="section-container">
+          <h2 class="section-title">Lists</h2>
           <h3>We have 3 types of lists:</h3>
           <ul>
             <li>unordered list (ul)</li>
@@ -357,13 +361,73 @@
               <dd>Siria</dd>
             </dl>
           </div>
-          <button id="always-on-top"><a href="#">Go to top</a></button>
         </section>
+
+        <!-- TABLE SECTION -->
+        <section id="table-section" class="section-container">
+          <h2 class="section-title">Table</h2>
+          <h3>Example 1</h3>
+          <table>
+            <!-- This is a single element from table context, you should have one
+              caption per table context only -->
+            <caption>
+              Caption
+            </caption>
+            <thead>
+              <th>
+                <td>Head1</td>
+              </th>
+            </thead>
+            <tbody>
+              <tr>
+                <td>cell1</td>
+              </tr>
+            </tbody>
+            <tfoot>
+              <tr>
+                <td>foot1</td>
+              </tr>
+            </tfoot>
+          </table>
+
+          <h3>Example 2</h3>
+          <table>
+            <caption>
+              Students
+            </caption>
+            <thead>
+              <tr>
+                <td>Name</td>
+                <td>Year</td>
+                <td>Class</td>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Alex</td>
+                <td>1</td>
+                <td>Maths</td>
+              </tr>
+              <tr>
+                <td>Dan</td>
+                <td>2</td>
+                <td>Algs</td>
+              </tr>
+            </tbody>
+            <tfoot>
+            </tfoot>
+          </table>
+        </section>
+
+        <button id="always-on-top"><a href="#">Go to top</a></button>
       </div>
 
-      <div>
+      <div class="navigation-container">
         <!-- NAVIGATION  -->
-        <section aria-label="table-of-contents-navigation">
+        <section
+          aria-label="table-of-contents-navigation"
+          class="navigation-section"
+        >
           <h2>Navigation</h2>
           <div>
             <nav aria-label="On this page" class="right-navigation">
@@ -373,6 +437,7 @@
                 <li><a href="#feedback-section">Feedback</a></li>
                 <li><a href="#links-section">Links</a></li>
                 <li><a href="#lists-section">Lists</a></li>
+                <li><a href="#table-section">Table</a></li>
               </ul>
             </nav>
           </div>
