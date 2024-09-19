@@ -207,7 +207,7 @@
               >
             </li>
           </ul>
-          <div>
+          <div class="section-notes-container">
             <h3>NOTES!</h3>
             <div
               style="
@@ -246,177 +246,262 @@
             <li>description list (dl)</li>
           </ul>
 
-          <div>
-            <h4>Unordered list</h4>
-            <p>e.g</p>
-            <ul>
-              <li>Here there</li>
-              <li>I m a unordered</li>
-              <li>List</li>
-              <li>I dont care about any rules</li>
-              <li>We are just a unordered elements</li>
-            </ul>
-          </div>
-          <div>
-            <h4>Ordered list</h4>
-            <p>e.g</p>
-            <ol type="1" start="4">
-              <li>First elem</li>
-              <li>Second elem</li>
-              <li>Third one</li>
-            </ol>
-            <ol type="A" reversed>
-              <li>First elem</li>
-              <li>Second elem</li>
-              <li>Third one</li>
-            </ol>
-            <ol type="I" id="custom-ol">
-              <li>First elem</li>
-              <li>Second elem</li>
-              <li>Third one</li>
-            </ol>
-
-            <fieldset>
-              <legend>Choose your fighter</legend>
-              <ul id="custom-ul">
-                <li>
-                  <label for="circle">Circle</label
-                  ><input
-                    type="radio"
-                    id="circle"
-                    name="radio-group-type"
-                    value="circle"
-                  />
-                </li>
-                <li>
-                  <label for="amerian">Amerian</label
-                  ><input
-                    type="radio"
-                    id="amerian"
-                    name="radio-group-type"
-                    value="amerian"
-                  />
-                </li>
-                <li>
-                  <label for="lower-alpha">Lower Alpha</label
-                  ><input
-                    type="radio"
-                    id="lower-alpha"
-                    name="radio-group-type"
-                    value="lower-alpha"
-                  />
-                </li>
-                <li>
-                  <label for="decimal-leading-zero">decimal-leading-zero</label
-                  ><input
-                    type="radio"
-                    id="decimal-leading-zero"
-                    name="radio-group-type"
-                    value="decimal-leading-zero"
-                  />
-                </li>
-                <li>
-                  <label for="disc">disc</label
-                  ><input
-                    type="radio"
-                    id="disc"
-                    name="radio-group-type"
-                    value="disc"
-                  />
-                </li>
-                <li>
-                  <label for="lower-greek">lower-greek</label
-                  ><input
-                    type="radio"
-                    id="lower-greek"
-                    name="radio-group-type"
-                    value="lower-greek"
-                  />
-                </li>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h4>Example 1: Unordered list</h4>
+              <ul>
+                <li>Here there</li>
+                <li>I m a unordered</li>
+                <li>List</li>
+                <li>I dont care about any rules</li>
+                <li>We are just a unordered elements</li>
               </ul>
-            </fieldset>
-          </div>
-          <div>
-            <h4>Description list</h4>
-            <p>
-              Similar to ordered and unordered lists, they can be nested. Unlike
-              ordered and unordered lists, they are made up of key/value pairs.
-              Similar to the ul and ol>, the dl> is the parent container. The
-              dt> and dd> elements are the children of the dl>.
-            </p>
+            </div>
+            <div class="example-container">
+              <h4>Example 2: Ordered list</h4>
+              <ol type="1" start="4">
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
+              <ol type="A" reversed>
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
+              <ol type="I" id="custom-ol">
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
 
-            <dl>
-              <dt>Places where I would like to go</dt>
-              <dd>Spain</dd>
-              <dd>Portugal</dd>
-              <dd>Republic Czech</dd>
-              <dd>Italy</dd>
-              <dd>Netherlands</dd>
-              <dd>Malta</dd>
-              <dd>France</dd>
-              <dd>Croatia</dd>
-              <dt>Places where I wouldn't like to go</dt>
-              <dd>North Korea</dd>
-              <dd>Columbia</dd>
-              <dd>Siria</dd>
-            </dl>
+              <fieldset>
+                <legend>Choose your fighter</legend>
+                <ul id="custom-ul">
+                  <li>
+                    <label for="circle">Circle</label
+                    ><input
+                      type="radio"
+                      id="circle"
+                      name="radio-group-type"
+                      value="circle"
+                    />
+                  </li>
+                  <li>
+                    <label for="amerian">Amerian</label
+                    ><input
+                      type="radio"
+                      id="amerian"
+                      name="radio-group-type"
+                      value="amerian"
+                    />
+                  </li>
+                  <li>
+                    <label for="lower-alpha">Lower Alpha</label
+                    ><input
+                      type="radio"
+                      id="lower-alpha"
+                      name="radio-group-type"
+                      value="lower-alpha"
+                    />
+                  </li>
+                  <li>
+                    <label for="decimal-leading-zero"
+                      >decimal-leading-zero</label
+                    ><input
+                      type="radio"
+                      id="decimal-leading-zero"
+                      name="radio-group-type"
+                      value="decimal-leading-zero"
+                    />
+                  </li>
+                  <li>
+                    <label for="disc">disc</label
+                    ><input
+                      type="radio"
+                      id="disc"
+                      name="radio-group-type"
+                      value="disc"
+                    />
+                  </li>
+                  <li>
+                    <label for="lower-greek">lower-greek</label
+                    ><input
+                      type="radio"
+                      id="lower-greek"
+                      name="radio-group-type"
+                      value="lower-greek"
+                    />
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+
+            <div class="example-container">
+              <h4>Example 3:Description list</h4>
+              <p>
+                Similar to ordered and unordered lists, they can be nested.
+                Unlike ordered and unordered lists, they are made up of
+                key/value pairs. Similar to the ul and ol>, the dl> is the
+                parent container. The dt> and dd> elements are the children of
+                the dl>.
+              </p>
+
+              <dl>
+                <dt>Places where I would like to go</dt>
+                <dd>Spain</dd>
+                <dd>Portugal</dd>
+                <dd>Republic Czech</dd>
+                <dd>Italy</dd>
+                <dd>Netherlands</dd>
+                <dd>Malta</dd>
+                <dd>France</dd>
+                <dd>Croatia</dd>
+                <dt>Places where I wouldn't like to go</dt>
+                <dd>North Korea</dd>
+                <dd>Columbia</dd>
+                <dd>Siria</dd>
+              </dl>
+            </div>
           </div>
         </section>
 
         <!-- TABLE SECTION -->
         <section id="table-section" class="section-container">
           <h2 class="section-title">Table</h2>
-          <h3>Example 1</h3>
-          <table>
-            <!-- This is a single element from table context, you should have one
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <table>
+                <!-- This is a single element from table context, you should have one
               caption per table context only -->
-            <caption>
-              Caption
-            </caption>
-            <thead>
-              <th>
-                <td>Head1</td>
-              </th>
-            </thead>
-            <tbody>
-              <tr>
-                <td>cell1</td>
-              </tr>
-            </tbody>
-            <tfoot>
-              <tr>
-                <td>foot1</td>
-              </tr>
-            </tfoot>
-          </table>
+                <caption>
+                  Caption
+                </caption>
+                <thead>
+                  <tr>
+                    <td>Head1</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>cell1</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>foot1</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
 
-          <h3>Example 2</h3>
-          <table>
-            <caption>
-              Students
-            </caption>
-            <thead>
-              <tr>
-                <td>Name</td>
-                <td>Year</td>
-                <td>Class</td>
-              </tr>
-            </thead>
-            <tbody>
-              <tr>
-                <td>Alex</td>
-                <td>1</td>
-                <td>Maths</td>
-              </tr>
-              <tr>
-                <td>Dan</td>
-                <td>2</td>
-                <td>Algs</td>
-              </tr>
-            </tbody>
-            <tfoot>
-            </tfoot>
-          </table>
+            <div class="example-container">
+              <h3>Example 2</h3>
+              <p>
+                Using <span class="highlight-word-class">caption</span>,
+                <span class="highlight-word-class">thead</span>,
+                <span class="highlight-word-class">tbody</span>,
+                <span class="highlight-word-class">tfoot</span>
+              </p>
+              <table>
+                <caption>
+                  Students
+                </caption>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Year</td>
+                    <td>Class</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alex</td>
+                    <td>1</td>
+                    <td>Maths</td>
+                  </tr>
+                  <tr>
+                    <td>Dan</td>
+                    <td>2</td>
+                    <td>Algs</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>This is a t foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 3</h3>
+              <p>
+                Using <span class="highlight-word-class">th</span>,
+                <span class="highlight-word-class">tr</span>,
+                <span class="highlight-word-class">td</span>
+              </p>
+
+              <table>
+                <caption>
+                  Machines
+                </caption>
+                <thead>
+                  <th>MANUFACTURER NAME</th>
+                  <th>MODEL NAME</th>
+                  <th>YEAR</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Volswagen</td>
+                    <td>Passat</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td>Audi</td>
+                    <td>RS7</td>
+                    <td>2022</td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 4: Merging Cells</h3>
+            </div>
+          </div>
+
+          <div class="section-notes-container">
+            <h3>NOTES</h3>
+            <div>
+              <p>We have 4 main components in table</p>
+              <p>
+                These elements don't help or hinder the accessibility of the
+                table, but they are useful in terms of usability. They provide
+                styling hooks.
+              </p>
+              <ul>
+                <li><span>Caption</span> <b>(OPTIONAL)</b></li>
+                <li><span>tHead same as th</span> <b>(OPTIONAL)</b></li>
+                <li>
+                  <span>tbody, which represents the body of the table</span>
+                  <b>(OPTIONAL)</b>
+                </li>
+                <li>
+                  <span>tfoot, which represents the foot of table</span>
+                  <b>(OPTIONAL)</b>
+                </li>
+              </ul>
+            </div>
+            <p>
+              Tables can be divided into table headers, bodies, and footers, but
+              none of these really does anything if the tables do not contain
+              table rows, cells, and content. Each table row, &lt;tr&gt;
+              contains one or more cells. If a cell is a header cell, use
+              &lt;th&gt;. Otherwise, use &lt;td&gt;
+            </p>
+          </div>
         </section>
 
         <button id="always-on-top"><a href="#">Go to top</a></button>
@@ -441,7 +526,7 @@
               </ul>
             </nav>
           </div>
-          <div>
+          <div class="section-notes-container">
             <h3>NOTES!!!</h3>
             <p>Types of navigations</p>
             <ol>

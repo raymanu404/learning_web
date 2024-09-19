@@ -28,9 +28,33 @@ padding:20px 0;
 
 .navigation-section{
   position: fixed;
-  right:0;
+  margin-right: 20px;
+  padding: 20px;
 }
 
-tr{
-  border: 1 solid #030303;
+table, tr > * {
+  border: 1px solid;
+}
+.example-section-container{
+  display: flex;
+  flex-direction: column;
+  gap:30px;
+}
+
+.section-notes-container{
+  background-color:aquamarine ;
+  padding: 10px 20px;
+}
+.example-container{
+ padding: 10px 30px;
+ background-color: rgb(42, 227, 227);
+}
+
+.example-container > h3 {
+  font-size: 20px;
+}
+
+.highlight-word-class{
+  color: blue;
+  font-weight: bold;
 }
