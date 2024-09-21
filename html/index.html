@@ -5,64 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <title>Learning Web</title>
-    <style>
-      body {
-        padding: 0;
-        margin: 0;
-      }
-      header {
-        background-color: aqua;
-        top: 0;
-        position: sticky;
-      }
-
-      header ul {
-        margin: 0;
-      }
-
-      .main-navigation {
-        height: 50px;
-        display: flex;
-        align-items: center;
-      }
-      .main-navigation nav ul {
-        display: flex;
-        flex-direction: row;
-        height: auto;
-        list-style: none;
-        gap: 20px;
-        list-style-type: none;
-      }
-      .main-navigation nav ul a {
-        text-decoration: none;
-        font-size: 16px;
-        color: black;
-        font-weight: 700;
-        text-transform: uppercase;
-      }
-
-      main {
-        padding: 0 30px;
-        display: flex;
-        flex-direction: row;
-        justify-content: space-between;
-        gap: 20px;
-      }
-
-      .right-navigation {
-        background-color: yellow;
-        padding: 5px;
-        font-size: 20px;
-      }
-
-      footer {
-        margin: 0;
-      }
-
-      footer h1 {
-        margin: 0;
-      }
-    </style>
   </head>
   <body>
     <header>
@@ -77,23 +19,10 @@
     </header>
     <main>
       <div class="main-container">
-        <h1>Hi there! I m main</h1>
-        <button
-          onclick="clickmeHandle()"
-          style="cursor: pointer; text-decoration: none; user-select: none"
-          tabindex="-1"
-        >
-          Click me
-        </button>
-        <button
-          onclick="clickmeHandle()"
-          style="cursor: pointer; text-decoration: none; user-select: none"
-        >
-          Click me
-        </button>
         <!-- FIRST SECTION -->
         <section id="first-section" class="section-container">
           <h1 class="section-title">Hi there! I m a section</h1>
+          <h2>Hello world!</h2>
           <ul>
             <li>
               <label> Value 1 </label>
@@ -598,8 +527,8 @@
         <button id="always-on-top"><a href="#">Go to top</a></button>
       </div>
 
+      <!-- NAVIGATION  -->
       <div class="navigation-container">
-        <!-- NAVIGATION  -->
         <section
           aria-label="table-of-contents-navigation"
           class="navigation-section"
@@ -609,7 +538,7 @@
             <nav aria-label="On this page" class="right-navigation">
               <div>On this page</div>
               <ul>
-                <li><a href="#first-section">First Section</a></li>
+                <li><a href="#first-section">Hello World!</a></li>
                 <li><a href="#feedback-section">Feedback</a></li>
                 <li><a href="#links-section">Links</a></li>
                 <li><a href="#lists-section">Lists</a></li>
@@ -637,18 +566,4 @@
     </footer>
   </body>
   <script src="../js/index.js"></script>
-  <script>
-    const clickmeHandle = () => {
-      console.log("hello")
-    }
-    const el = document.getElementById("div1").querySelector("textarea")
-
-    const getElem = document
-      .getElementById("div1")
-      .firstElementChild.getAttribute("data-some-random-attribute")
-
-    console.log(getElem)
-    const myMedia = document.getElementById("value1")
-    myMedia.setAttribute("checked", true)
-  </script>
 </html>
