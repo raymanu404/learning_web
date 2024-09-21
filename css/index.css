@@ -19,9 +19,14 @@ body {
 
 .section-title {
   font-size: 36px;
-  color: cadetblue;
+  color: rgb(95, 158, 160);
   border-bottom: 2px solid;
   border-color: bisque;
+  text-transform: uppercase;
+}
+.section-title:hover {
+  color: rgb(95, 158, 160, 0.8);
+  cursor: pointer;
 }
 
 .navigation-section {
@@ -57,4 +62,16 @@ tr > * {
 .highlight-word-class {
   color: blue;
   font-weight: bold;
+}
+
+ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+ul li a:hover {
+  color: rgba(0, 0, 0, 0.7);
 }
