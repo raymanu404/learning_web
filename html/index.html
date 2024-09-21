@@ -465,42 +465,127 @@
                   </tr>
                 </tbody>
               </table>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <div>
+                  <p>We have 4 main components in table</p>
+                  <p>
+                    These elements don't help or hinder the accessibility of the
+                    table, but they are useful in terms of usability. They
+                    provide styling hooks.
+                  </p>
+                  <ul>
+                    <li><span>Caption</span> <b>(OPTIONAL)</b></li>
+                    <li><span>tHead same as th</span> <b>(OPTIONAL)</b></li>
+                    <li>
+                      <span>tbody, which represents the body of the table</span>
+                      <b>(OPTIONAL)</b>
+                    </li>
+                    <li>
+                      <span>tfoot, which represents the foot of table</span>
+                      <b>(OPTIONAL)</b>
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  Tables can be divided into table headers, bodies, and footers,
+                  but none of these really does anything if the tables do not
+                  contain table rows, cells, and content. Each table row,
+                  &lt;tr&gt; contains one or more cells. If a cell is a header
+                  cell, use &lt;th&gt;. Otherwise, use &lt;td&gt;
+                </p>
+              </div>
             </div>
 
             <div class="example-container">
               <h3>Example 4: Merging Cells</h3>
-            </div>
-          </div>
+              <table>
+                <thead>
+                  <tr>
+                    <th id="nr_crt" scope="row" rowspan="2" colspan="2">
+                      Reg no. / ID
+                    </th>
+                    <th id="name" scope="col" colspan="2">Full Name</th>
+                    <th id="university" scope="col" colspan="3">University</th>
+                    <th id="graduated" scope="col" rowspan="2">Graduated?</th>
+                  </tr>
+                  <tr>
+                    <th id="first_name" scope="col">First Name</th>
+                    <th id="last_name" scope="col">Last Name</th>
+                    <th id="Faculty" scope="col">Faculty</th>
+                    <th id="department" scope="col">Department</th>
+                    <th id="Year" scope="col">Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>LM01212</td>
+                    <td>001</td>
 
-          <div class="section-notes-container">
-            <h3>NOTES</h3>
-            <div>
-              <p>We have 4 main components in table</p>
-              <p>
-                These elements don't help or hinder the accessibility of the
-                table, but they are useful in terms of usability. They provide
-                styling hooks.
-              </p>
-              <ul>
-                <li><span>Caption</span> <b>(OPTIONAL)</b></li>
-                <li><span>tHead same as th</span> <b>(OPTIONAL)</b></li>
-                <li>
-                  <span>tbody, which represents the body of the table</span>
-                  <b>(OPTIONAL)</b>
-                </li>
-                <li>
-                  <span>tfoot, which represents the foot of table</span>
-                  <b>(OPTIONAL)</b>
-                </li>
-              </ul>
+                    <td>Emanuel</td>
+                    <td>Caprariu</td>
+
+                    <td>Ingineria Sistemelor</td>
+                    <td>AIA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                  <tr>
+                    <td>LM01213</td>
+                    <td>002</td>
+
+                    <td>Ovidiu</td>
+                    <td>Vasi</td>
+
+                    <td>ETC</td>
+                    <td>SSA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                  <tr>
+                    <td>LM01215</td>
+                    <td>003</td>
+
+                    <td>Bado</td>
+                    <td>Ambrus</td>
+
+                    <td>Ingineria Sistemelor</td>
+                    <td>AIA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <span style="text-transform: lowercase">
+                  !!! KEEP IN MIND THAT WE NEED to use some important attributes
+                  when we want to define the scope or purpose of some cells
+                </span>
+                <ul>
+                  <li>
+                    <span class="highlight-word-class">rowspan</span>, is used
+                    to define on how many of rows to be span of one single cell
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">colspan </span>, same
+                    like rowspan, but on columns
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">scope</span>, which is
+                    used to define the scope of that cell, let's say that we
+                    want a cell to be a column, so we define "col"
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">id</span>, used to define
+                    an id of that cell
+                  </li>
+                </ul>
+              </div>
             </div>
-            <p>
-              Tables can be divided into table headers, bodies, and footers, but
-              none of these really does anything if the tables do not contain
-              table rows, cells, and content. Each table row, &lt;tr&gt;
-              contains one or more cells. If a cell is a header cell, use
-              &lt;th&gt;. Otherwise, use &lt;td&gt;
-            </p>
           </div>
         </section>
 
@@ -547,16 +632,16 @@
   <script src="../js/index.js"></script>
   <script>
     const clickmeHandle = () => {
-      console.log("hello");
-    };
-    const el = document.getElementById("div1").querySelector("textarea");
+      console.log("hello")
+    }
+    const el = document.getElementById("div1").querySelector("textarea")
 
     const getElem = document
       .getElementById("div1")
-      .firstElementChild.getAttribute("data-some-random-attribute");
+      .firstElementChild.getAttribute("data-some-random-attribute")
 
-    console.log(getElem);
-    const myMedia = document.getElementById("value1");
-    myMedia.setAttribute("checked", true);
+    console.log(getElem)
+    const myMedia = document.getElementById("value1")
+    myMedia.setAttribute("checked", true)
   </script>
 </html>
