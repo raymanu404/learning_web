@@ -521,10 +521,191 @@
         <!-- FORMS SECTION -->
         <section id="forms-section" class="section-container">
           <h2 class="section-title">Forms</h2>
-          <div class="example-section-container"></div>
-        </section>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1: Submitting button in forms</h3>
+              <p>We have 2 variants to submit a form</p>
+              <ul>
+                <li>
+                  <div>
+                    <p>
+                      Using <span class="highlight-word-class">input</span> with
+                      <span class="highlight-word-class">type</span>
 
-        <button id="always-on-top"><a href="#">Go to top</a></button>
+                      <q>submit</q>
+                    </p>
+                    <form>
+                      <h1>Example with input type</h1>
+                      <input type="submit" value="Submit Form" />
+                    </form>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    <p>
+                      Using
+                      <span class="highlight-word-class">button</span> with
+                      <span class="highlight-word-class">type</span>
+                      <q>submit</q>
+                    </p>
+                    <form>
+                      <h1>Example with button type</h1>
+                      <button type="submit">Submit Form</button>
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 2. Submitting forms</h3>
+              <p>After submitting forms, the browser will be refreshed</p>
+              <p>
+                There are 3 types of methods:
+                <span class="highlight-word-class">GET</span>,
+                <span class="highlight-word-class">POST</span>,
+                <span class="highlight-word-class">DIALOG</span>
+              </p>
+              <ul>
+                <li>
+                  <h4><span class="highlight-word-class">GET</span> METHOD</h4>
+                  <p>
+                    After submitting a form with get method provided, all data
+                    forms will be mapped in url as
+                    <span class="highlight-word-class">name</span>=<span
+                      class="highlight-word-class"
+                      >value</span
+                    >
+                  </p>
+                  <fieldset>
+                    <legend>Form1</legend>
+                    <form method="get">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="red"
+                          value="red_value"
+                        />
+                      </div>
+                      <button type="submit" formnovalidate>Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+                <li>
+                  <h4><span class="highlight-word-class">POST</span> METHOD</h4>
+                  <p>
+                    With POST, the data is appended to the body of the HTTP
+                    request. When sending secure data, such as passwords and
+                    credit card information, always use POST.
+                  </p>
+                  <fieldset>
+                    <legend>Form2</legend>
+                    <form method="post">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="red"
+                          value="red_value"
+                        />
+                        <label for="red">Yellow</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="yellow"
+                          value="yellow_value"
+                        />
+                      </div>
+                      <button type="submit" formnovalidate>Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+                <li>
+                  <h4>
+                    <span class="highlight-word-class">DIALOG</span> METHOD
+                  </h4>
+                  <fieldset>
+                    <legend>Form3</legend>
+                    <form method="dialog">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="red"
+                          value="red_value"
+                        />
+                      </div>
+                      <button type="submit">Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+              </ul>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <p>
+                  To capture which button was used to submit a form, give the
+                  button a name. Buttons with no name or value don't get sent
+                  with the form data on form submission.
+                </p>
+
+                <p>
+                  Regarding radio buttons group, there should be unique by
+                  <span class="highlight-word-class">name</span> attribute
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- NAVIGATION  -->
