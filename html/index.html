@@ -1041,30 +1041,27 @@
           <div class="example-section-container">
             <div class="example-container">
               <h3>Example 1</h3>
-              <div style="height: 300px; width: 300px">
+              <div class="video-container">
                 <video
                   muted
                   controls
-                  poster="https://res.cloudinary.com/demo/image/upload/w_400/sample.jpg"
+                  poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
                 >
                   <source
                     src="https://www.w3schools.com/html/mov_bbb.mp4"
                     type="video/mp4"
                   />
-
+                  <source src="videos/machines.webm" type="video/webm" />
+                  <source src="videos/machines.mp4" type="video/mp4" />
+                  <source src="videos/machines.ogv" type="video/ogg" />
                   <track
                     label="English"
-                    kind="subtitles"
+                    kind="captions"
                     srclang="en"
-                    src="vtt/subtitles-en.vtt"
+                    src="../assets/subtitle1.vtt"
                     default
                   />
-                  <track
-                    label="Francais"
-                    kind="subtitles"
-                    srclang="fr"
-                    src="vtt/subtitles-fr.vtt"
-                  />
+
                   <p>
                     Watch
                     <a
@@ -1073,6 +1070,182 @@
                     >
                   </p>
                 </video>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Fallback content is included between the opening and closing
+                  tags. If the user agent doesn't support
+                  <span class="highlight-word-class">video</span> (or
+                  <span class="highlight-word-class">audio</span> this content
+                  is shown.
+                </p>
+                <h4>EX:</h4>
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Each <span class="highlight-word-class">source</span> child
+                  includes a src attribute pointing to the resource and the type
+                  attribute informs the browser of the linked file's media type.
+                  This prevents the browser from fetching media files it
+                  wouldn't be able to decode.
+                </p>
+              </div>
+            </div>
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <div class="video-container">
+                <video
+                  muted
+                  controls
+                  poster="https://res.cloudinary.com/demo/image/upload/w_1200/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+                  <source src="videos/machines.webm" type="video/webm" />
+                  <source src="videos/machines.mp4" type="video/mp4" />
+                  <source src="videos/machines.ogv" type="video/ogg" />
+                  <track
+                    label="English"
+                    kind="captions"
+                    srclang="en"
+                    src="../assets/subtitle1.vtt"
+                    default
+                  />
+
+                  <p>
+                    Watch
+                    <a
+                      href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                      >video on Youtube</a
+                    >
+                  </p>
+                </video>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Fallback content is included between the opening and closing
+                  tags. If the user agent doesn't support
+                  <span class="highlight-word-class">video</span> (or
+                  <span class="highlight-word-class">audio</span> this content
+                  is shown.
+                </p>
+                <h4>EX:</h4>
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Each <span class="highlight-word-class">source</span> child
+                  includes a src attribute pointing to the resource and the type
+                  attribute informs the browser of the linked file's media type.
+                  This prevents the browser from fetching media files it
+                  wouldn't be able to decode.
+                </p>
+              </div>
+            </div>
+
+            <div class="example-container">
+              <h3>
+                Example 2:
+                <span class="highlight-title-class">background video</span>
+              </h3>
+              <video
+                width="100%"
+                muted
+                autoplay
+                loop
+                poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
+              >
+                <source
+                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  type="video/mp4"
+                />
+                <source src="videos/machines.webm" type="video/webm" />
+                <source src="videos/machines.mp4" type="video/mp4" />
+                <source src="videos/machines.ogv" type="video/ogg" />
+                <track
+                  label="English"
+                  kind="captions"
+                  srclang="en"
+                  src="../assets/subtitle1.vtt"
+                  default
+                />
+
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </video>
+            </div>
+
+            <div class="example-container">
+              <h3>
+                Example 3:
+                <span class="highlight-title-class">custom controller</span>
+              </h3>
+              <div class="custom-controller-video-container">
+                <video
+                  id="video-controller"
+                  muted
+                  poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+                  <track
+                    label="English"
+                    kind="captions"
+                    srclang="en"
+                    src="../assets/subtitle1.vtt"
+                    default
+                  />
+                </video>
+                <div
+                  class="video-button-icon video-button-icon-positon"
+                  id="play-button"
+                  aria-controls="idOfAudio"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="video-button-icon video-button-icon-positon"
+                  id="pause-button"
+                  aria-controls="idOfAudio"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"
+                    />
+                  </svg>
+                </div>
               </div>
             </div>
           </div>

@@ -132,10 +132,10 @@ ul li a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
 
-.flex-container{
-  display:flex;
+.flex-container {
+  display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
 
 [aria-label="close"] {
@@ -143,4 +143,62 @@ ul li a:hover {
   appearance: none;
   border-radius: 5rem;
   margin: -1em;
+}
+
+/* TO MAKE VIDEO RESPONSIVE WITH ASPECT RATIO 16:9  */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 * 100 = 56.25%) */
+  overflow: hidden;
+}
+
+/* Video tag styles to fit inside the container */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.highlight-title-class {
+  text-transform: uppercase;
+}
+
+.video-button-icon {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.video-button-icon-positon {
+  padding-bottom: 480px;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.custom-controller-video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 * 100 = 56.25%) */
+  overflow: hidden;
+  z-index: 1;
+}
+.custom-controller-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
