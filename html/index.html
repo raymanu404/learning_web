@@ -906,6 +906,177 @@
             </div>
           </div>
         </section>
+
+        <!-- IMAGES SECTION -->
+        <section id="images-section" class="section-container">
+          <h2 class="section-title">Images</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <img
+                width="400"
+                height="300"
+                srcset="
+                  https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg 400w,
+                  https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649
+                "
+                alt="random"
+              />
+            </div>
+            <div class="example-container">
+              <h3>Example 2: Loading</h3>
+              <ul>
+                <li>
+                  <h4>Eager Loading of image</h4>
+                  <p>
+                    The default
+                    <span class="highlight-word-class">eager</span> value means
+                    the image is loaded <b>immediately</b> as the HTML is
+                    parsed, even if the image is outside the visible viewport
+                  </p>
+                  <img
+                    width="200"
+                    height="200"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkbVsKKfPQGzjBUUZbEckE-8NWnOKU3VTd3suktOBStXXatWFVmgHFP8qdEYTXx3L8R8&usqp=CAU.svg"
+                    alt="a cat "
+                    loading="eager"
+                  />
+                </li>
+                <li>
+                  <h4>Lazy Loading of image</h4>
+                  <p>
+                    By setting
+                    <span class="highlight-word-class">loading="lazy" </span>
+                    the image loading is deferred until it is likely to come
+                    qinto the viewport
+                  </p>
+                  <img
+                    width="200"
+                    height="200"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkbVsKKfPQGzjBUUZbEckE-8NWnOKU3VTd3suktOBStXXatWFVmgHFP8qdEYTXx3L8R8&usqp=CAU.svg"
+                    alt="a cat"
+                    loading="lazy"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div class="example-container">
+              <h3>Example 3: Resonsive images</h3>
+              <p>
+                There are a myriad of viewport sizes. There are also different
+                screen resolutions. You don't want to waste a mobile user's
+                bandwidth by serving them an image wide enough for a large
+                screen monitor, but you might want to serve higher resolution
+                images for tiny devices that have four times the normal screen
+                resolution.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    The
+                    <span class="highlight-word-class"> srcset</span> attribute
+                    enables suggesting multiple image files, with the browser
+                    selecting which image to request based on multiple media
+                    queries including viewport size and screen resolution
+                  </p>
+                  <img
+                    sizes="(max-width: 640px) 300px, (min-width: 641px)  calc(90vw - 400px)"
+                    srcset="
+                      https://assets.codepen.io/11355/pontederia-crassipes_600.jpg   600w,
+                      https://assets.codepen.io/11355/pontederia-crassipes_1200.jpg 1200w,
+                      https://assets.codepen.io/11355/pontederia-crassipes_2000.jpg 2000w
+                    "
+                    src="fallback.jpg"
+                    alt="..."
+                  />
+                  <img
+                    sizes="(max-width : 899px) 200px, (min-width: 900px) 400px"
+                    src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w"
+                    srcset="
+                      https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
+                      https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg   800w,
+                      https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg   600w
+                    "
+                    alt="…"
+                  />
+                </li>
+                <li>
+                  <p>
+                    The &lt; picture &gt; element is a container element for
+                    multiple image options listed in an unlimited number of &lt;
+                    source &gt; elements and a single required &lt; img &gt;
+                    element
+                  </p>
+                  <div class="section-notes-container">
+                    <h3>NOTES!</h3>
+                    The browser will consider each child
+                    <source />
+                    element and choose the best match among them. If no matches
+                    are found, the URL of the &lt;img /&gt; element's src
+                    attribute is selected
+                  </div>
+                  <picture>
+                    <source
+                      sizes="(max-width: 640px) 300px, (min-width:641px) 340px"
+                      srcset="
+                        https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
+                        https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg   800w,
+                        https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg   600w
+                      "
+                    />
+                    <img
+                      src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg"
+                      alt="flowers"
+                    />
+                  </picture>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- AUDIO & VIDEO SECTION -->
+        <section id="audio-video-section" class="section-container">
+          <h2 class="section-title">Audio & Video</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <div style="height: 300px; width: 300px">
+                <video
+                  muted
+                  controls
+                  poster="https://res.cloudinary.com/demo/image/upload/w_400/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+
+                  <track
+                    label="English"
+                    kind="subtitles"
+                    srclang="en"
+                    src="vtt/subtitles-en.vtt"
+                    default
+                  />
+                  <track
+                    label="Francais"
+                    kind="subtitles"
+                    srclang="fr"
+                    src="vtt/subtitles-fr.vtt"
+                  />
+                  <p>
+                    Watch
+                    <a
+                      href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                      >video on Youtube</a
+                    >
+                  </p>
+                </video>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- NAVIGATION  -->
@@ -925,6 +1096,8 @@
                 <li><a href="#lists-section">Lists</a></li>
                 <li><a href="#table-section">Table</a></li>
                 <li><a href="#forms-section"> Forms </a></li>
+                <li><a href="#images-section"> Images </a></li>
+                <li><a href="#audio-video-section"> Audio & Video </a></li>
               </ul>
             </nav>
           </div>
