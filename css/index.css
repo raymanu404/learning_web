@@ -131,3 +131,16 @@ ul li a {
 ul li a:hover {
   color: rgba(0, 0, 0, 0.7);
 }
+
+.flex-container{
+  display:flex;
+  flex-direction: column;
+  gap:20px;
+}
+
+[aria-label="close"] {
+  float: right;
+  appearance: none;
+  border-radius: 5rem;
+  margin: -1em;
+}

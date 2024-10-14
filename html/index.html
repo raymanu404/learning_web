@@ -697,12 +697,212 @@
                   button a name. Buttons with no name or value don't get sent
                   with the form data on form submission.
                 </p>
-
-                <p>
-                  Regarding radio buttons group, there should be unique by
-                  <span class="highlight-word-class">name</span> attribute
-                </p>
               </div>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 3: Form inputs</h3>
+              <form class="flex-container">
+                <fieldset>
+                  <legend>Radio buttons</legend>
+                  <div>
+                    <label for="black">Black</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="black"
+                      value="black_value"
+                    />
+                    <label for="red">Red</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="red"
+                      value="red_value"
+                    />
+                  </div>
+                  <div>
+                    <label for="black">Black</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="black"
+                      value="same_black_value"
+                    />
+                    <label for="red">Same red value</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="red"
+                      value="same_red_value"
+                    />
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Checkboxes</legend>
+                  <div>
+                    <label for="audi">Audi</label>
+                    <input
+                      type="checkbox"
+                      value="audi"
+                      name="machines"
+                      id="audi"
+                    />
+                    <label for="bmw">BMW</label>
+                    <input
+                      type="checkbox"
+                      value="bmw"
+                      name="machines"
+                      id="bmw"
+                    />
+                    <label for="vw">VW</label>
+                    <input type="checkbox" value="vw" name="machines" id="vw" />
+                    <label for="porsche">Porsche</label>
+                    <input
+                      type="checkbox"
+                      value="porsche"
+                      name="machines"
+                      id="porsche"
+                    />
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Labels</legend>
+                  <label for="blue_id">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="blue_id"
+                      value="blue"
+                    />
+                    Blue
+                  </label>
+                  <label for="yellow">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="yellow"
+                      value="yellow"
+                    />
+                    Yellow
+                  </label>
+                  <label for="green">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="green"
+                      value="green"
+                    />
+                    Green
+                  </label>
+                </fieldset>
+                <label for="avatar">A recent photo of yourself:</label>
+                <input
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                  name="avatar"
+                  id="avatar"
+                />
+                <div>
+                  <button type="submit">Submit Form</button>
+                </div>
+              </form>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <ul>
+                  <li>
+                    <p>
+                      Regarding radio buttons group, there should be unique by
+                      <span class="highlight-word-class">name</span> attribute
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      It's valid for all checkboxes within a group to have the
+                      same <span class="highlight-word-class">name</span>. Only
+                      selected checkboxes have their name and value submitted
+                      with the form
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="example-container">
+              <h3>Example 4: Form Validation</h3>
+              <form class="flex-container">
+                <div>
+                  <label for="first-name-id">Your Firstname</label>
+                  <input
+                    type="text"
+                    id="first-name-id"
+                    value=""
+                    placeholder="First name"
+                    name="first-name-id"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="age-id">Your age</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    id="age-id"
+                    name="age-id"
+                    value="0"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="faculty-year-id">Faculty year</label>
+                  <ul id="faculty-year-id">
+                    <li>
+                      <label for="first-year">I</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="first-year"
+                        value="1"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">II</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="second-year"
+                        value="2"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">III</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="third-year"
+                        value="3"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">IV</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="fourth-year"
+                        value="4"
+                        required
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <button type="submit">Submit</button>
+                </div>
+              </form>
             </div>
           </div>
         </section>
