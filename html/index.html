@@ -1250,6 +1250,181 @@
             </div>
           </div>
         </section>
+
+        <!-- TEMPLATE, SLOT & SHADOW SECTION -->
+        <section id="template-slot-shadow-section" class="section-container">
+          <h2 class="section-title">TEMPLATE, SLOT & SHADOW</h2>
+          <div class="example-section-container">
+            <!--  EXAMPLE -->
+            <div class="example-container">
+              <h3>Example 1: Template</h3>
+
+              <!-- THIS IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
+              <template id="star-rating-template">
+                <form>
+                  <fieldset>
+                    <legend>Rate your experience:</legend>
+                    <rating>
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="1"
+                        aria-label="1 star"
+                        required
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="2"
+                        aria-label="2 stars"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="3"
+                        aria-label="3 stars"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="4"
+                        aria-label="4 stars"
+                      />
+                      <input
+                        type="radio"
+                        name="rating"
+                        value="5"
+                        aria-label="5 stars"
+                      />
+                    </rating>
+                  </fieldset>
+                  <button type="reset">Reset</button>
+                  <button type="submit">Submit</button>
+                </form>
+              </template>
+              <div id="render-template-rating-stars"></div>
+
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <pq>
+                  The
+                  <span class="highlight-word-class"> template</span> element is
+                  used to declare fragments of HTML to be cloned and inserted
+                  into the DOM with JavaScript. The contents of the element are
+                  not rendered by default. Rather, they are instantiated using
+                  JavaScript.
+                </pq>
+              </div>
+            </div>
+
+            <!-- ANOTHER EXAMPLE -->
+            <div class="example-container">
+              <h3>Example 2: Slot</h3>
+              <template id="slot-template-example-template">
+                <form>
+                  <fieldset>
+                    <slot name="slot-template-example-legend">
+                      <legend>Rate your experience:</legend>
+                      <rating>
+                        <input
+                          type="radio"
+                          name="rating"
+                          value="1"
+                          aria-label="1 star"
+                          required
+                        />
+                        <input
+                          type="radio"
+                          name="rating"
+                          value="2"
+                          aria-label="2 stars"
+                        />
+                        <input
+                          type="radio"
+                          name="rating"
+                          value="3"
+                          aria-label="3 stars"
+                        />
+                        <input
+                          type="radio"
+                          name="rating"
+                          value="4"
+                          aria-label="4 stars"
+                        />
+                        <input
+                          type="radio"
+                          name="rating"
+                          value="5"
+                          aria-label="5 stars"
+                        />
+                      </rating>
+                    </slot>
+                  </fieldset>
+                  <button type="reset">Reset</button>
+                  <button type="submit">Submit</button>
+                </form>
+              </template>
+
+              <div id="slot-example-container">
+                <star-rating>
+                  <legend slot="star-rating-legend">Blendan Smooth</legend>
+                </star-rating>
+                <star-rating>
+                  <legend slot="star-rating-legend">Hoover Sukhdeep</legend>
+                </star-rating>
+                <star-rating>
+                  <legend slot="star-rating-legend">Toasty McToastface</legend>
+                  <p>Is this text visible?</p>
+                </star-rating>
+              </div>
+
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  The slot attribute is a global attribute that is used to
+                  replace the contents of the
+                  <span class="highlight-word-class">slot</span> within a
+                  <span class="highlight-word-class">template</span>. In our
+                  custom element, the element with the slot attribute is a
+                  <span class="highlight-word-class">legend</span>. It doesn't
+                  need to be. In our template,
+                  <span class="highlight-word-class">slot</span>
+                  name="star-rating-legend"> will be replaced with
+                  <span class="highlight-word-class">anyElement</span>
+                  slot="star-rating-legend">, where
+                  <span class="highlight-word-class">anyElement</span> can be
+                  any element, even another custom element.
+                </p>
+              </div>
+            </div>
+
+            <!-- EXAMPLE 3 -->
+            <div class="example-container">
+              <h3>
+                Example 3:
+                <span style="text-transform: uppercase"
+                  >Undefined elements</span
+                >
+              </h3>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  In our <span class="highlight-word-class">template</span> we
+                  used a
+                  <span class="highlight-word-class">rating</span> element. This
+                  is not a custom element. Rather, it's an unknown element.
+                  Browsers don't fail when they don't recognize an element.
+                  Unrecognized HTML elements are treated by the browser as
+                  anonymous inline elements that can be styled with CSS. Similar
+                  to <span class="highlight-word-class">span</span>, the
+                  <span class="highlight-word-class">rating</span> and
+                  <span class="highlight-word-class">star-rating</span> elements
+                  have no user-agent applied styles or semantics.
+                </p>
+              </div>
+            </div>
+          </div>
+        </section>
       </div>
 
       <!-- NAVIGATION  -->
@@ -1271,6 +1446,11 @@
                 <li><a href="#forms-section"> Forms </a></li>
                 <li><a href="#images-section"> Images </a></li>
                 <li><a href="#audio-video-section"> Audio & Video </a></li>
+                <li>
+                  <a href="#template-slot-shadow-section">
+                    TEMPLATE, SLOT & SHADOW
+                  </a>
+                </li>
               </ul>
             </nav>
           </div>
