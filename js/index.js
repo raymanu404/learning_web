@@ -40,14 +40,12 @@ function playHandler() {
 
 //TO RENDER TEMPLATE EXAMPLE 1
 const containerToRender = document.querySelector('#render-template-rating-stars')
-const ratingTemplate = document.getElementById('star-rating-template')
+const ratingTemplate = document.getElementById('custom-star-rating-template')
 const ratingTemplateContent = ratingTemplate.content
 containerToRender.appendChild(ratingTemplateContent)
 
 
-//TO RENDER TEMPLATE EXAMPLE 2
-const containerToRender2 = document.querySelector('#slot-example-container')
-const ratingTemplate2 = document.getElementById('slot-template-example-template')
-const ratingTemplateContent2 = ratingTemplate2.content
-containerToRender2.appendChild(ratingTemplateContent2)
+
+
+
 
