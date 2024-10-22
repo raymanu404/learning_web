@@ -118,7 +118,7 @@
       </style>
       <div class="example-container">
         <h3>
-          Example 4:
+          Example <slot name="example-number-legend">DEFAULT</slot>:
           <span style="text-transform: uppercase"
             ><slot name="example-slot-legend"> DEAFULT NAME </slot></span
           >
@@ -127,6 +127,44 @@
           <div>YOUR CUSTOM CONTENT HERE</div>
         </slot>
       </div>
+    </template>
+
+    <!-- SECTION TEMPLATE -->
+    <template id="section-template">
+      <style>
+        .section-container {
+          padding: 20px 0;
+        }
+
+        .section-title {
+          font-size: 36px;
+          color: rgb(95, 158, 160);
+          border-bottom: 2px solid;
+          border-color: bisque;
+          text-transform: uppercase;
+        }
+        .section-title:hover {
+          color: rgb(95, 158, 160, 0.8);
+          cursor: pointer;
+        }
+
+        .example-section-container {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+      </style>
+      <section class="section-container">
+        <h2 class="section-title">
+          <slot name="section-title-legend">DEFAULT SECTION TITLE </slot>
+        </h2>
+
+        <div class="example-section-container">
+          <slot name="section-example-container-legend">
+            <div class="example-container">DEFAULT DIV</div>
+          </slot>
+        </div>
+      </section>
     </template>
 
     <header>
@@ -164,6 +202,16 @@
               contenteditable="false"
               data-some-random-attribute="random_value"
             ></textarea>
+          </div>
+
+          <div class="section-notes-container">
+            <h3>NOTES!!!</h3>
+            <p>Types of navigations</p>
+            <ol>
+              <li>Breadcrumbs</li>
+              <li>Local Navigation ( left or right side on the page)</li>
+              <li>Global Navigation (the main navigation)</li>
+            </ol>
           </div>
         </section>
 
@@ -1505,6 +1553,7 @@
 
             <example-template>
               <span slot="example-slot-legend"> SHADOW DOM </span>
+              <span slot="example-number-legend">5</span>
               <notes-template slot="example-container-slot-legend">
                 <div slot="notes-slot-legend">
                   <p>
@@ -1525,6 +1574,197 @@
             </example-template>
           </div>
         </section>
+
+        <!-- HTML APIs SECTION-->
+        <section-template id="html-apis-section">
+          <!-- SECTION TITLE -->
+          <div slot="section-title-legend">HTML APIs</div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">HTML APIs</span>
+            <span slot="example-number-legend">1</span>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  The base interface for all elements is aptly named Element.
+                  The
+                  <span class="highlight-word-class">HTMLElement</span> inherits
+                  from <strong class="highlight-word-class">Element</strong> and
+                  all HTML element-specific interfaces inherit from it
+                </p>
+                <p>
+                  The
+                  <span class="highlight-word-class">EventTarget</span>
+                  interface, which provides us with
+                  <span class="highlight-word-class">addEventListener()</span>
+                  and
+                  <span class="highlight-word-class">removeEventListener()</span
+                  >, is inherited by the
+                  <span class="highlight-word-class">Node</span> and
+                  <span class="highlight-word-class">Window</span>
+                  interfaces
+                </p>
+
+                <p>
+                  The document enables quick access to node types and the
+                  ability to create collections of specific element types, such
+                  as <span class="highlight-word-class">document.body</span> and
+                  <span class="highlight-word-class">document.styleSheets</span
+                  >. The
+                  <span class="highlight-word-class">HTMLDocument</span> enables
+                  accessing information relevant to the document that are not
+                  found in HTML nodes, such as the
+                  <span class="highlight-word-class">Document.location</span>,
+                  <span class="highlight-word-class">Document.lastModified</span
+                  >, and
+                  <span class="highlight-word-class">Document.Cookie</span>.
+                  Several APIs are available based on features surfaced through
+                  the document interface, including the
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API"
+                    target="_blank"
+                    >Drag and Drop API</a
+                  >
+                  and the
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API"
+                    target="_blank"
+                    >FullScreen API</a
+                  >. Both inherit from
+                  <span class="highlight-word-class">Element</span>.
+                </p>
+                <h3>The Window interface</h3>
+                <p>
+                  The
+                  <span class="highlight-word-class">Windows</span> interface is
+                  the API for the object containing the document. The global
+                  window object is the window in which the script is running.
+                  Every browser tab contains its own Window object. The Window
+                  interface can query the contents of the tab as well as the
+                  overall window and device.
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+        </section-template>
+        <!-- END OF SECTION-->
+
+        <!-- FOCUS SECTION -->
+        <section-template id="focus-section">
+          <!-- SECTION TITLE -->
+          <div slot="section-title-legend">FOCUS</div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">Focus on inputs</span>
+            <span slot="example-number-legend">1</span>
+            <div slot="example-container-slot-legend">
+              <p>Click in any input, then hit the tab key.</p>
+              <ol>
+                <li><input tabindex="3" /></li>
+                <li><input tabindex="6" /></li>
+                <li><input tabindex="2" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="-1" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="8" /></li>
+                <li><input tabindex="1" /></li>
+                <li><input tabindex="5" /></li>
+                <li><input tabindex="7" /></li>
+                <li><input tabindex="4" /></li>
+              </ol>
+              <p contenteditable>
+                THIS INERT ELEMENT IS FOCUSABLE ELEMENT VIA
+                <span class="highlight-word-class">contentEdtibale</span>
+                ATTRIBUTE
+              </p>
+
+              <dialog open>
+                <form method="dialog">
+                  <button type="submit" autofocus>close</button>
+                </form>
+              </dialog>
+            </div>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  Interactive elements which are by default focusable and
+                  tabbable:
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://web.dev/learn/html/forms" target="_blank"
+                      >form controls</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://web.dev/learn/html/links" target="_blank"
+                      >links</a
+                    >
+                  </li>
+                  <li>buttons</li>
+                </ul>
+                <p>
+                  Other elements are inert, meaning they are not interactive.
+                  With HTML attributes, it is possible to make interactive
+                  elements inert and to make inert elements interactive.
+                </p>
+
+                <p>
+                  The
+                  <span class="highlight-word-class">tabindex</span> attribute
+                  takes as its value an integer. A negative value makes an
+                  element focusable but not tabbable. A tabindex value of 0
+                  makes the element focusable and tabbable, adding the element
+                  on which it is applied to the sequential focus navigation
+                  order in source code order. A value of 1 or greater makes the
+                  element focusable and tabbable, but adds it to a prioritized
+                  tabbing sequence, and, as we saw above, should be avoided.
+                </p>
+                <p>
+                  The
+                  <span class="highlight-word-class">autofocus</span> attribute
+                  set on the close
+                  <span class="highlight-word-class">button</span> ensures it
+                  receives focus when the dialog is opened.
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+
+          <!-- EXAMPLE 2 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend"
+              >Making interactive elements inert</span
+            >
+            <span slot="example-number-legend">2</span>
+            <div slot="example-container-slot-legend">
+              <input
+                tabindex="-1"
+                placeholder="THIS IS NOT TABBABLE OR FOCUSABLE"
+              />
+              <input
+                tabindex="1"
+                placeholder="THIS IS  TABBABLE OR FOCUSABLE"
+              />
+              <input disabled placeholder="THIS IS  DISABLED" />
+            </div>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  Disabled form controls can't be focused, don't get click
+                  events, and are not submitted upon form submission
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+        </section-template>
+        <!-- END OF SECTION -->
       </div>
 
       <!-- NAVIGATION  -->
@@ -1551,17 +1791,14 @@
                     TEMPLATE, SLOT & SHADOW
                   </a>
                 </li>
+                <li>
+                  <a href="#html-apis-section"> HTML APIs </a>
+                </li>
+                <li>
+                  <a href="#focus-section">FOCUS </a>
+                </li>
               </ul>
             </nav>
-          </div>
-          <div class="section-notes-container">
-            <h3>NOTES!!!</h3>
-            <p>Types of navigations</p>
-            <ol>
-              <li>Breadcrumbs</li>
-              <li>Local Navigation ( left or right side on the page)</li>
-              <li>Global Navigation (the main navigation)</li>
-            </ol>
           </div>
         </section>
       </div>

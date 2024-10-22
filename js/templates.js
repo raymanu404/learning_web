@@ -63,8 +63,23 @@ class CustomExampleTemplate extends HTMLElement{
   }
 }
 
+
+class SectionTemplate extends HTMLElement{
+  constructor(){
+    super()
+    const template = document.getElementById('section-template')
+    const templateContent = template.content
+    const shadowRoot =  this.attachShadow({mode: 'open'});
+
+    shadowRoot.appendChild(templateContent.cloneNode(true));
+
+  }
+}
+
+
 customElements.define('card-template', CustomCard);
 customElements.define('custom-star-rating', CustomStarRatingV2);
 customElements.define('random-template', RandomTemplate);
 customElements.define('notes-template', CustomNotesTemplate);
 customElements.define('example-template', CustomExampleTemplate);
+customElements.define('section-template', SectionTemplate);
