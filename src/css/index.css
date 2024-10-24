@@ -1,0 +1,253 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Times New Roman", Times, sans-serif;
+}
+body {
+  padding: 0;
+  margin: 0;
+}
+header {
+  background-color: aqua;
+  top: 0;
+  position: sticky;
+}
+
+header ul {
+  margin: 0;
+}
+
+.main-navigation {
+  height: 50px;
+  display: flex;
+  align-items: center;
+}
+.main-navigation nav ul {
+  display: flex;
+  flex-direction: row;
+  height: auto;
+  list-style: none;
+  gap: 20px;
+  list-style-type: none;
+}
+.main-navigation nav ul a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+main {
+  padding: 0 30px;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  gap: 20px;
+}
+
+.right-navigation {
+  background-color: yellow;
+  padding: 5px;
+  font-size: 20px;
+}
+
+footer {
+  margin: 0;
+}
+
+footer h1 {
+  margin: 0;
+}
+
+.main-container {
+  width: 80%;
+  padding: 0 10px;
+  margin: 0 20px;
+}
+.navigation-container {
+  width: 20%;
+}
+
+.section-container {
+  padding: 20px 0;
+}
+
+.section-title {
+  font-size: 36px;
+  color: rgb(95, 158, 160);
+  border-bottom: 2px solid;
+  border-color: bisque;
+  text-transform: uppercase;
+}
+.section-title:hover {
+  color: rgb(95, 158, 160, 0.8);
+  cursor: pointer;
+}
+
+.navigation-section {
+  position: fixed;
+  margin-right: 20px;
+  padding: 20px;
+}
+
+table,
+tr > * {
+  border: 1px solid;
+}
+.example-section-container {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.section-notes-container {
+  background-color: aquamarine;
+  padding: 10px 20px;
+  margin: 10px 0;
+}
+.example-container {
+  padding: 10px 30px;
+  background-color: rgb(42, 227, 227);
+}
+
+.example-container > h3 {
+  font-size: 20px;
+}
+
+.highlight-word-class {
+  color: blue;
+  font-weight: bold;
+}
+
+ul li a {
+  text-decoration: none;
+  font-size: 16px;
+  color: black;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+
+ul li a:hover {
+  color: rgba(0, 0, 0, 0.7);
+}
+
+.flex-container {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+[aria-label="close"] {
+  float: right;
+  appearance: none;
+  border-radius: 5rem;
+  margin: -1em;
+}
+
+/* TO MAKE VIDEO RESPONSIVE WITH ASPECT RATIO 16:9  */
+.video-container {
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 * 100 = 56.25%) */
+  overflow: hidden;
+}
+
+/* Video tag styles to fit inside the container */
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+.highlight-title-class {
+  text-transform: uppercase;
+}
+
+.video-button-icon {
+  height: 50px;
+  width: 50px;
+  position: relative;
+  z-index: 10;
+  cursor: pointer;
+}
+.video-button-icon-positon {
+  padding-bottom: 480px;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}
+
+.custom-controller-video-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  width: 100%;
+  padding-top: 56.25%; /* 16:9 ratio (9 / 16 * 100 = 56.25%) */
+  overflow: hidden;
+  z-index: 1;
+}
+.custom-controller-video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+
+
+rating {
+  display: inline-flex;
+}
+
+/* make the current radio visually hidden */
+input[type=radio] {
+  appearance: none;
+  margin: 0;
+  box-shadow: none;
+  /* remove shadow on invalid submit */
+}
+
+/* generated content is supported on input. */
+input[type=radio]::after {
+  content: '\2605';
+  font-size: 32px;
+}
+
+/* by default, if no value is selected, all stars are grey */
+input[type=radio]:invalid::after {
+  color: #ddd;
+}
+
+/* if the rating has focus or is hovered, make all stars darker */
+rating:hover input[type=radio]:invalid::after,
+rating:focus-within input[type=radio]:invalid::after {
+  color: #888;
+}
+
+/* make all the stars after the focused one light grey, until a value is selected */
+rating:hover input[type=radio]:hover~input[type=radio]:invalid::after,
+rating input[type=radio]:focus~input[type=radio]:invalid::after {
+  color: #ddd;
+}
+
+
+/* if a value is selected, make them all selected */
+rating input[type=radio]:valid {
+  color: orange;
+}
+
+/* then make the ones coming after the selected value look inactive */
+rating input[type=radio]:checked~input[type=radio]:not(:checked)::after {
+  color: #ccc;
+  content: '\2606';
+  /* optional. hollow star */
+}

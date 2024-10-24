@@ -1,0 +1,1938 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <title>Learning Web</title>
+  </head>
+  <body>
+    <!--CUSTOM TEMPLATES-->
+    <template id="notes-template">
+      <style>
+        .section-notes-container {
+          background-color: aquamarine;
+          padding: 10px 20px;
+          margin: 10px 0;
+        }
+      </style>
+      <div class="section-notes-container">
+        <h3>NOTES!!!</h3>
+        <slot name="notes-slot-legend"></slot>
+      </div>
+    </template>
+
+    <!-- THIS IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
+    <template id="custom-star-rating-template">
+      <form>
+        <fieldset>
+          <rating>
+            <input
+              type="radio"
+              name="rating"
+              value="1"
+              aria-label="1 star"
+              required
+            />
+            <input type="radio" name="rating" value="2" aria-label="2 stars" />
+            <input type="radio" name="rating" value="3" aria-label="3 stars" />
+            <input type="radio" name="rating" value="4" aria-label="4 stars" />
+            <input type="radio" name="rating" value="5" aria-label="5 stars" />
+          </rating>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </form>
+    </template>
+
+    <template id="card-template">
+      <style>
+        .card {
+          border: 1px solid #ccc;
+          border-radius: 8px;
+          padding: 16px;
+          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          max-width: 300px;
+          font-family: Arial, sans-serif;
+        }
+        .card-header {
+          font-size: 1.2em;
+          font-weight: bold;
+          margin-bottom: 8px;
+        }
+        .card-content {
+          font-size: 1em;
+          color: #555;
+        }
+      </style>
+      <div class="card">
+        <div class="card-header">
+          <slot name="header">Default Header</slot>
+          <!-- Slot for custom header content -->
+        </div>
+        <div class="card-content">
+          <slot name="content">Default Content</slot>
+          <!-- Slot for custom body content -->
+        </div>
+      </div>
+    </template>
+
+    <template id="star-rating-template2">
+      <form>
+        <fieldset>
+          <slot name="star-rating-legend">
+            <legend>Rate your experience:</legend>
+          </slot>
+          <rating>
+            <input
+              type="radio"
+              name="rating"
+              value="1"
+              aria-label="1 star"
+              required
+            />
+            <input type="radio" name="rating" value="2" aria-label="2 stars" />
+            <input type="radio" name="rating" value="3" aria-label="3 stars" />
+            <input type="radio" name="rating" value="4" aria-label="4 stars" />
+            <input type="radio" name="rating" value="5" aria-label="5 stars" />
+          </rating>
+        </fieldset>
+        <button type="reset">Reset</button>
+        <button type="submit">Submit</button>
+      </form>
+    </template>
+
+    <template id="random-template">
+      <h1>LALALA</h1>
+      <slot name="random-slot">
+        <h4>BY DEFAULT</h4>
+      </slot>
+    </template>
+
+    <template id="example-container-template">
+      <style>
+        .example-container {
+          padding: 10px 30px;
+          background-color: rgb(42, 227, 227);
+        }
+      </style>
+      <div class="example-container">
+        <h3>
+          Example <slot name="example-number-legend">DEFAULT</slot>:
+          <span style="text-transform: uppercase"
+            ><slot name="example-slot-legend"> DEAFULT NAME </slot></span
+          >
+        </h3>
+        <slot name="example-container-slot-legend">
+          <div>YOUR CUSTOM CONTENT HERE</div>
+        </slot>
+      </div>
+    </template>
+
+    <!-- SECTION TEMPLATE -->
+    <template id="section-template">
+      <style>
+        .section-container {
+          padding: 20px 0;
+        }
+
+        .section-title {
+          font-size: 36px;
+          color: rgb(95, 158, 160);
+          border-bottom: 2px solid;
+          border-color: bisque;
+          text-transform: uppercase;
+        }
+        .section-title:hover {
+          color: rgb(95, 158, 160, 0.8);
+          cursor: pointer;
+        }
+
+        .example-section-container {
+          display: flex;
+          flex-direction: column;
+          gap: 30px;
+        }
+      </style>
+      <section class="section-container">
+        <h2 class="section-title">
+          <slot name="section-title-legend">DEFAULT SECTION TITLE </slot>
+        </h2>
+
+        <div class="example-section-container">
+          <slot name="external-notes-container-legend-up"> </slot>
+          <slot name="section-example-container-legend">
+            <div class="example-container">DEFAULT DIV</div>
+          </slot>
+          <slot name="external-notes-container-legend-down"> </slot>
+        </div>
+      </section>
+    </template>
+
+    <header>
+      <section class="main-navigation">
+        <nav aria-label="Main Navigation">
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="applications.html">Applications</a></li>
+          </ul>
+        </nav>
+      </section>
+    </header>
+    <main>
+      <div class="main-container">
+        <!-- FIRST SECTION -->
+        <section id="first-section" class="section-container">
+          <h1 class="section-title">Hi there! I m a section</h1>
+          <h2>Hello world!</h2>
+          <ul>
+            <li>
+              <label> Value 1 </label>
+              <input type="checkbox" name="value1" id="value1" />
+            </li>
+            <li>
+              <label> Value 2 </label>
+              <input type="checkbox" name="value2" id="value2" checked />
+            </li>
+            <li>
+              <label> Value 3 </label>
+              <input type="checkbox" name="value3" id="value3" disabled />
+            </li>
+          </ul>
+          <div id="div1">
+            <textarea
+              contenteditable="false"
+              data-some-random-attribute="random_value"
+            ></textarea>
+          </div>
+
+          <div class="section-notes-container">
+            <h3>NOTES!!!</h3>
+            <p>Types of navigations</p>
+            <ol>
+              <li>Breadcrumbs</li>
+              <li>Local Navigation ( left or right side on the page)</li>
+              <li>Global Navigation (the main navigation)</li>
+            </ol>
+          </div>
+        </section>
+
+        <!-- FEEDBACK SECTION -->
+        <section
+          id="feedback-section"
+          aria-labelledby="about_feedback"
+          class="section-container"
+        >
+          <h2 id="about_feedback">
+            What it's like to learn good and do other stuff good too
+          </h2>
+          <ul>
+            <li>
+              <blackquote
+                >Lorem ipsum dolor sit amet consectetur adipisicing elit. Eum,
+                neque ullam. Modi magni cumque magnam fuga dolorum possimus ab
+                labore optio commodi eum? Blanditiis quas omnis natus maxime
+                nisi asperiores?</blackquote
+              >
+            </li>
+            <li>
+              <p>
+                Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                Dolorem, impedit possimus eos molestias suscipit alias
+                voluptates quidem aut eius iure est natus, a laudantium tenetur
+                deleniti quos asperiores, delectus perferendis.
+              </p>
+            </li>
+            <li>
+              <q>
+                Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                Debitis commodi amet quibusdam dignissimos odio, consequatur
+                ipsa asperiores perferendis. In placeat voluptas pariatur maxime
+                ducimus labore itaque numquam inventore explicabo nesciunt.
+              </q>
+            </li>
+          </ul>
+        </section>
+
+        <!-- LINKS SECTION -->
+        <section id="links-section" class="section-container">
+          <h2 class="section-title">Links</h2>
+          <ul>
+            <li>
+              <span><i>/</i> means to point out to home page/index</span>
+              <a href="/">Index page</a>
+            </li>
+            <li>
+              <span>Direct links to another sites, asbolute link:</span>
+              <a href="https://machinelearningworkshop.com"
+                >Machine Learning Workshop</a
+              >
+            </li>
+            <li>
+              <span
+                >Relative URL, point to another path from current protocol,
+                current domain name</span
+              >
+              <a href="home.html">Home</a>
+            </li>
+            <li>
+              <span>Direct link to current page (a.k.a to sections)</span>
+              <a href="#teachers">Our teachers</a>
+            </li>
+            <li>
+              <span>Direct link to another site on specific section</span>
+              <a href="https://machinelearningworkshop.com#teachers"
+                >MLW teachers</a
+              >
+            </li>
+            <li>
+              <span>link to send email</span>
+              <a href="mailto:hal9000@machinelearningworkshop.com">Email Hal</a>
+            </li>
+
+            <li>
+              <span>link to call directly a number </span>
+              <a href="tel:8005551212">Call Hal</a>
+            </li>
+            <li>
+              <span>link to send a sms to a number </span>
+              <a href="sms:+078005551212&body=Hello%20There">Text me</a>
+            </li>
+            <li>
+              <span>link to download a resource</span>
+              <a
+                href="https://unsplash.com/photos/0zDfloZbfG8/download?ixid=M3wxMjA3fDB8MXxzZWFyY2h8MTV8fHdhbGxwYXBlciUyMDRrfGVufDB8fHx8MTcyNDE3NjY3OHww&amp;force=true6"
+                download=""
+                target="_self"
+                >download me</a
+              >
+            </li>
+          </ul>
+          <div class="section-notes-container">
+            <h3>NOTES!</h3>
+            <div
+              style="
+                display: flex;
+                flex-direction: column;
+                gap: 10px;
+                padding: 0 20px;
+                width: 80%;
+                word-wrap: break-word;
+              "
+            >
+              <span style="font-weight: 800">
+                The href attribute can begin with mailto: or tel: to email or
+                make calls, with the handling of the link depending on the
+                device, operating system, and installed applications.
+              </span>
+              <span style="font-weight: 800">
+                The download attribute should be included when the href points
+                to a downloadable resource. The value of the download attribute
+                is the suggested filename for the resource to be saved in the
+                user's local file system.
+                <i>download</i> attribute to suggest a file name for the
+                downloadable blob that the optimizer creates
+              </span>
+            </div>
+          </div>
+        </section>
+
+        <!-- LISTS -->
+        <section id="lists-section" class="section-container">
+          <h2 class="section-title">Lists</h2>
+          <h3>We have 3 types of lists:</h3>
+          <ul>
+            <li>unordered list (ul)</li>
+            <li>ordered list (ol)</li>
+            <li>description list (dl)</li>
+          </ul>
+
+          <div class="example-section-container">
+            <div class="example-container">
+              <h4>Example 1: Unordered list</h4>
+              <ul>
+                <li>Here there</li>
+                <li>I m a unordered</li>
+                <li>List</li>
+                <li>I dont care about any rules</li>
+                <li>We are just a unordered elements</li>
+              </ul>
+            </div>
+            <div class="example-container">
+              <h4>Example 2: Ordered list</h4>
+              <ol type="1" start="4">
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
+              <ol type="A" reversed>
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
+              <ol type="I" id="custom-ol">
+                <li>First elem</li>
+                <li>Second elem</li>
+                <li>Third one</li>
+              </ol>
+
+              <fieldset>
+                <legend>Choose your fighter</legend>
+                <ul id="custom-ul">
+                  <li>
+                    <label for="circle">Circle</label
+                    ><input
+                      type="radio"
+                      id="circle"
+                      name="radio-group-type"
+                      value="circle"
+                    />
+                  </li>
+                  <li>
+                    <label for="amerian">Amerian</label
+                    ><input
+                      type="radio"
+                      id="amerian"
+                      name="radio-group-type"
+                      value="amerian"
+                    />
+                  </li>
+                  <li>
+                    <label for="lower-alpha">Lower Alpha</label
+                    ><input
+                      type="radio"
+                      id="lower-alpha"
+                      name="radio-group-type"
+                      value="lower-alpha"
+                    />
+                  </li>
+                  <li>
+                    <label for="decimal-leading-zero"
+                      >decimal-leading-zero</label
+                    ><input
+                      type="radio"
+                      id="decimal-leading-zero"
+                      name="radio-group-type"
+                      value="decimal-leading-zero"
+                    />
+                  </li>
+                  <li>
+                    <label for="disc">disc</label
+                    ><input
+                      type="radio"
+                      id="disc"
+                      name="radio-group-type"
+                      value="disc"
+                    />
+                  </li>
+                  <li>
+                    <label for="lower-greek">lower-greek</label
+                    ><input
+                      type="radio"
+                      id="lower-greek"
+                      name="radio-group-type"
+                      value="lower-greek"
+                    />
+                  </li>
+                </ul>
+              </fieldset>
+            </div>
+
+            <div class="example-container">
+              <h4>Example 3:Description list</h4>
+              <p>
+                Similar to ordered and unordered lists, they can be nested.
+                Unlike ordered and unordered lists, they are made up of
+                key/value pairs. Similar to the ul and ol>, the dl> is the
+                parent container. The dt> and dd> elements are the children of
+                the dl>.
+              </p>
+
+              <dl>
+                <dt>Places where I would like to go</dt>
+                <dd>Spain</dd>
+                <dd>Portugal</dd>
+                <dd>Republic Czech</dd>
+                <dd>Italy</dd>
+                <dd>Netherlands</dd>
+                <dd>Malta</dd>
+                <dd>France</dd>
+                <dd>Croatia</dd>
+                <dt>Places where I wouldn't like to go</dt>
+                <dd>North Korea</dd>
+                <dd>Columbia</dd>
+                <dd>Siria</dd>
+              </dl>
+            </div>
+          </div>
+        </section>
+
+        <!-- TABLE SECTION -->
+        <section id="table-section" class="section-container">
+          <h2 class="section-title">Table</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <table>
+                <!-- This is a single element from table context, you should have one
+              caption per table context only -->
+                <caption>
+                  Caption
+                </caption>
+                <thead>
+                  <tr>
+                    <td>Head1</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>cell1</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>foot1</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 2</h3>
+              <p>
+                Using <span class="highlight-word-class">caption</span>,
+                <span class="highlight-word-class">thead</span>,
+                <span class="highlight-word-class">tbody</span>,
+                <span class="highlight-word-class">tfoot</span>
+              </p>
+              <table>
+                <caption>
+                  Students
+                </caption>
+                <thead>
+                  <tr>
+                    <td>Name</td>
+                    <td>Year</td>
+                    <td>Class</td>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Alex</td>
+                    <td>1</td>
+                    <td>Maths</td>
+                  </tr>
+                  <tr>
+                    <td>Dan</td>
+                    <td>2</td>
+                    <td>Algs</td>
+                  </tr>
+                </tbody>
+                <tfoot>
+                  <tr>
+                    <td>This is a t foot</td>
+                  </tr>
+                </tfoot>
+              </table>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 3</h3>
+              <p>
+                Using <span class="highlight-word-class">th</span>,
+                <span class="highlight-word-class">tr</span>,
+                <span class="highlight-word-class">td</span>
+              </p>
+
+              <table>
+                <caption>
+                  Machines
+                </caption>
+                <thead>
+                  <th>MANUFACTURER NAME</th>
+                  <th>MODEL NAME</th>
+                  <th>YEAR</th>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Volswagen</td>
+                    <td>Passat</td>
+                    <td>2022</td>
+                  </tr>
+                  <tr>
+                    <td>Audi</td>
+                    <td>RS7</td>
+                    <td>2022</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <div>
+                  <p>We have 4 main components in table</p>
+                  <p>
+                    These elements don't help or hinder the accessibility of the
+                    table, but they are useful in terms of usability. They
+                    provide styling hooks.
+                  </p>
+                  <ul>
+                    <li><span>Caption</span> <b>(OPTIONAL)</b></li>
+                    <li><span>tHead same as th</span> <b>(OPTIONAL)</b></li>
+                    <li>
+                      <span>tbody, which represents the body of the table</span>
+                      <b>(OPTIONAL)</b>
+                    </li>
+                    <li>
+                      <span>tfoot, which represents the foot of table</span>
+                      <b>(OPTIONAL)</b>
+                    </li>
+                  </ul>
+                </div>
+                <p>
+                  Tables can be divided into table headers, bodies, and footers,
+                  but none of these really does anything if the tables do not
+                  contain table rows, cells, and content. Each table row,
+                  &lt;tr&gt; contains one or more cells. If a cell is a header
+                  cell, use &lt;th&gt;. Otherwise, use &lt;td&gt;
+                </p>
+              </div>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 4: Merging Cells</h3>
+              <table>
+                <thead>
+                  <tr>
+                    <th id="nr_crt" scope="row" rowspan="2" colspan="2">
+                      Reg no. / ID
+                    </th>
+                    <th id="name" scope="col" colspan="2">Full Name</th>
+                    <th id="university" scope="col" colspan="3">University</th>
+                    <th id="graduated" scope="col" rowspan="2">Graduated?</th>
+                  </tr>
+                  <tr>
+                    <th id="first_name" scope="col">First Name</th>
+                    <th id="last_name" scope="col">Last Name</th>
+                    <th id="Faculty" scope="col">Faculty</th>
+                    <th id="department" scope="col">Department</th>
+                    <th id="Year" scope="col">Year</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>LM01212</td>
+                    <td>001</td>
+
+                    <td>Emanuel</td>
+                    <td>Caprariu</td>
+
+                    <td>Ingineria Sistemelor</td>
+                    <td>AIA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                  <tr>
+                    <td>LM01213</td>
+                    <td>002</td>
+
+                    <td>Ovidiu</td>
+                    <td>Vasi</td>
+
+                    <td>ETC</td>
+                    <td>SSA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                  <tr>
+                    <td>LM01215</td>
+                    <td>003</td>
+
+                    <td>Bado</td>
+                    <td>Ambrus</td>
+
+                    <td>Ingineria Sistemelor</td>
+                    <td>AIA</td>
+                    <td>2</td>
+
+                    <td>YES</td>
+                  </tr>
+                </tbody>
+              </table>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <span style="text-transform: lowercase">
+                  !!! KEEP IN MIND THAT WE NEED to use some important attributes
+                  when we want to define the scope or purpose of some cells
+                </span>
+                <ul>
+                  <li>
+                    <span class="highlight-word-class">rowspan</span>, is used
+                    to define on how many of rows to be span of one single cell
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">colspan </span>, same
+                    like rowspan, but on columns
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">scope</span>, which is
+                    used to define the scope of that cell, let's say that we
+                    want a cell to be a column, so we define "col"
+                  </li>
+                  <li>
+                    <span class="highlight-word-class">id</span>, used to define
+                    an id of that cell
+                  </li>
+                </ul>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- FORMS SECTION -->
+        <section id="forms-section" class="section-container">
+          <h2 class="section-title">Forms</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1: Submitting button in forms</h3>
+              <p>We have 2 variants to submit a form</p>
+              <ul>
+                <li>
+                  <div>
+                    <p>
+                      Using <span class="highlight-word-class">input</span> with
+                      <span class="highlight-word-class">type</span>
+
+                      <q>submit</q>
+                    </p>
+                    <form>
+                      <h1>Example with input type</h1>
+                      <input type="submit" value="Submit Form" />
+                    </form>
+                  </div>
+                </li>
+
+                <li>
+                  <div>
+                    <p>
+                      Using
+                      <span class="highlight-word-class">button</span> with
+                      <span class="highlight-word-class">type</span>
+                      <q>submit</q>
+                    </p>
+                    <form>
+                      <h1>Example with button type</h1>
+                      <button type="submit">Submit Form</button>
+                    </form>
+                  </div>
+                </li>
+              </ul>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 2. Submitting forms</h3>
+              <p>After submitting forms, the browser will be refreshed</p>
+              <p>
+                There are 3 types of methods:
+                <span class="highlight-word-class">GET</span>,
+                <span class="highlight-word-class">POST</span>,
+                <span class="highlight-word-class">DIALOG</span>
+              </p>
+              <ul>
+                <li>
+                  <h4><span class="highlight-word-class">GET</span> METHOD</h4>
+                  <p>
+                    After submitting a form with get method provided, all data
+                    forms will be mapped in url as
+                    <span class="highlight-word-class">name</span>=<span
+                      class="highlight-word-class"
+                      >value</span
+                    >
+                  </p>
+                  <fieldset>
+                    <legend>Form1</legend>
+                    <form method="get">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="red"
+                          value="red_value"
+                        />
+                      </div>
+                      <button type="submit" formnovalidate>Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+                <li>
+                  <h4><span class="highlight-word-class">POST</span> METHOD</h4>
+                  <p>
+                    With POST, the data is appended to the body of the HTTP
+                    request. When sending secure data, such as passwords and
+                    credit card information, always use POST.
+                  </p>
+                  <fieldset>
+                    <legend>Form2</legend>
+                    <form method="post">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="red"
+                          value="red_value"
+                        />
+                        <label for="red">Yellow</label>
+                        <input
+                          type="radio"
+                          name="colors"
+                          id="yellow"
+                          value="yellow_value"
+                        />
+                      </div>
+                      <button type="submit" formnovalidate>Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+                <li>
+                  <h4>
+                    <span class="highlight-word-class">DIALOG</span> METHOD
+                  </h4>
+                  <fieldset>
+                    <legend>Form3</legend>
+                    <form method="dialog">
+                      <label for="students">Choose a student</label>
+                      <select id="students" name="students">
+                        <option id="student1" value="student1">Student1</option>
+                        <option id="student2" value="student2">Student2</option>
+                        <option id="student3">
+                          Student 3 without value assigned
+                        </option>
+                      </select>
+                      <div>
+                        <label for="black">Black</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="black"
+                          value="black_value"
+                        />
+                        <label for="red">Red</label>
+                        <input
+                          type="radio"
+                          name="group1"
+                          id="red"
+                          value="red_value"
+                        />
+                      </div>
+                      <button type="submit">Submit Form</button>
+                    </form>
+                  </fieldset>
+                </li>
+              </ul>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <p>
+                  To capture which button was used to submit a form, give the
+                  button a name. Buttons with no name or value don't get sent
+                  with the form data on form submission.
+                </p>
+              </div>
+            </div>
+
+            <div class="example-container">
+              <h3>Example 3: Form inputs</h3>
+              <form class="flex-container">
+                <fieldset>
+                  <legend>Radio buttons</legend>
+                  <div>
+                    <label for="black">Black</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="black"
+                      value="black_value"
+                    />
+                    <label for="red">Red</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="red"
+                      value="red_value"
+                    />
+                  </div>
+                  <div>
+                    <label for="black">Black</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="black"
+                      value="same_black_value"
+                    />
+                    <label for="red">Same red value</label>
+                    <input
+                      type="radio"
+                      name="group1"
+                      id="red"
+                      value="same_red_value"
+                    />
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Checkboxes</legend>
+                  <div>
+                    <label for="audi">Audi</label>
+                    <input
+                      type="checkbox"
+                      value="audi"
+                      name="machines"
+                      id="audi"
+                    />
+                    <label for="bmw">BMW</label>
+                    <input
+                      type="checkbox"
+                      value="bmw"
+                      name="machines"
+                      id="bmw"
+                    />
+                    <label for="vw">VW</label>
+                    <input type="checkbox" value="vw" name="machines" id="vw" />
+                    <label for="porsche">Porsche</label>
+                    <input
+                      type="checkbox"
+                      value="porsche"
+                      name="machines"
+                      id="porsche"
+                    />
+                  </div>
+                </fieldset>
+                <fieldset>
+                  <legend>Labels</legend>
+                  <label for="blue_id">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="blue_id"
+                      value="blue"
+                    />
+                    Blue
+                  </label>
+                  <label for="yellow">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="yellow"
+                      value="yellow"
+                    />
+                    Yellow
+                  </label>
+                  <label for="green">
+                    <input
+                      type="radio"
+                      name="group2"
+                      id="green"
+                      value="green"
+                    />
+                    Green
+                  </label>
+                </fieldset>
+                <label for="avatar">A recent photo of yourself:</label>
+                <input
+                  type="file"
+                  capture="user"
+                  accept="image/*"
+                  name="avatar"
+                  id="avatar"
+                />
+                <div>
+                  <button type="submit">Submit Form</button>
+                </div>
+              </form>
+              <div class="section-notes-container">
+                <h3>NOTES</h3>
+                <ul>
+                  <li>
+                    <p>
+                      Regarding radio buttons group, there should be unique by
+                      <span class="highlight-word-class">name</span> attribute
+                    </p>
+                  </li>
+                  <li>
+                    <p>
+                      It's valid for all checkboxes within a group to have the
+                      same <span class="highlight-word-class">name</span>. Only
+                      selected checkboxes have their name and value submitted
+                      with the form
+                    </p>
+                  </li>
+                </ul>
+              </div>
+            </div>
+            <div class="example-container">
+              <h3>Example 4: Form Validation</h3>
+              <form class="flex-container">
+                <div>
+                  <label for="first-name-id">Your Firstname</label>
+                  <input
+                    type="text"
+                    id="first-name-id"
+                    value=""
+                    placeholder="First name"
+                    name="first-name-id"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="age-id">Your age</label>
+                  <input
+                    type="number"
+                    min="0"
+                    max="100"
+                    id="age-id"
+                    name="age-id"
+                    value="0"
+                    required
+                  />
+                </div>
+                <div>
+                  <label for="faculty-year-id">Faculty year</label>
+                  <ul id="faculty-year-id">
+                    <li>
+                      <label for="first-year">I</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="first-year"
+                        value="1"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">II</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="second-year"
+                        value="2"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">III</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="third-year"
+                        value="3"
+                        required
+                      />
+                    </li>
+                    <li>
+                      <label for="first-year">IV</label>
+                      <input
+                        type="radio"
+                        name="faculty-year"
+                        id="fourth-year"
+                        value="4"
+                        required
+                      />
+                    </li>
+                  </ul>
+                </div>
+                <div>
+                  <button type="submit">Submit</button>
+                </div>
+              </form>
+            </div>
+          </div>
+        </section>
+
+        <!-- IMAGES SECTION -->
+        <section id="images-section" class="section-container">
+          <h2 class="section-title">Images</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <img
+                width="400"
+                height="300"
+                srcset="
+                  https://cdn.pixabay.com/photo/2024/05/26/10/15/bird-8788491_1280.jpg 400w,
+                  https://fps.cdnpk.net/images/home/subhome-ai.webp?w=649&h=649
+                "
+                alt="random"
+              />
+            </div>
+            <div class="example-container">
+              <h3>Example 2: Loading</h3>
+              <ul>
+                <li>
+                  <h4>Eager Loading of image</h4>
+                  <p>
+                    The default
+                    <span class="highlight-word-class">eager</span> value means
+                    the image is loaded <b>immediately</b> as the HTML is
+                    parsed, even if the image is outside the visible viewport
+                  </p>
+                  <img
+                    width="200"
+                    height="200"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkbVsKKfPQGzjBUUZbEckE-8NWnOKU3VTd3suktOBStXXatWFVmgHFP8qdEYTXx3L8R8&usqp=CAU.svg"
+                    alt="a cat "
+                    loading="eager"
+                  />
+                </li>
+                <li>
+                  <h4>Lazy Loading of image</h4>
+                  <p>
+                    By setting
+                    <span class="highlight-word-class">loading="lazy" </span>
+                    the image loading is deferred until it is likely to come
+                    qinto the viewport
+                  </p>
+                  <img
+                    width="200"
+                    height="200"
+                    src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQDkbVsKKfPQGzjBUUZbEckE-8NWnOKU3VTd3suktOBStXXatWFVmgHFP8qdEYTXx3L8R8&usqp=CAU.svg"
+                    alt="a cat"
+                    loading="lazy"
+                  />
+                </li>
+              </ul>
+            </div>
+            <div class="example-container">
+              <h3>Example 3: Resonsive images</h3>
+              <p>
+                There are a myriad of viewport sizes. There are also different
+                screen resolutions. You don't want to waste a mobile user's
+                bandwidth by serving them an image wide enough for a large
+                screen monitor, but you might want to serve higher resolution
+                images for tiny devices that have four times the normal screen
+                resolution.
+              </p>
+              <ol>
+                <li>
+                  <p>
+                    The
+                    <span class="highlight-word-class"> srcset</span> attribute
+                    enables suggesting multiple image files, with the browser
+                    selecting which image to request based on multiple media
+                    queries including viewport size and screen resolution
+                  </p>
+                  <img
+                    sizes="(max-width: 640px) 300px, (min-width: 641px)  calc(90vw - 400px)"
+                    srcset="
+                      https://assets.codepen.io/11355/pontederia-crassipes_600.jpg   600w,
+                      https://assets.codepen.io/11355/pontederia-crassipes_1200.jpg 1200w,
+                      https://assets.codepen.io/11355/pontederia-crassipes_2000.jpg 2000w
+                    "
+                    src="fallback.jpg"
+                    alt="..."
+                  />
+                  <img
+                    sizes="(max-width : 899px) 200px, (min-width: 900px) 400px"
+                    src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w"
+                    srcset="
+                      https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
+                      https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg   800w,
+                      https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg   600w
+                    "
+                    alt="…"
+                  />
+                </li>
+                <li>
+                  <p>
+                    The &lt; picture &gt; element is a container element for
+                    multiple image options listed in an unlimited number of &lt;
+                    source &gt; elements and a single required &lt; img &gt;
+                    element
+                  </p>
+                  <div class="section-notes-container">
+                    <h3>NOTES!</h3>
+                    The browser will consider each child
+                    <source />
+                    element and choose the best match among them. If no matches
+                    are found, the URL of the &lt;img /&gt; element's src
+                    attribute is selected
+                  </div>
+                  <picture>
+                    <source
+                      sizes="(max-width: 640px) 300px, (min-width:641px) 340px"
+                      srcset="
+                        https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg 1000w,
+                        https://res.cloudinary.com/demo/image/upload/w_800/sample.jpg   800w,
+                        https://res.cloudinary.com/demo/image/upload/w_600/sample.jpg   600w
+                      "
+                    />
+                    <img
+                      src="https://res.cloudinary.com/demo/image/upload/w_1000/sample.jpg"
+                      alt="flowers"
+                    />
+                  </picture>
+                </li>
+              </ol>
+            </div>
+          </div>
+        </section>
+
+        <!-- AUDIO & VIDEO SECTION -->
+        <section id="audio-video-section" class="section-container">
+          <h2 class="section-title">Audio & Video</h2>
+          <div class="example-section-container">
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <div class="video-container">
+                <video
+                  muted
+                  controls
+                  poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+                  <source src="videos/machines.webm" type="video/webm" />
+                  <source src="videos/machines.mp4" type="video/mp4" />
+                  <source src="videos/machines.ogv" type="video/ogg" />
+                  <track
+                    label="English"
+                    kind="captions"
+                    srclang="en"
+                    src="../assets/subtitle1.vtt"
+                    default
+                  />
+
+                  <p>
+                    Watch
+                    <a
+                      href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                      >video on Youtube</a
+                    >
+                  </p>
+                </video>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Fallback content is included between the opening and closing
+                  tags. If the user agent doesn't support
+                  <span class="highlight-word-class">video</span> (or
+                  <span class="highlight-word-class">audio</span> this content
+                  is shown.
+                </p>
+                <h4>EX:</h4>
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Each <span class="highlight-word-class">source</span> child
+                  includes a src attribute pointing to the resource and the type
+                  attribute informs the browser of the linked file's media type.
+                  This prevents the browser from fetching media files it
+                  wouldn't be able to decode.
+                </p>
+              </div>
+            </div>
+            <div class="example-container">
+              <h3>Example 1</h3>
+              <div class="video-container">
+                <video
+                  muted
+                  controls
+                  poster="https://res.cloudinary.com/demo/image/upload/w_1200/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+                  <source src="videos/machines.webm" type="video/webm" />
+                  <source src="videos/machines.mp4" type="video/mp4" />
+                  <source src="videos/machines.ogv" type="video/ogg" />
+                  <track
+                    label="English"
+                    kind="captions"
+                    srclang="en"
+                    src="../assets/subtitle1.vtt"
+                    default
+                  />
+
+                  <p>
+                    Watch
+                    <a
+                      href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                      >video on Youtube</a
+                    >
+                  </p>
+                </video>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Fallback content is included between the opening and closing
+                  tags. If the user agent doesn't support
+                  <span class="highlight-word-class">video</span> (or
+                  <span class="highlight-word-class">audio</span> this content
+                  is shown.
+                </p>
+                <h4>EX:</h4>
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </div>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  Each <span class="highlight-word-class">source</span> child
+                  includes a src attribute pointing to the resource and the type
+                  attribute informs the browser of the linked file's media type.
+                  This prevents the browser from fetching media files it
+                  wouldn't be able to decode.
+                </p>
+              </div>
+            </div>
+
+            <div class="example-container">
+              <h3>
+                Example 2:
+                <span class="highlight-title-class">background video</span>
+              </h3>
+              <video
+                width="100%"
+                muted
+                autoplay
+                loop
+                poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
+              >
+                <source
+                  src="https://www.w3schools.com/html/mov_bbb.mp4"
+                  type="video/mp4"
+                />
+                <source src="videos/machines.webm" type="video/webm" />
+                <source src="videos/machines.mp4" type="video/mp4" />
+                <source src="videos/machines.ogv" type="video/ogg" />
+                <track
+                  label="English"
+                  kind="captions"
+                  srclang="en"
+                  src="../assets/subtitle1.vtt"
+                  default
+                />
+
+                <p>
+                  Watch
+                  <a
+                    href="https://www.youtube.com/embed/FAKpl2Nqcq0?si=njOQpLnl_ghCNELf"
+                    >video on Youtube</a
+                  >
+                </p>
+              </video>
+            </div>
+
+            <div class="example-container">
+              <h3>
+                Example 3:
+                <span class="highlight-title-class">custom controller</span>
+              </h3>
+              <div class="custom-controller-video-container">
+                <video
+                  id="video-controller"
+                  muted
+                  poster="https://res.cloudinary.com/demo/image/upload/w_300/sample.jpg"
+                >
+                  <source
+                    src="https://www.w3schools.com/html/mov_bbb.mp4"
+                    type="video/mp4"
+                  />
+                  <track
+                    label="English"
+                    kind="captions"
+                    srclang="en"
+                    src="../assets/subtitle1.vtt"
+                    default
+                  />
+                </video>
+                <div
+                  class="video-button-icon video-button-icon-positon"
+                  id="play-button"
+                  aria-controls="idOfAudio"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 384 512">
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M73 39c-14.8-9.1-33.4-9.4-48.5-.9S0 62.6 0 80L0 432c0 17.4 9.4 33.4 24.5 41.9s33.7 8.1 48.5-.9L361 297c14.3-8.7 23-24.2 23-41s-8.7-32.2-23-41L73 39z"
+                    />
+                  </svg>
+                </div>
+                <div
+                  class="video-button-icon video-button-icon-positon"
+                  id="pause-button"
+                  aria-controls="idOfAudio"
+                >
+                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+                    <!--!Font Awesome Free 6.6.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free Copyright 2024 Fonticons, Inc.-->
+                    <path
+                      d="M48 64C21.5 64 0 85.5 0 112L0 400c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48L48 64zm192 0c-26.5 0-48 21.5-48 48l0 288c0 26.5 21.5 48 48 48l32 0c26.5 0 48-21.5 48-48l0-288c0-26.5-21.5-48-48-48l-32 0z"
+                    />
+                  </svg>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- TEMPLATE, SLOT & SHADOW SECTION -->
+        <section id="template-slot-shadow-section" class="section-container">
+          <h2 class="section-title">TEMPLATE, SLOT & SHADOW</h2>
+          <div class="example-section-container">
+            <!--  EXAMPLE 1-->
+            <div class="example-container">
+              <h3>Example 1: Template</h3>
+
+              <div id="render-template-rating-stars"></div>
+
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <pq>
+                  The
+                  <span class="highlight-word-class"> template</span> element is
+                  used to declare fragments of HTML to be cloned and inserted
+                  into the DOM with JavaScript. The contents of the element are
+                  not rendered by default. Rather, they are instantiated using
+                  JavaScript.
+                </pq>
+              </div>
+            </div>
+
+            <!-- ANOTHER EXAMPLE -->
+            <div class="example-container">
+              <h3>Example 2: Slot</h3>
+
+              <div id="slot-example-container"></div>
+
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  The slot attribute is a global attribute that is used to
+                  replace the contents of the
+                  <span class="highlight-word-class">slot</span> within a
+                  <span class="highlight-word-class">template</span>. In our
+                  custom element, the element with the slot attribute is a
+                  <span class="highlight-word-class">legend</span>. It doesn't
+                  need to be. In our template,
+                  <span class="highlight-word-class">slot</span>
+                  name="star-rating-legend"> will be replaced with
+                  <span class="highlight-word-class">anyElement</span>
+                  slot="star-rating-legend">, where
+                  <span class="highlight-word-class">anyElement</span> can be
+                  any element, even another custom element.
+                </p>
+              </div>
+            </div>
+
+            <!-- EXAMPLE 3 -->
+            <div class="example-container">
+              <h3>
+                Example 3:
+                <span style="text-transform: uppercase"
+                  >Undefined elements</span
+                >
+              </h3>
+              <div class="section-notes-container">
+                <h3>NOTES!!!</h3>
+                <p>
+                  In our <span class="highlight-word-class">template</span> we
+                  used a
+                  <span class="highlight-word-class">rating</span> element. This
+                  is not a custom element. Rather, it's an unknown element.
+                  Browsers don't fail when they don't recognize an element.
+                  Unrecognized HTML elements are treated by the browser as
+                  anonymous inline elements that can be styled with CSS. Similar
+                  to <span class="highlight-word-class">span</span>, the
+                  <span class="highlight-word-class">rating</span> and
+                  <span class="highlight-word-class">star-rating</span> elements
+                  have no user-agent applied styles or semantics.
+                </p>
+              </div>
+            </div>
+
+            <!-- EXAMPLE 4 -->
+            <div class="example-container">
+              <h3>
+                Example 4:
+                <span style="text-transform: uppercase">Custom elements</span>
+              </h3>
+
+              <star-rating>
+                <legend slot="star-rating-legend">Blendan Smooth</legend>
+              </star-rating>
+              <star-rating>
+                <!-- this examples doesn't have content with a `slot` attribute -->
+                <p>Is this text visible?</p>
+              </star-rating>
+
+              <card-template>
+                <div slot="header">
+                  <h2>CUSTOM HEADER BY SLOT</h2>
+                </div>
+              </card-template>
+
+              <custom-star-rating>
+                <legend slot="custom-star-rating-legend">
+                  Another random name
+                </legend>
+              </custom-star-rating>
+
+              <random-template>
+                <h1 slot="random-slot">BY ME</h1>
+              </random-template>
+
+              <notes-template>
+                <ol slot="notes-slot-legend">
+                  <li>
+                    <strong>Define a <code>&lt;template&gt;</code></strong> that
+                    contains the structure of your custom element.
+                  </li>
+                  <li>
+                    Use <strong><code>&lt;slot&gt;</code></strong> to allow
+                    custom content to be inserted in specific places inside the
+                    custom element.
+                  </li>
+                  <li>
+                    <strong>Create a custom element</strong> using JavaScript by
+                    extending the
+                    <code class="highlight-word-class">HTMLElement</code> class.
+                  </li>
+                  <li>
+                    Attach the template's content to the custom element's shadow
+                    DOM for encapsulation.
+                  </li>
+                </ol>
+              </notes-template>
+            </div>
+
+            <example-template>
+              <span slot="example-slot-legend"> SHADOW DOM </span>
+              <span slot="example-number-legend">5</span>
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>
+                    The Shadow DOM isolates CSS styles within each shadow tree,
+                    preventing external styles from affecting the component and
+                    ensuring the component's styles don't impact the rest of the
+                    document unless explicitly allowed. By appending content to
+                    the shadow DOM, we can include a
+                    <strong>style</strong> element to provide encapsulated CSS
+                    specifically for the custom element.
+                  </p>
+                  <p>
+                    The shadow tree is the DOM tree inside the shadow DOM. The
+                    shadow root is the root node of the shadow tree
+                  </p>
+                </div>
+              </notes-template>
+            </example-template>
+          </div>
+        </section>
+
+        <!-- HTML APIs SECTION-->
+        <section-template id="html-apis-section">
+          <!-- SECTION TITLE -->
+          <div slot="section-title-legend">HTML APIs</div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">HTML APIs</span>
+            <span slot="example-number-legend">1</span>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  The base interface for all elements is aptly named Element.
+                  The
+                  <span class="highlight-word-class">HTMLElement</span> inherits
+                  from <strong class="highlight-word-class">Element</strong> and
+                  all HTML element-specific interfaces inherit from it
+                </p>
+                <p>
+                  The
+                  <span class="highlight-word-class">EventTarget</span>
+                  interface, which provides us with
+                  <span class="highlight-word-class">addEventListener()</span>
+                  and
+                  <span class="highlight-word-class">removeEventListener()</span
+                  >, is inherited by the
+                  <span class="highlight-word-class">Node</span> and
+                  <span class="highlight-word-class">Window</span>
+                  interfaces
+                </p>
+
+                <p>
+                  The document enables quick access to node types and the
+                  ability to create collections of specific element types, such
+                  as <span class="highlight-word-class">document.body</span> and
+                  <span class="highlight-word-class">document.styleSheets</span
+                  >. The
+                  <span class="highlight-word-class">HTMLDocument</span> enables
+                  accessing information relevant to the document that are not
+                  found in HTML nodes, such as the
+                  <span class="highlight-word-class">Document.location</span>,
+                  <span class="highlight-word-class">Document.lastModified</span
+                  >, and
+                  <span class="highlight-word-class">Document.Cookie</span>.
+                  Several APIs are available based on features surfaced through
+                  the document interface, including the
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/HTML_Drag_and_Drop_API"
+                    target="_blank"
+                    >Drag and Drop API</a
+                  >
+                  and the
+                  <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/Fullscreen_API"
+                    target="_blank"
+                    >FullScreen API</a
+                  >. Both inherit from
+                  <span class="highlight-word-class">Element</span>.
+                </p>
+                <h3>The Window interface</h3>
+                <p>
+                  The
+                  <span class="highlight-word-class">Windows</span> interface is
+                  the API for the object containing the document. The global
+                  window object is the window in which the script is running.
+                  Every browser tab contains its own Window object. The Window
+                  interface can query the contents of the tab as well as the
+                  overall window and device.
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+        </section-template>
+        <!-- END OF SECTION-->
+
+        <!-- FOCUS SECTION -->
+        <section-template id="focus-section">
+          <!-- SECTION TITLE -->
+          <div slot="section-title-legend">FOCUS</div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">Focus on inputs</span>
+            <span slot="example-number-legend">1</span>
+            <div slot="example-container-slot-legend">
+              <p>Click in any input, then hit the tab key.</p>
+              <ol>
+                <li><input tabindex="3" /></li>
+                <li><input tabindex="6" /></li>
+                <li><input tabindex="2" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="-1" /></li>
+                <li><input tabindex="0" /></li>
+                <li><input tabindex="8" /></li>
+                <li><input tabindex="1" /></li>
+                <li><input tabindex="5" /></li>
+                <li><input tabindex="7" /></li>
+                <li><input tabindex="4" /></li>
+              </ol>
+              <p contenteditable>
+                THIS INERT ELEMENT IS FOCUSABLE ELEMENT VIA
+                <span class="highlight-word-class">contentEdtibale</span>
+                ATTRIBUTE
+              </p>
+
+              <dialog open>
+                <form method="dialog">
+                  <button type="submit" autofocus>close</button>
+                </form>
+              </dialog>
+            </div>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  Interactive elements which are by default focusable and
+                  tabbable:
+                </p>
+                <ul>
+                  <li>
+                    <a href="https://web.dev/learn/html/forms" target="_blank"
+                      >form controls</a
+                    >
+                  </li>
+                  <li>
+                    <a href="https://web.dev/learn/html/links" target="_blank"
+                      >links</a
+                    >
+                  </li>
+                  <li>buttons</li>
+                </ul>
+                <p>
+                  Other elements are inert, meaning they are not interactive.
+                  With HTML attributes, it is possible to make interactive
+                  elements inert and to make inert elements interactive.
+                </p>
+
+                <p>
+                  The
+                  <span class="highlight-word-class">tabindex</span> attribute
+                  takes as its value an integer. A negative value makes an
+                  element focusable but not tabbable. A tabindex value of 0
+                  makes the element focusable and tabbable, adding the element
+                  on which it is applied to the sequential focus navigation
+                  order in source code order. A value of 1 or greater makes the
+                  element focusable and tabbable, but adds it to a prioritized
+                  tabbing sequence, and, as we saw above, should be avoided.
+                </p>
+                <p>
+                  The
+                  <span class="highlight-word-class">autofocus</span> attribute
+                  set on the close
+                  <span class="highlight-word-class">button</span> ensures it
+                  receives focus when the dialog is opened.
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+
+          <!-- EXAMPLE 2 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend"
+              >Making interactive elements inert</span
+            >
+            <span slot="example-number-legend">2</span>
+            <div slot="example-container-slot-legend">
+              <input
+                tabindex="-1"
+                placeholder="THIS IS NOT TABBABLE OR FOCUSABLE"
+              />
+              <input
+                tabindex="1"
+                placeholder="THIS IS  TABBABLE OR FOCUSABLE"
+              />
+              <input disabled placeholder="THIS IS  DISABLED" />
+            </div>
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  Disabled form controls can't be focused, don't get click
+                  events, and are not submitted upon form submission
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 2 -->
+        </section-template>
+        <!-- END OF SECTION -->
+
+        <section-template id="dialog-section">
+          <!-- SECTION TITLE -->
+
+          <div slot="section-title-legend">Dialog</div>
+          <!-- EXTERNAL NOTES -->
+          <div slot="external-notes-container-legend-up">
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>Dialogs can be:</p>
+                <ol>
+                  <li>
+                    modal (only the content in the dialog can be interacted
+                    with)
+                  </li>
+                  <li>
+                    non-modal (it's still possible to interact with content
+                    outside of the dialog)
+                  </li>
+                </ol>
+              </div>
+            </notes-template>
+          </div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">Modal Dialog</span>
+            <span slot="example-number-legend">1</span>
+            <div slot="example-container-slot-legend">
+              <button id="modal-dialog-button-open">Open Modal dialog</button>
+              <dialog id="modal-dialog-container-example1">
+                  <form>
+                  <button type="submit" aria-label="close" formmethod="dialog" formnovalidate>X</button>
+                  <h2 id="dialogid">MLW Registration</h2>
+                  <p>All fields are required</p>
+                  <p>
+                      <label>Name:
+                        <input type="text" name="name" required />
+                    </label>
+                  </p>
+                  <p>
+                    <label>Warranty:
+                        <input type="number" min="0" max="10" step=”1” name="warranty" required />
+                      </label>
+                  </p>
+                  <p>
+                    <label>Power source:
+                        <select name="powersoure">
+                        <option>AC/DC</option>
+                        <option>Battery</option>
+                        <option>Solar</option>
+                        </select>
+                    </label>
+                  </p>
+                  <p>
+                    <button type="submit" formmethod="post">Submit</button>
+                  </p>
+               <hr/>
+                  <p>Additional buttons</p>
+                    <button id="jsbutton">JS close</button>
+                    <button id="reset" type="reset">Reset</button>
+                  </p>
+                </form>
+              </dialog>
+            </div>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+        </section-template>
+        <!-- END OF SECTION -->
+
+        <!-- MISCELLANEOUS SECTION -->
+        <section-template id="miscellaneous-section">
+          <!-- SECTION TITLE -->
+          <div slot="section-title-legend">Miscellaneous</div>
+
+          <!--EXAMPLE 1 -->
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">Details & Summary</span>
+            <span slot="example-number-legend">1</span>
+            <div slot="example-container-slot-legend">
+              <details>
+                <summary>Today, we gonna finalize html lection</summary>
+                <p>
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                  Aliquam nobis iusto similique beatae ex vel pariatur itaque
+                  fugit aspernatur officia, recusandae illum corporis, est
+                  assumenda odio nemo sequi praesentium non!
+                </p>
+              </details>
+
+              <details open>
+                <summary>Toasty McToastface</summary>
+                <p>
+                  Learning with Hal and Eve exceeded all of my wildest
+                  fantasies. All they did was stick a USB in. They promised that
+                  it was a brand new USB, so we know there were no viruses on
+                  it. The Russians had nothing to do with it. This has
+                </p>
+              </details>
+            </div>
+
+            <notes-template slot="example-container-slot-legend">
+              <div slot="notes-slot-legend">
+                <p>
+                  The <span class="highlight-word-class">details</span> element
+                  is the disclosure widget container. The
+                  <span class="highlight-word-class">summary</span> is the
+                  summary or legend for its parent
+                  <span class="highlight-word-class">details</span>
+                </p>
+              </div>
+            </notes-template>
+          </example-template>
+          <!-- END OF EXAMPLE 1 -->
+        </section-template>
+        <!-- END OF SECTION -->
+      </div>
+
+      <!-- NAVIGATION  -->
+      <div class="navigation-container">
+        <section
+          aria-label="table-of-contents-navigation"
+          class="navigation-section"
+        >
+          <h2>Navigation</h2>
+          <div>
+            <nav aria-label="On this page" class="right-navigation">
+              <div>On this page</div>
+              <ul>
+                <li><a href="#first-section">Hello World!</a></li>
+                <li><a href="#feedback-section">Feedback</a></li>
+                <li><a href="#links-section">Links</a></li>
+                <li><a href="#lists-section">Lists</a></li>
+                <li><a href="#table-section">Table</a></li>
+                <li><a href="#forms-section"> Forms </a></li>
+                <li><a href="#images-section"> Images </a></li>
+                <li><a href="#audio-video-section"> Audio & Video </a></li>
+                <li>
+                  <a href="#template-slot-shadow-section">
+                    TEMPLATE, SLOT & SHADOW
+                  </a>
+                </li>
+                <li>
+                  <a href="#html-apis-section"> HTML APIs </a>
+                </li>
+                <li>
+                  <a href="#focus-section">FOCUS </a>
+                </li>
+                <li>
+                  <a href="#dialog-section">DIALOG </a>
+                </li>
+                <li>
+                  <a href="#miscellaneous-section">MISCELLANEOUS </a>
+                </li>
+              </ul>
+            </nav>
+          </div>
+        </section>
+      </div>
+    </main>
+
+    <!-- FOOTER -->
+    <footer style="background-color: dimgray; width: 100%">
+      <h1>Hi there! I m a footer</h1>
+    </footer>
+  </body>
+  <script src="../js/index.js"></script>
+  <script src="../js/templates.js"></script>
+</html>

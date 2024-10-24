@@ -1,0 +1,27 @@
+{
+  "compilerOptions": {
+    "target": "es6",                       // Set the JavaScript version to ECMAScript 6
+    "module": "commonjs",                   // Specify the module system (Node.js uses CommonJS)
+    "strict": true,                         // Enable all strict type-checking options
+    "esModuleInterop": true,                // Enable interoperability between CommonJS and ES modules
+    "forceConsistentCasingInFileNames": true, // Ensure consistent casing in imports
+    "skipLibCheck": true,                   // Skip type checking of declaration files for faster builds
+    "outDir": "./dist",                     // Output directory for compiled JavaScript files
+    "rootDir": "./src",                     // Specify the root directory of input TypeScript files
+    "noImplicitAny": true,                  // Disallow variables with 'any' type
+    "strictNullChecks": true,               // Enable strict null checks for better safety
+    "resolveJsonModule": true,              // Allow importing JSON files
+    "sourceMap": true,                      // Generate source maps for debugging
+    "removeComments": true,                 // Remove comments from compiled JavaScript
+    "moduleResolution": "node",             // Ensure module resolution compatible with Node.js
+    "isolatedModules": true,                // Ensure each file can be transpiled without depending on other files
+    "allowSyntheticDefaultImports": true,   // Allow default imports from modules with no default export
+    "jsx": "react",                         // Support JSX syntax for React projects (use "preserve" or "react-jsx" for newer React versions)
+    "baseUrl": "./",                        // Base directory for resolving non-relative module imports
+    "paths": {                              // Define module resolution paths
+      "@/*": ["src/*"]
+    }
+  },
+  "include": ["src/**/*"],                  // Files to include in the compilation (all files in `src/`)
+  "exclude": ["node_modules", "dist"]       // Files to exclude from the compilation
+}
