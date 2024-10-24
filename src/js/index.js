@@ -64,7 +64,6 @@ const modalDialogContainerExample1 = document.getElementById(
 );
 
 modalDialogButtonExample1?.addEventListener("click", (ev) => {
-  console.log("aaaa");
   modalDialogContainerExample1?.showModal();
 });
 
@@ -73,6 +72,16 @@ const modalDialogCloseButtonExample1 = document.getElementById(
 );
 
 modalDialogCloseButtonExample1?.addEventListener("click", (ev) => {
-  console.log("close");
   modalDialogContainerExample1.close();
 });
+
+const nonModalDialogButtonExample2 = document.getElementById(
+  "non-modal-dialog-button-open"
+);
+
+nonModalDialogButtonExample2?.addEventListener("click", (ev) => {
+  modalDialogContainerExample1?.show();
+});
+
+
+

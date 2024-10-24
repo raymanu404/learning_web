@@ -1793,15 +1793,11 @@
 
           <!--EXAMPLE 1 -->
           <example-template slot="section-example-container-legend">
+               
             <span slot="example-slot-legend">Modal Dialog</span>
             <span slot="example-number-legend">1</span>
             <div slot="example-container-slot-legend">
               <button id="modal-dialog-button-open">Open Modal dialog</button>
-              <notes-template>
-                <div slot="notes-slot-legend">
-                   <p>Opening a modal dialog deactivates and obscures everything other than the dialog itself. If you hover over the UI outside of the dialog, you'll note all the elements are behaving as if pointer-events: none; was set;</p>
-                </div>
-              </notes-template>
 
               <dialog id="modal-dialog-container-example1">
                 <form>
@@ -1837,9 +1833,35 @@
                   </p>
                 </form>
               </dialog>
+              <notes-template>
+                <div slot="notes-slot-legend">
+                  <p>
+                    Opening a modal dialog deactivates and obscures everything
+                    other than the dialog itself. If you hover over the UI
+                    outside of the dialog, you'll note all the elements are
+                    behaving as if pointer-events: none; was set;
+                  </p>
+                </div>
+              </notes-template>
             </div>
           </example-template>
           <!-- END OF EXAMPLE 1 -->
+
+          <example-template slot="section-example-container-legend">
+            <span slot="example-slot-legend">Non-Modal Dialog</span>
+            <span slot="example-number-legend">2</span>
+            <div slot="example-container-slot-legend">
+              <button id="non-modal-dialog-button-open">
+                Open Non-Modal dialog
+              </button>
+              <notes-template>
+                <div slot="notes-slot-legend">
+                  <p>The <span class="highlight-word-class">HTMLDialogElement.show()</span> similarly opens a dialog, but without adding a backdrop or causing anything to become inert. The escape key does not close non-modal dialogs.</p>
+                </div>
+              </notes-template>
+            </div>
+          </example-template>
+          <!-- END OF EXAMPLE 2 -->
         </section-template>
         <!-- END OF SECTION -->
 
@@ -1941,5 +1963,4 @@
   </body>
   <script src="../js/index.js"></script>
   <script src="../js/templates.js"></script>
-
 </html>
