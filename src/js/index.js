@@ -1,51 +1,78 @@
-var changeUlType = function () {
-    var getList = document.querySelector("#custom-ul");
-    if (getList) {
-        getList.addEventListener("change", function (ev) {
-            var example = document.querySelector("#custom-ol");
-            if (example && ev && ev.target && ev.target.value) {
-                example.setAttribute("style", "list-style-type: ".concat(ev.target.value));
-            }
-        });
-    }
+const changeUlType = () => {
+  const getList = document.querySelector("#custom-ul");
+  if (getList) {
+    getList.addEventListener("change", (ev) => {
+      const example = document.querySelector("#custom-ol");
+      if (example && ev && ev.target && ev.target.value) {
+        example.setAttribute("style", `list-style-type: ${ev.target.value}`);
+      }
+    });
+  }
 };
+
 changeUlType();
-var playButton = document.querySelector("#play-button ");
+
+const playButton = document.querySelector("#play-button ");
 if (playButton) {
-    playButton.classList.add("display-block");
-    playButton.addEventListener("click", playHandler, false);
+  playButton.classList.add("display-block");
+  playButton.addEventListener("click", playHandler, false);
 }
-var pauseButton = document.querySelector("#pause-button ");
-pauseButton === null || pauseButton === void 0 ? void 0 : pauseButton.classList.add("display-none");
-pauseButton === null || pauseButton === void 0 ? void 0 : pauseButton.addEventListener("click", stopHandler, false);
+
+const pauseButton = document.querySelector("#pause-button ");
+pauseButton?.classList.add("display-none");
+pauseButton?.addEventListener("click", stopHandler, false);
+
 function stopHandler() {
-    var _a;
-    var media = document.getElementById("video-controller");
-    media === null || media === void 0 ? void 0 : media.pause();
-    pauseButton === null || pauseButton === void 0 ? void 0 : pauseButton.classList.remove("display-block");
-    pauseButton === null || pauseButton === void 0 ? void 0 : pauseButton.classList.add("display-none");
-    playButton === null || playButton === void 0 ? void 0 : playButton.classList.add("display-block");
-    (_a = document.querySelector("[aria-controls]")) === null || _a === void 0 ? void 0 : _a.removeAttribute("controls");
+  const media = document.getElementById("video-controller");
+  media?.pause();
+  pauseButton?.classList.remove("display-block");
+  pauseButton?.classList.add("display-none");
+  playButton?.classList.add("display-block");
+
+  document.querySelector("[aria-controls]")?.removeAttribute("controls");
 }
+
 function playHandler() {
-    var _a;
-    var media = document.getElementById("video-controller");
-    if (media === null || media === void 0 ? void 0 : media.paused) {
-        media.play();
-        playButton === null || playButton === void 0 ? void 0 : playButton.classList.remove("display-block");
-        playButton === null || playButton === void 0 ? void 0 : playButton.classList.add("display-none");
-        pauseButton === null || pauseButton === void 0 ? void 0 : pauseButton.classList.add("display-block");
-    }
-    (_a = document.querySelector("[aria-controls]")) === null || _a === void 0 ? void 0 : _a.removeAttribute("controls");
+  const media = document.getElementById("video-controller");
+  if (media?.paused) {
+    media.play();
+    playButton?.classList.remove("display-block");
+    playButton?.classList.add("display-none");
+    pauseButton?.classList.add("display-block");
+  }
+
+  document.querySelector("[aria-controls]")?.removeAttribute("controls");
 }
+
 //TO RENDER TEMPLATE EXAMPLE 1
-var containerToRender = document.querySelector("#render-template-rating-stars");
-var ratingTemplate = document.getElementById("custom-star-rating-template");
-var ratingTemplateContent = ratingTemplate === null || ratingTemplate === void 0 ? void 0 : ratingTemplate.content;
-containerToRender === null || containerToRender === void 0 ? void 0 : containerToRender.appendChild(ratingTemplateContent);
-var modalDialogButtonExample1 = document.getElementById("modal-dialog-button-open");
-var openDialogExample1Handler = function (ev) {
-    var modalDialogContainerExample1 = document.getElementById("modal-dialog-container-example1");
-    modalDialogContainerExample1.showModal();
-};
-modalDialogButtonExample1 === null || modalDialogButtonExample1 === void 0 ? void 0 : modalDialogButtonExample1.addEventListener("click", openDialogExample1Handler);
+const containerToRender = document.querySelector(
+  "#render-template-rating-stars"
+);
+const ratingTemplate = document.getElementById(
+  "custom-star-rating-template"
+);
+const ratingTemplateContent = ratingTemplate?.content;
+containerToRender?.appendChild(ratingTemplateContent);
+
+//DIALOG OPERATIONS
+const modalDialogButtonExample1 = document.getElementById(
+  "modal-dialog-button-open"
+);
+
+const modalDialogContainerExample1 = document.getElementById(
+  "modal-dialog-container-example1"
+);
+
+modalDialogButtonExample1?.addEventListener("click", (ev) => {
+  console.log("aaaa");
+  modalDialogContainerExample1?.showModal();
+});
+
+const modalDialogCloseButtonExample1 = document.getElementById(
+  "jsbutton"
+);
+
+modalDialogCloseButtonExample1?.addEventListener("click", (ev) => {
+  console.log("close");
+  modalDialogContainerExample1.close();
+});

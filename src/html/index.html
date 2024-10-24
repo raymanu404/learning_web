@@ -1797,8 +1797,14 @@
             <span slot="example-number-legend">1</span>
             <div slot="example-container-slot-legend">
               <button id="modal-dialog-button-open">Open Modal dialog</button>
+              <notes-template>
+                <div slot="notes-slot-legend">
+                   <p>Opening a modal dialog deactivates and obscures everything other than the dialog itself. If you hover over the UI outside of the dialog, you'll note all the elements are behaving as if pointer-events: none; was set;</p>
+                </div>
+              </notes-template>
+
               <dialog id="modal-dialog-container-example1">
-                  <form>
+                <form>
                   <button type="submit" aria-label="close" formmethod="dialog" formnovalidate>X</button>
                   <h2 id="dialogid">MLW Registration</h2>
                   <p>All fields are required</p>
@@ -1824,9 +1830,9 @@
                   <p>
                     <button type="submit" formmethod="post">Submit</button>
                   </p>
-               <hr/>
+                  <hr/>
                   <p>Additional buttons</p>
-                    <button id="jsbutton">JS close</button>
+                    <button id="jsbutton" type="button"> JS close</button>
                     <button id="reset" type="reset">Reset</button>
                   </p>
                 </form>
@@ -1935,4 +1941,5 @@
   </body>
   <script src="../js/index.js"></script>
   <script src="../js/templates.js"></script>
+
 </html>
