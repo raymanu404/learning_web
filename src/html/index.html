@@ -1741,46 +1741,37 @@
       </div>
 
       <!-- NAVIGATION  -->
-      <div class="navigation-container">
-        <section
-          aria-label="table-of-contents-navigation"
-          class="navigation-section"
-        >
-          <h2>Navigation</h2>
-          <div>
-            <nav aria-label="On this page" class="right-navigation">
-              <div>On this page</div>
-              <ul>
-                <li><a href="#first-section">Hello World!</a></li>
-                <li><a href="#feedback-section">Feedback</a></li>
-                <li><a href="#links-section">Links</a></li>
-                <li><a href="#lists-section">Lists</a></li>
-                <li><a href="#table-section">Table</a></li>
-                <li><a href="#forms-section"> Forms </a></li>
-                <li><a href="#images-section"> Images </a></li>
-                <li><a href="#audio-video-section"> Audio & Video </a></li>
-                <li>
-                  <a href="#template-slot-shadow-section">
-                    TEMPLATE, SLOT & SHADOW
-                  </a>
-                </li>
-                <li>
-                  <a href="#html-apis-section"> HTML APIs </a>
-                </li>
-                <li>
-                  <a href="#focus-section">FOCUS </a>
-                </li>
-                <li>
-                  <a href="#dialog-section">DIALOG </a>
-                </li>
-                <li>
-                  <a href="#miscellaneous-section">MISCELLANEOUS </a>
-                </li>
-              </ul>
-            </nav>
+     <side-nav-template class="navigation-container">
+       <div slot="side-nav-content-legend">
+            <ul>
+              <li><a href="#first-section">Hello World!</a></li>
+              <li><a href="#feedback-section">Feedback</a></li>
+              <li><a href="#links-section">Links</a></li>
+              <li><a href="#lists-section">Lists</a></li>
+              <li><a href="#table-section">Table</a></li>
+              <li><a href="#forms-section"> Forms </a></li>
+              <li><a href="#images-section"> Images </a></li>
+              <li><a href="#audio-video-section"> Audio & Video </a></li>
+              <li>
+                <a href="#template-slot-shadow-section">
+                  TEMPLATE, SLOT & SHADOW
+                </a>
+              </li>
+              <li>
+                <a href="#html-apis-section"> HTML APIs </a>
+              </li>
+              <li>
+                <a href="#focus-section">FOCUS </a>
+              </li>
+              <li>
+                <a href="#dialog-section">DIALOG </a>
+              </li>
+              <li>
+                <a href="#miscellaneous-section">MISCELLANEOUS </a>
+              </li>
+            </ul>
           </div>
-        </section>
-      </div>
+     </side-nav-template>
     </main>
     <footer-template>
       <div slot="footer-content-legend">

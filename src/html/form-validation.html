@@ -5,18 +5,118 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <script src="../../dist/ts/templates.js" defer></script>
-    <title>Home</title>
+    <title>Form Validation Learning</title>
   </head>
   <body>
     <div class="wrapper">
       <main-nav-template>
         <ul slot="main-nav-content-legend">
-          <li><a href="index.html">HTML Home Lectures</a></li>
+          <li><a href="index.html">HTML Basis</a></li>
           <li><a href="applications.html">Applications</a></li>
         </ul>
       </main-nav-template>
 
-      <main></main>
+      <main>
+        <!-- MAiN CONTAINER -->
+        <div class="main-container">
+          <!-- GET DATA FROM USERS SECTION -->
+          <section-template id="get-data-from-users-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">GET DATA FROM USERS</div>
+
+            <!--EXAMPLE 1 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">GET</span>
+              <span slot="example-number-legend">1</span>
+              <div slot="example-container-slot-legend">
+                <form method="get">
+                  <label for="animal">What is your favorite animal?</label>
+                  <input type="text" id="animal" name="animal" />
+                  <button type="submit">Save</button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>
+                    By default, form data is sent as a
+                    <span class="highlight-word-class">GET</span> request, with
+                    the submitted data appended to the URL
+                  </p>
+                </div>
+              </notes-template>
+            </example-template>
+            <!-- END OF EXAMPLE 1 -->
+
+            <!--EXAMPLE 2 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">POST</span>
+              <span slot="example-number-legend">2</span>
+              <div slot="example-container-slot-legend">
+                <form method="post">
+                  <label for="animal">What is your favorite animal?</label>
+                  <input type="text" id="animal" name="animal" />
+                  <button type="submit">Save</button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>
+                    Using <span class="highlight-word-class">POST</span>, the
+                    data is included in the body of the request. The data will
+                    not be visible in the URL and can only be accessed from a
+                    frontend or backend script.
+                  </p>
+                </div>
+              </notes-template>
+            </example-template>
+
+            <div slot="external-notes-container-legend-down">
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <h3>What method should you use?</h3>
+                  <p>There are use cases for both methods.</p>
+                  <ul>
+                    <li>
+                      <p>
+                        For forms that process sensitive data use the
+                        <span class="highlight-word-class">POST</span>
+                        method. The data is encrypted (if you use HTTPS) and
+                        only accessible by the backend script that processes the
+                        request. The data is not visible in the URL. A common
+                        example is a sign-in form.
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        If the data is shareable, you can use the
+                        <span class="highlight-word-class">GET</span> method.
+                        This way the data will be added to your browser history
+                        as it is included in the URL. Search forms often use
+                        this. This way you can bookmark a search result page.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
+            </div>
+            <!-- END OF EXAMPLE 2 -->
+          </section-template>
+          <!-- END OF SECTION -->
+        </div>
+
+        <!-- NAVIGATION  -->
+        <side-nav-template class="navigation-container">
+          <div slot="side-nav-content-legend">
+            <ul>
+              <li>
+                <a href="#miscellaneous-section">MISCELLANEOUS </a>
+              </li>
+            </ul>
+          </div>
+        </side-nav-template>
+      </main>
       <footer-template>
         <div slot="footer-content-legend">
           <p>made with Love 😘</p>
