@@ -8,16 +8,20 @@
     <title>Home</title>
   </head>
   <body>
-    <main-nav-template>
-      <ul slot="main-nav-content-legend">
-        <li><a href="index.html">HTML Home Lectures</a></li>
-        <li><a href="applications.html">Applications</a></li>
-      </ul>
-    </main-nav-template>
+    <div class="wrapper">
+      <main-nav-template>
+        <ul slot="main-nav-content-legend">
+          <li><a href="index.html">HTML Home Lectures</a></li>
+          <li><a href="applications.html">Applications</a></li>
+        </ul>
+      </main-nav-template>
 
-    <main></main>
-    <footer>
-      <p>made with Love 😘</p>
-    </footer>
+      <main></main>
+      <footer-template>
+        <div slot="footer-content-legend">
+          <p>made with Love 😘</p>
+        </div>
+      </footer-template>
+    </div>
   </body>
 </html>

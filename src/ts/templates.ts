@@ -231,12 +231,7 @@ class MainNavTemplate extends HTMLElement {
     const mainNavTemplate = document.createElement("template")
     mainNavTemplate.innerHTML = `
       <style>
-        header {
-          background-color: aqua;
-          top: 0;
-          position: sticky;
-        }
-
+  
         header ul {
           margin: 0;
         }
@@ -275,7 +270,9 @@ class FooterTemplate extends HTMLElement {
 
       footer {
         margin: 0;
+         padding: 10px 0;
       }
+
       </style>
       <footer style="background-color: dimgray; width: 100%">
         <slot name="footer-content-legend"></slot>

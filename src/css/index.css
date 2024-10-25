@@ -6,6 +6,22 @@ body {
 body {
   padding: 0;
   margin: 0;
+  height: 100%;
+}
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+main {
+  flex: 1;
+  padding: 20px;
+}
+
+main-nav-template {
+  background-color: aqua;
+  top: 0;
+  position: sticky;
 }
 
 main-nav-template ul {
@@ -39,7 +55,7 @@ main {
   font-size: 20px;
 }
 
-footer-template div h1 {
+footer-template div {
   margin: 0;
 }
 
