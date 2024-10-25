@@ -4,171 +4,11 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <script src="../js/index.js" defer></script>
+    <script src="../../dist/ts/templates.js" defer></script>
     <title>Learning Web</title>
   </head>
   <body>
-    <!--CUSTOM TEMPLATES-->
-    <template id="notes-template">
-      <style>
-        .section-notes-container {
-          background-color: aquamarine;
-          padding: 10px 20px;
-          margin: 10px 0;
-        }
-      </style>
-      <div class="section-notes-container">
-        <h3>NOTES!!!</h3>
-        <slot name="notes-slot-legend"></slot>
-      </div>
-    </template>
-
-    <!-- THIS IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
-    <template id="custom-star-rating-template">
-      <form>
-        <fieldset>
-          <rating>
-            <input
-              type="radio"
-              name="rating"
-              value="1"
-              aria-label="1 star"
-              required
-            />
-            <input type="radio" name="rating" value="2" aria-label="2 stars" />
-            <input type="radio" name="rating" value="3" aria-label="3 stars" />
-            <input type="radio" name="rating" value="4" aria-label="4 stars" />
-            <input type="radio" name="rating" value="5" aria-label="5 stars" />
-          </rating>
-        </fieldset>
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
-      </form>
-    </template>
-
-    <template id="card-template">
-      <style>
-        .card {
-          border: 1px solid #ccc;
-          border-radius: 8px;
-          padding: 16px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-          max-width: 300px;
-          font-family: Arial, sans-serif;
-        }
-        .card-header {
-          font-size: 1.2em;
-          font-weight: bold;
-          margin-bottom: 8px;
-        }
-        .card-content {
-          font-size: 1em;
-          color: #555;
-        }
-      </style>
-      <div class="card">
-        <div class="card-header">
-          <slot name="header">Default Header</slot>
-          <!-- Slot for custom header content -->
-        </div>
-        <div class="card-content">
-          <slot name="content">Default Content</slot>
-          <!-- Slot for custom body content -->
-        </div>
-      </div>
-    </template>
-
-    <template id="star-rating-template2">
-      <form>
-        <fieldset>
-          <slot name="star-rating-legend">
-            <legend>Rate your experience:</legend>
-          </slot>
-          <rating>
-            <input
-              type="radio"
-              name="rating"
-              value="1"
-              aria-label="1 star"
-              required
-            />
-            <input type="radio" name="rating" value="2" aria-label="2 stars" />
-            <input type="radio" name="rating" value="3" aria-label="3 stars" />
-            <input type="radio" name="rating" value="4" aria-label="4 stars" />
-            <input type="radio" name="rating" value="5" aria-label="5 stars" />
-          </rating>
-        </fieldset>
-        <button type="reset">Reset</button>
-        <button type="submit">Submit</button>
-      </form>
-    </template>
-
-    <template id="random-template">
-      <h1>LALALA</h1>
-      <slot name="random-slot">
-        <h4>BY DEFAULT</h4>
-      </slot>
-    </template>
-
-    <template id="example-container-template">
-      <style>
-        .example-container {
-          padding: 10px 30px;
-          background-color: rgb(42, 227, 227);
-        }
-      </style>
-      <div class="example-container">
-        <h3>
-          Example <slot name="example-number-legend">DEFAULT</slot>:
-          <span style="text-transform: uppercase"
-            ><slot name="example-slot-legend"> DEAFULT NAME </slot></span
-          >
-        </h3>
-        <slot name="example-container-slot-legend">
-          <div>YOUR CUSTOM CONTENT HERE</div>
-        </slot>
-      </div>
-    </template>
-
-    <!-- SECTION TEMPLATE -->
-    <template id="section-template">
-      <style>
-        .section-container {
-          padding: 20px 0;
-        }
-
-        .section-title {
-          font-size: 36px;
-          color: rgb(95, 158, 160);
-          border-bottom: 2px solid;
-          border-color: bisque;
-          text-transform: uppercase;
-        }
-        .section-title:hover {
-          color: rgb(95, 158, 160, 0.8);
-          cursor: pointer;
-        }
-
-        .example-section-container {
-          display: flex;
-          flex-direction: column;
-          gap: 30px;
-        }
-      </style>
-      <section class="section-container">
-        <h2 class="section-title">
-          <slot name="section-title-legend">DEFAULT SECTION TITLE </slot>
-        </h2>
-
-        <div class="example-section-container">
-          <slot name="external-notes-container-legend-up"> </slot>
-          <slot name="section-example-container-legend">
-            <div class="example-container">DEFAULT DIV</div>
-          </slot>
-          <slot name="external-notes-container-legend-down"> </slot>
-        </div>
-      </section>
-    </template>
-
     <header>
       <section class="main-navigation">
         <nav aria-label="Main Navigation">
@@ -1431,7 +1271,6 @@
             <div class="example-container">
               <h3>Example 1: Template</h3>
 
-              <div id="render-template-rating-stars"></div>
 
               <div class="section-notes-container">
                 <h3>NOTES!!!</h3>
@@ -1518,16 +1357,6 @@
                   <h2>CUSTOM HEADER BY SLOT</h2>
                 </div>
               </card-template>
-
-              <custom-star-rating>
-                <legend slot="custom-star-rating-legend">
-                  Another random name
-                </legend>
-              </custom-star-rating>
-
-              <random-template>
-                <h1 slot="random-slot">BY ME</h1>
-              </random-template>
 
               <notes-template>
                 <ol slot="notes-slot-legend">
@@ -1961,7 +1790,5 @@
       <h1>Hi there! I m a footer</h1>
     </footer>
   </body>
-  <script src="../js/index.js"></script>
-  <script src="../js/templates.js"></script>
-  <script src="../../dist/ts/form-validation.js"></script>
+
 </html>
