@@ -7,22 +7,8 @@ body {
   padding: 0;
   margin: 0;
 }
-header {
-  background-color: aqua;
-  top: 0;
-  position: sticky;
-}
 
-header ul {
-  margin: 0;
-}
-
-.main-navigation {
-  height: 50px;
-  display: flex;
-  align-items: center;
-}
-.main-navigation nav ul {
+main-nav-template ul {
   display: flex;
   flex-direction: row;
   height: auto;
@@ -30,7 +16,8 @@ header ul {
   gap: 20px;
   list-style-type: none;
 }
-.main-navigation nav ul a {
+
+main-nav-template ul a {
   text-decoration: none;
   font-size: 16px;
   color: black;
@@ -52,11 +39,7 @@ main {
   font-size: 20px;
 }
 
-footer {
-  margin: 0;
-}
-
-footer h1 {
+footer-template div h1 {
   margin: 0;
 }
 
@@ -203,13 +186,12 @@ ul li a:hover {
   height: 100%;
 }
 
-
 rating {
   display: inline-flex;
 }
 
 /* make the current radio visually hidden */
-input[type=radio] {
+input[type="radio"] {
   appearance: none;
   margin: 0;
   box-shadow: none;
@@ -217,37 +199,36 @@ input[type=radio] {
 }
 
 /* generated content is supported on input. */
-input[type=radio]::after {
-  content: '\2605';
+input[type="radio"]::after {
+  content: "\2605";
   font-size: 32px;
 }
 
 /* by default, if no value is selected, all stars are grey */
-input[type=radio]:invalid::after {
+input[type="radio"]:invalid::after {
   color: #ddd;
 }
 
 /* if the rating has focus or is hovered, make all stars darker */
-rating:hover input[type=radio]:invalid::after,
-rating:focus-within input[type=radio]:invalid::after {
+rating:hover input[type="radio"]:invalid::after,
+rating:focus-within input[type="radio"]:invalid::after {
   color: #888;
 }
 
 /* make all the stars after the focused one light grey, until a value is selected */
-rating:hover input[type=radio]:hover~input[type=radio]:invalid::after,
-rating input[type=radio]:focus~input[type=radio]:invalid::after {
+rating:hover input[type="radio"]:hover ~ input[type="radio"]:invalid::after,
+rating input[type="radio"]:focus ~ input[type="radio"]:invalid::after {
   color: #ddd;
 }
 
-
 /* if a value is selected, make them all selected */
-rating input[type=radio]:valid {
+rating input[type="radio"]:valid {
   color: orange;
 }
 
 /* then make the ones coming after the selected value look inactive */
-rating input[type=radio]:checked~input[type=radio]:not(:checked)::after {
+rating input[type="radio"]:checked ~ input[type="radio"]:not(:checked)::after {
   color: #ccc;
-  content: '\2606';
+  content: "\2606";
   /* optional. hollow star */
 }

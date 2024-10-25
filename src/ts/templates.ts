@@ -179,16 +179,6 @@ class CustomCard extends HTMLElement {
   }
 }
 
-class CustomStarRatingV2 extends HTMLElement {
-  constructor() {
-    super()
-
-    const content = starRatingTemplate2.content
-    const shadowRoot = this.attachShadow({ mode: "open" })
-
-    shadowRoot.appendChild(content.cloneNode(true))
-  }
-}
 class RandomTemplate extends HTMLElement {
   constructor() {
     super()
@@ -235,8 +225,74 @@ class SectionTemplate extends HTMLElement {
   }
 }
 
+class MainNavTemplate extends HTMLElement {
+  constructor() {
+    super()
+    const mainNavTemplate = document.createElement("template")
+    mainNavTemplate.innerHTML = `
+      <style>
+        header {
+          background-color: aqua;
+          top: 0;
+          position: sticky;
+        }
+
+        header ul {
+          margin: 0;
+        }
+
+        .main-navigation {
+          height: 50px;
+          display: flex;
+          align-items: center;
+        }
+      </style>
+
+      <header>
+        <section class="main-navigation">
+          <nav aria-label="Main Navigation">
+            <slot name="main-nav-content-legend"> 
+            </slot>
+          </nav>
+        </section>
+      </header>
+    `
+
+    const templateContent = mainNavTemplate.content
+    const shadowRoot = this.attachShadow({ mode: "open" })
+
+    shadowRoot.appendChild(templateContent.cloneNode(true))
+  }
+}
+
+class FooterTemplate extends HTMLElement {
+  constructor() {
+    super()
+    const template = document.createElement("template")
+    template.innerHTML = `
+      <!-- FOOTER -->
+      <style>
+
+      footer {
+        margin: 0;
+      }
+      </style>
+      <footer style="background-color: dimgray; width: 100%">
+        <slot name="footer-content-legend"></slot>
+      </footer>
+    `
+
+    const templateContent = template.content
+    const shadowRoot = this.attachShadow({ mode: "open" })
+
+    shadowRoot.appendChild(templateContent.cloneNode(true))
+  }
+}
+
 customElements.define("card-template", CustomCard)
 customElements.define("random-template", RandomTemplate)
 customElements.define("notes-template", CustomNotesTemplate)
 customElements.define("example-template", CustomExampleTemplate)
 customElements.define("section-template", SectionTemplate)
+customElements.define("main-nav-template", MainNavTemplate)
+customElements.define("footer-template", FooterTemplate)
