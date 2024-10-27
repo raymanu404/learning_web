@@ -162,13 +162,12 @@ class CustomExampleTemplate extends HTMLElement {
       </style>
       <div class="example-container">
         <h3>
-          Example <slot name="example-number-legend">DEFAULT</slot>:
+          Example <slot name="example-number-legend"></slot>:
           <span style="text-transform: uppercase"
-            ><slot name="example-slot-legend"> DEAFULT NAME </slot></span
+            ><slot name="example-slot-legend">  </slot></span
           >
         </h3>
         <slot name="example-container-slot-legend">
-          <div>YOUR CUSTOM CONTENT HERE</div>
         </slot>
       </div>
 `;

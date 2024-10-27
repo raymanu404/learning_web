@@ -4,7 +4,9 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/form-validation.css" />
     <script src="../../dist/ts/templates.js" defer></script>
+    <script src="../../dist/ts/form-validation.js" defer></script>
     <title>Form Validation Learning</title>
   </head>
   <body>
@@ -104,6 +106,307 @@
             <!-- END OF EXAMPLE 2 -->
           </section-template>
           <!-- END OF SECTION -->
+
+          <!-- FORM ELEMENTS SECTION -->
+          <section-template id="form-elements-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">FORM ELEMENTS</div>
+
+            <!--EXAMPLE 1 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">INPUT & LABEL</span>
+              <div slot="example-container-slot-legend">
+                <form method="get">
+                  <div class="form-container">
+                    <div>
+                      <label for="full-name">Full name</label>
+                      <input type="text" id="full-name" name="full-name" />
+                    </div>
+                    <div>
+                      <label for="age">How old are you</label>
+                      <input
+                        type="number"
+                        id="age"
+                        name="age"
+                        value="1"
+                        min="1"
+                        max="100"
+                      />
+                    </div>
+                    <div>
+                      <label for="animal">What is your favorite animal?</label>
+                      <input type="text" id="animal" name="animal" />
+                    </div>
+                    <div>
+                      <fieldset>
+                        <legend>Your favorite car is:</legend>
+                        <label for="car-audi">AUDI</label>
+                        <input
+                          type="checkbox"
+                          id="car-audi"
+                          name="car"
+                          value="audi"
+                        />
+                        <label for="car-bmw">BMW</label>
+                        <input
+                          type="checkbox"
+                          id="car-bmw"
+                          name="car"
+                          value="bmw"
+                        />
+                        <label for="car-ford">FORD</label>
+                        <input
+                          type="checkbox"
+                          id="car-ford"
+                          name="car"
+                          value="ford"
+                        />
+                      </fieldset>
+                    </div>
+                    <div>
+                      <fieldset>
+                        <legend>GENRE</legend>
+                        <label for="genre-masculine">MASCULINE</label>
+                        <input
+                          type="radio"
+                          id="genre-masculine"
+                          name="genre"
+                          value="M"
+                        />
+                        <label for="genre-feminine">FEMININE</label>
+                        <input
+                          type="radio"
+                          id="genre-feminine"
+                          name="genre"
+                          value="F"
+                        />
+                        <label for="genre-other">OTHER</label>
+                        <input
+                          type="radio"
+                          id="genre-other"
+                          name="genre"
+                          value="O"
+                        />
+                      </fieldset>
+                      <div>
+                        <label for="comment">Comment</label>
+                        <textarea id="comment" name="comment"> </textarea>
+                      </div>
+                      <div>
+                        <label>Pick your favorite color</label>
+                        <select id="color" name="color">
+                          <option value="orange">ORANGE</option>
+                          <option value="pink">PINK</option>
+                          <option value="red">RED</option>
+                          <option value="yellow">YELLOW</option>
+                          <option value="purple" selected>PURPLE</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label for="pick-color">PICK COLOR</label>
+                        <input type="color" id="pick-color" name="pick-color" />
+                      </div>
+                    </div>
+                    <div>
+                      <label for="like-button">LIKE button</label>
+                      <button type="button" id="like-button" name="like-button">
+                        LIKE
+                      </button>
+                    </div>
+                  </div>
+
+                  <button type="submit">Save</button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <ul>
+                    <li>
+                      <p>
+                        The
+                        <span class="highlight-word-class">id</span> attribute
+                        connects the
+                        <span class="highlight-word-class">input</span> to the
+                        <span class="highlight-word-class">label</span>
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Use the
+                        <span class="highlight-word-class">name</span> attribute
+                        to identify the data the user enters with the control.
+                        If you submit the form, this name is included in the
+                        request
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Every
+                        <span class="highlight-word-class">button</span> element
+                        inside a form works as a Submit button by default. To
+                        disable the default Submit behavior, you can add
+                        <span class="highlight-word-class">type="button"</span>
+                        to the <span class="highlight-word-class">button</span>.
+                        This tells the browser that the button should not submit
+                        the form.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
+            </example-template>
+            <!-- END OF EXAMPLE 1 -->
+          </section-template>
+          <!-- END OF SECTION -->
+
+          <section-template id="autofill-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">AUTOFILL</div>
+
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend"
+                >Help user to not re-enter data in forms</span
+              >
+              <span slot="example-number-legend">1</span>
+              <div slot="example-container-slot-legend">
+                <form>
+                  <div class="form-container">
+                    <div>
+                      <label for="name"> NAME </label>
+                      <input
+                        type="text"
+                        name="name"
+                        autocomplete="cc-name"
+                        id="name"
+                        placeholder="full name"
+                      />
+                    </div>
+                    <div>
+                      <label for="email"> EMAIL </label>
+                      <input
+                        type="email"
+                        name="email"
+                        id="email"
+                        placeholder="youremail@email.com"
+                      />
+                    </div>
+                    <div>
+                      <label for="city"> CITY </label>
+                      <input
+                        type="text"
+                        name="city"
+                        id="city"
+                        autocomplete="address-level2"
+                        placeholder="city"
+                      />
+                    </div>
+                    <div>
+                      <label for="address-line1">ADDRESS LINE 1 </label>
+                      <input
+                        type="text"
+                        name="address-line1"
+                        id="address-line1"
+                        autocomplete="address-level1"
+                        placeholder="adress line 1"
+                      />
+                    </div>
+                    <div class="input-form-container">
+                      <label for="zip"> POSTAL CODE </label>
+                      <input
+                        type="text"
+                        name="zip"
+                        id="zip"
+                        autocomplete="postal-code"
+                        placeholder="postal-code"
+                      />
+                    </div>
+                    <div>
+                      <label for="username"> USERNAME </label>
+                      <input
+                        type="text"
+                        name="username"
+                        id="username"
+                        placeholder="username"
+                        autocomplete="username"
+                      />
+                    </div>
+                    <div>
+                      <label for="current-password">CURRENT PASSWORD </label>
+                      <input
+                        type="password"
+                        name="current-password"
+                        id="current-password"
+                        placeholder="current-password"
+                        autocomplete="on"
+                      />
+                    </div>
+                    <div>
+                      <label for="current-password"> NEW PASSWORD </label>
+                      <input
+                        type="password"
+                        name="new-password"
+                        id="new-password"
+                        placeholder="new-password"
+                        autocomplete="new-password"
+                      />
+                    </div>
+                    <div>
+                      <label for="one-time-code">ONE-TIME CODE</label>
+                      <input
+                        autocomplete="off"
+                        type="text"
+                        name="one-time-code"
+                        id="one-time-code"
+                      />
+                    </div>
+                  </div>
+                  <button>Submit</button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <ul>
+                    <li>
+                      <p>
+                        If you submit this form field, browsers store the value
+                        (the data you entered) along with the value of the
+                        <span class="highlight-word-class">name</span>
+                        attribute (name). Some browsers also look at the
+                        <span class="highlight-word-class">id</span>
+                        attribute when storing and filling in data
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        Autofill is especially useful in forms you regularly
+                        use, such as sign-up and sign-in, payment, checkout, and
+                        forms where you have to enter your name or address. You
+                        can help browsers offer the best autofill options by
+                        using appropriate values for the
+                        <span class="highlight-word-class">autocomplete</span>
+                        attribute
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        One place where autofill isn't helpful is when entering
+                        one-off, unique values such as a one-time code field.
+                        The value is different every time, and the browser
+                        shouldn't save values or offer an autofill option. You
+                        can use
+                        <span class="highlight-word-class"
+                          >autocomplete="off" </span
+                        >for such fields to prevent autofill.
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
+            </example-template>
+            <!-- END OF EXAMPLE 1 -->
+          </section-template>
         </div>
 
         <!-- NAVIGATION  -->
@@ -111,7 +414,13 @@
           <div slot="side-nav-content-legend">
             <ul>
               <li>
-                <a href="#get-data-from-users-sectio">GET DATA</a>
+                <a href="#get-data-from-users-section">GET DATA</a>
+              </li>
+              <li>
+                <a href="#form-elements-section">FORM ELEMENTS </a>
+              </li>
+              <li>
+                <a href="#autofill-section">AUTOFILL </a>
               </li>
             </ul>
           </div>
