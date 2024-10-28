@@ -8,3 +8,30 @@
 .input-form-container {
   display: flex;
 }
+
+
+.general-input:required{
+border: 3px solid gray;
+}
+
+.general-input:invalid {
+  border: 3px solid red;
+}
+
+.general-form-container{
+  padding: 20px 10px;
+  border: 2px dashed black;
+}
+
+.form-container-parent {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  width: 100%;
+}
+
+.validation-message {
+  display: block;
+  padding-top: 0.4em;
+  color: red;
+}

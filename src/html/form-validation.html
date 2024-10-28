@@ -193,7 +193,7 @@
                         <textarea id="comment" name="comment"> </textarea>
                       </div>
                       <div>
-                        <label>Pick your favorite color</label>
+                        <label for="color">Pick your favorite color</label>
                         <select id="color" name="color">
                           <option value="orange">ORANGE</option>
                           <option value="pink">PINK</option>
@@ -315,8 +315,8 @@
                       <label for="zip"> POSTAL CODE </label>
                       <input
                         type="text"
-                        name="zip"
-                        id="zip"
+                        name="postal-code"
+                        id="postal-code"
                         autocomplete="postal-code"
                         placeholder="postal-code"
                       />
@@ -407,6 +407,191 @@
             </example-template>
             <!-- END OF EXAMPLE 1 -->
           </section-template>
+
+          <section-template id="form-validation-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">FORM VALIDATION</div>
+
+            <!--EXAMPLE 1 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">INPUT VALIDATION</span>
+              <div slot="example-container-slot-legend">
+                <h4>We are using GET form just for learning purpose</h4>
+                <form>
+                  <div class="form-container">
+                    <div>
+                      <label for="email">Email (required)</label>
+                      <input
+                        required
+                        minlength="8"
+                        type="email"
+                        id="email"
+                        name="email"
+                        aria-describedby="email-minlength"
+                      />
+                      <div id="email-minlength">
+                        Enter at least eight characters
+                      </div>
+                    </div>
+                    <div>
+                      <label for="password">Password (required)</label>
+                      <input
+                        required
+                        minlength="8"
+                        type="password"
+                        id="password"
+                        name="password"
+                        aria-describedby="password-minlength"
+                      />
+                      <div id="password-minlength">
+                        Enter at least eight characters
+                      </div>
+                    </div>
+                    <div>
+                      <label for="animal"
+                        >What is your favorite animal? (required)</label
+                      >
+                      <input
+                        required
+                        pattern="[a-z]{2,20}"
+                        type="text"
+                        id="animal"
+                        name="animal"
+                        aria-describedby="match-animal-pattern"
+                      />
+                      <div id="match-animal-pattern">
+                        You need to introduce lowercase letters only, an
+                        interval of [2-20] chars
+                      </div>
+                    </div>
+                  </div>
+                  <button>SAVE</button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>Can add validation with HTML ATTRIBUTES:</p>
+                  <ul>
+                    <li>
+                      <span class="highlight-word-class"
+                        >minlength, maxlength
+                      </span>
+                    </li>
+                    <li>
+                      <span class="highlight-word-class">required </span>
+                    </li>
+                    <li>
+                      <span class="highlight-word-class">pattern </span
+                      ><span
+                        >, which you could add some regular expression</span
+                      >
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
+            </example-template>
+            <!-- END OF EXAMPLE  -->
+
+            <!--EXAMPLE 2 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">Styling & custom messages</span>
+              <div slot="example-container-slot-legend">
+                <div class="form-container-parent">
+                  <div>
+                    <h3>With invalid, requried styles in css</h3>
+                    <form class="general-form-container">
+                      <div class="form-container">
+                        <div>
+                          <label for="username-1">Username (required) :</label>
+                          <input
+                            id="username-1"
+                            name="username-1"
+                            value=""
+                            placeholder="john.doe01"
+                            required
+                            pattern="[a-zA-Z0-9]{2,20}"
+                            aria-describedby="username-1-describe"
+                            class="general-input"
+                          />
+                          <div id="username-1-describe">
+                            At least 2 chars, maximum 20, lowercase, uppercase,
+                            digits only
+                          </div>
+                        </div>
+                      </div>
+                      <button>SAVE</button>
+                    </form>
+                  </div>
+
+                  <div>
+                    <h3>With custom validity</h3>
+                    <form class="general-form-container">
+                      <div class="form-container">
+                        <div>
+                          <label for="username-2">Username (required) :</label>
+                          <input
+                            id="username-2"
+                            name="username-2"
+                            value=""
+                            placeholder="john.doe02"
+                            required
+                            pattern="[a-zA-Z0-9]{2,20}"
+                            aria-describedby="username2-describe"
+                            class="general-input"
+                          />
+                        </div>
+                      </div>
+                      <button>SAVE</button>
+                    </form>
+                  </div>
+
+                  <div>
+                    <h3>
+                      With custom validity + message to inform the user more
+                      precisely
+                    </h3>
+                    <form class="general-form-container">
+                      <div class="form-container">
+                        <div>
+                          <label for="username-3">Username (required) :</label>
+                          <input
+                            id="username-3"
+                            name="username-3"
+                            value=""
+                            placeholder="john.doe03"
+                            required
+                            pattern="[a-zA-Z0-9]{2,20}"
+                            aria-describedby="username3-validation"
+                            class="general-input"
+                          />
+                          <span
+                            id="username3-validation"
+                            aria-live="assertive"
+                            class="validation-message"
+                          ></span>
+                        </div>
+                      </div>
+                      <button>SAVE</button>
+                    </form>
+                  </div>
+                </div>
+              </div>
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <ul>
+                    <li>
+                      <p>
+                        <span class="highlight-word-class"
+                          >setCustomValidity</span
+                        >, change default message from validity pop up
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
+            </example-template>
+          </section-template>
         </div>
 
         <!-- NAVIGATION  -->
@@ -421,6 +606,9 @@
               </li>
               <li>
                 <a href="#autofill-section">AUTOFILL </a>
+              </li>
+              <li>
+                <a href="#form-validation-section">VALIDATION </a>
               </li>
             </ul>
           </div>
