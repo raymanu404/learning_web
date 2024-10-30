@@ -32,8 +32,10 @@
               <span slot="example-number-legend">1</span>
               <div slot="example-container-slot-legend">
                 <form method="get">
-                  <label for="animal">What is your favorite animal?</label>
-                  <input type="text" id="animal" name="animal" />
+                  <label for="animal-example-1"
+                    >What is your favorite animal?</label
+                  >
+                  <input type="text" id="animal-example-1" name="animal" />
                   <button type="submit">Save</button>
                 </form>
               </div>
@@ -56,8 +58,10 @@
               <span slot="example-number-legend">2</span>
               <div slot="example-container-slot-legend">
                 <form method="post">
-                  <label for="animal">What is your favorite animal?</label>
-                  <input type="text" id="animal" name="animal" />
+                  <label for="animal-example-2"
+                    >What is your favorite animal?</label
+                  >
+                  <input type="text" id="animal-example-2" name="animal" />
                   <button type="submit">Save</button>
                 </form>
               </div>
@@ -134,8 +138,14 @@
                       />
                     </div>
                     <div>
-                      <label for="animal">What is your favorite animal?</label>
-                      <input type="text" id="animal" name="animal" />
+                      <label for="animal-example-1-id"
+                        >What is your favorite animal?</label
+                      >
+                      <input
+                        type="text"
+                        id="animal-example-1-id"
+                        name="animal"
+                      />
                     </div>
                     <div>
                       <fieldset>
@@ -208,7 +218,6 @@
                       </div>
                     </div>
                     <div>
-                      <label for="like-button">LIKE button</label>
                       <button type="button" id="like-button" name="like-button">
                         LIKE
                       </button>
@@ -283,11 +292,12 @@
                       />
                     </div>
                     <div>
-                      <label for="email"> EMAIL </label>
+                      <label for="email-autofill-section"> EMAIL </label>
                       <input
                         type="email"
                         name="email"
-                        id="email"
+                        id="email-autofill-section"
+                        autocomplete="email"
                         placeholder="youremail@email.com"
                       />
                     </div>
@@ -312,7 +322,7 @@
                       />
                     </div>
                     <div class="input-form-container">
-                      <label for="zip"> POSTAL CODE </label>
+                      <label for="postal-code"> POSTAL CODE </label>
                       <input
                         type="text"
                         name="postal-code"
@@ -332,11 +342,13 @@
                       />
                     </div>
                     <div>
-                      <label for="current-password">CURRENT PASSWORD </label>
+                      <label for="current-password-autofill-section"
+                        >CURRENT PASSWORD
+                      </label>
                       <input
                         type="password"
                         name="current-password"
-                        id="current-password"
+                        id="current-password-autofill-section"
                         placeholder="current-password"
                         autocomplete="on"
                       />
@@ -427,6 +439,7 @@
                         type="email"
                         id="email"
                         name="email"
+                        autocomplete="email"
                         aria-describedby="email-minlength"
                       />
                       <div id="email-minlength">
@@ -572,7 +585,7 @@
                           ></span>
                         </div>
                       </div>
-                      <button>SAVE</button>
+                      <button id="save-button-validation-section">SAVE</button>
                     </form>
                   </div>
                 </div>
