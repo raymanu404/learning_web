@@ -36,4 +36,9 @@ formInput3 === null || formInput3 === void 0 ? void 0 : formInput3.addEventListe
 formInput3 === null || formInput3 === void 0 ? void 0 : formInput3.addEventListener("focus", (ev) => {
     errorMessage.innerText = "";
 });
+const formValidationExample3 = document.getElementById("form-container-validation-example-3-id");
+if (formValidationExample3) {
+    console.log(formValidationExample3.children);
+}
+const hiddenElemsLength = formValidationExample3 === null || formValidationExample3 === void 0 ? void 0 : formValidationExample3.children;
 //# sourceMappingURL=form-validation.js.map

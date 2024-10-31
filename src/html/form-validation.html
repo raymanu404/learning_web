@@ -36,7 +36,7 @@
                     >What is your favorite animal?</label
                   >
                   <input type="text" id="animal-example-1" name="animal" />
-                  <button type="submit">Save</button>
+                  <button type="submit" class="form-button">Save</button>
                 </form>
               </div>
 
@@ -62,7 +62,7 @@
                     >What is your favorite animal?</label
                   >
                   <input type="text" id="animal-example-2" name="animal" />
-                  <button type="submit">Save</button>
+                  <button type="submit" class="form-button">Save</button>
                 </form>
               </div>
 
@@ -218,13 +218,18 @@
                       </div>
                     </div>
                     <div>
-                      <button type="button" id="like-button" name="like-button">
+                      <button
+                        type="button"
+                        id="like-button"
+                        name="like-button"
+                        class="form-button"
+                      >
                         LIKE
                       </button>
                     </div>
                   </div>
 
-                  <button type="submit">Save</button>
+                  <button type="submit" class="form-button">Save</button>
                 </form>
               </div>
 
@@ -373,7 +378,7 @@
                       />
                     </div>
                   </div>
-                  <button>Submit</button>
+                  <button class="form-button">Submit</button>
                 </form>
               </div>
 
@@ -432,12 +437,14 @@
                 <form>
                   <div class="form-container">
                     <div>
-                      <label for="email">Email (required)</label>
+                      <label for="email-validation-example-1"
+                        >Email (required)</label
+                      >
                       <input
                         required
                         minlength="8"
                         type="email"
-                        id="email"
+                        id="email-validation-example-1"
                         name="email"
                         autocomplete="email"
                         aria-describedby="email-minlength"
@@ -447,13 +454,16 @@
                       </div>
                     </div>
                     <div>
-                      <label for="password">Password (required)</label>
+                      <label for="password-validation-example-1"
+                        >Password (required)</label
+                      >
                       <input
                         required
                         minlength="8"
                         type="password"
-                        id="password"
+                        id="password-validation-example-1"
                         name="password"
+                        autocomplete="off"
                         aria-describedby="password-minlength"
                       />
                       <div id="password-minlength">
@@ -461,14 +471,14 @@
                       </div>
                     </div>
                     <div>
-                      <label for="animal"
+                      <label for="animal-validation-example-1"
                         >What is your favorite animal? (required)</label
                       >
                       <input
                         required
                         pattern="[a-z]{2,20}"
                         type="text"
-                        id="animal"
+                        id="animal-validation-example-1"
                         name="animal"
                         aria-describedby="match-animal-pattern"
                       />
@@ -478,7 +488,12 @@
                       </div>
                     </div>
                   </div>
-                  <button>SAVE</button>
+                  <button
+                    class="form-button"
+                    id="save-button-validation-example-1"
+                  >
+                    SAVE
+                  </button>
                 </form>
               </div>
 
@@ -533,7 +548,7 @@
                           </div>
                         </div>
                       </div>
-                      <button>SAVE</button>
+                      <button class="form-button">SAVE</button>
                     </form>
                   </div>
 
@@ -555,7 +570,7 @@
                           />
                         </div>
                       </div>
-                      <button>SAVE</button>
+                      <button class="form-button">SAVE</button>
                     </form>
                   </div>
 
@@ -585,7 +600,12 @@
                           ></span>
                         </div>
                       </div>
-                      <button id="save-button-validation-section">SAVE</button>
+                      <button
+                        id="save-button-validation-section"
+                        class="form-button"
+                      >
+                        SAVE
+                      </button>
                     </form>
                   </div>
                 </div>
@@ -604,6 +624,112 @@
                 </div>
               </notes-template>
             </example-template>
+
+            <!--EXAMPLE 3 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">PREVENT SPAM (HONEYPOT) </span>
+              <div slot="example-container-slot-legend">
+                <h4>
+                  We are using GET form just for learning purpose, in usual
+                  cases with sensitive data use
+                  <span class="highlight-word-class">POST</span> method instead
+                </h4>
+                <form id="form-validation-example-3-id" autocomplete="off">
+                  <div
+                    class="form-container"
+                    id="form-container-validation-example-3-id"
+                  >
+                    <div>
+                      <label for="email-validation-example-3"
+                        >Email (required)</label
+                      >
+                      <input
+                        autocomplete="off"
+                        minlength="8"
+                        type="email"
+                        id="email-validation-example-3"
+                        name="email-validation-example-3"
+                        aria-describedby="email-minlength"
+                      />
+                      <div id="email-minlength">
+                        Enter at least eight characters
+                      </div>
+                    </div>
+                    <div>
+                      <label for="password-validation-example-3"
+                        >Password (required)</label
+                      >
+                      <input
+                        autocomplete="new-password"
+                        minlength="8"
+                        type="password"
+                        id="password-validation-example-3"
+                        name="password-validation-example-3"
+                        aria-describedby="password-minlength"
+                      />
+                      <div id="password-minlength">
+                        Enter at least eight characters
+                      </div>
+                    </div>
+                    <div>
+                      <label for="animal-validation-example-3"
+                        >What is your favorite animal? (required)</label
+                      >
+                      <input
+                        required
+                        pattern="[a-z]{2,20}"
+                        type="text"
+                        id="animal-validation-example-3"
+                        name="animal"
+                        aria-describedby="match-animal-pattern"
+                      />
+                      <div id="match-animal-pattern">
+                        You need to introduce lowercase letters only, an
+                        interval of [2-20] chars
+                      </div>
+                    </div>
+                    <div>
+                      <label hidden for="hidden-field-example-3"
+                        >THIS is HIDDEN LABEL, human cannot see or fill the
+                        input, but the bots could</label
+                      >
+                      <input
+                        type="text"
+                        id="hidden-field-example-3"
+                        tabindex="-1"
+                        hidden
+                      />
+                    </div>
+                  </div>
+                  <button
+                    class="form-button"
+                    id="save-button-validation-example-3"
+                  >
+                    SAVE
+                  </button>
+                </form>
+              </div>
+
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>
+                    'honeypot': a visually hidden form field. Humans won't see a
+                    honeypot field, but bots will fill it in. On the backend,
+                    your processing script can check if the field was completed
+                  </p>
+                  <p>
+                    There are also services like
+                    <a href="https://akismet.com/"
+                      ><span class="highlight-word-class">Akismet</span></a
+                    >, which can help you with spam protection. The Akismet
+                    filter works by combining information about spam captured on
+                    all participating sites, and then using those spam rules to
+                    block future spam.
+                  </p>
+                </div>
+              </notes-template>
+            </example-template>
+            <!--END OF EXAMPLE 3 -->
           </section-template>
         </div>
 

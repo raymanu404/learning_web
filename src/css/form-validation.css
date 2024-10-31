@@ -1,3 +1,7 @@
+a {
+  text-decoration: none;
+}
+
 .form-container {
   display: flex;
   flex-direction: column;
@@ -51,7 +55,7 @@
   }
 }
 
-button {
+.form-button {
   font-size: 16px;
   padding: 10px;
   border-radius: 10px;
@@ -59,6 +63,6 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.form-button:hover {
   background-color: aliceblue;
 }
