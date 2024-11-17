@@ -66,3 +66,7 @@ a {
 .form-button:hover {
   background-color: aliceblue;
 }
+
+#testing-form-example-4-id div input:focus {
+  outline: 4px solid #222;
+}

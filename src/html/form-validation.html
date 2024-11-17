@@ -730,10 +730,129 @@
               </notes-template>
             </example-template>
             <!--END OF EXAMPLE 3 -->
+
+            <!-- EXAMPLE 4 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend"
+                >TESTING & QUALITY ASSURANCE</span
+              >
+              <div slot="example-container-slot-legend">
+                <div>
+                  <notes-template slot="example-container-slot-legend">
+                    <div slot="notes-slot-legend">
+                      <ul>
+                        <li>
+                          <p>
+                            To ensure That forms works for keyboard, check if
+                            all fields/inputs are tababble, focusable
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Ensure users get an optimized keyboard (use
+                            different type from
+                            <span class="highlight-word-class">input</span>
+                            )
+                          </p>
+                        </li>
+                        <li>
+                          <p>
+                            Help users use your form when they are on the go.
+                            Remember that people will use your forms in many
+                            different contexts. In stressful situations, while
+                            doing other things, while on the go. You can help
+                            users by ensuring your form is easy to use. Try
+                            setting yourself a time limit to complete your form.
+                            Try to simulate imperfect conditions where you can
+                            test your form.
+                          </p>
+                        </li>
+                      </ul>
+                    </div>
+                  </notes-template>
+                  <form id="testing-form-example-4-id">
+                    <div
+                      class="form-container"
+                      id="form-container-testing-form-example-4-id"
+                    >
+                      <div>
+                        <label for="email-validation-example-4"
+                          >Email (required)</label
+                        >
+                        <input
+                          autocomplete="off"
+                          minlength="8"
+                          type="email"
+                          id="email-validation-example-4"
+                          name="email-validation-example-4"
+                          aria-describedby="email-minlength"
+                        />
+                        <div id="email-minlength">
+                          Enter at least eight characters
+                        </div>
+                      </div>
+                      <div>
+                        <label for="password-validation-example-3"
+                          >Password (required)</label
+                        >
+                        <input
+                          autocomplete="new-password"
+                          minlength="8"
+                          type="password"
+                          id="password-validation-example-4"
+                          name="password-validation-example-4"
+                          aria-describedby="password-minlength"
+                        />
+                        <div id="password-minlength">
+                          Enter at least eight characters
+                        </div>
+                      </div>
+                      <div>
+                        <label for="phone-validation-example-4">Phone</label>
+                        <input
+                          autocomplete="off"
+                          minlength="8"
+                          type="tel"
+                          id="phone-validation-example-4"
+                          name="phone-validation-example-4"
+                        />
+                      </div>
+                    </div>
+                    <button
+                      class="form-button"
+                      id="save-button-validation-example-4"
+                    >
+                      SAVE
+                    </button>
+                  </form>
+                </div>
+
+                <div>
+                  <form method="post" enctype="multipart/form-data">
+                    <div>
+                      <div>
+                        <label for="input-upload-file-example-4">
+                          Upload 1 to multiple images
+                        </label>
+                        <input
+                          type="file"
+                          id="file-image-id"
+                          name="file-image-example4"
+                          multiple
+                        />
+                      </div>
+                    </div>
+                    <button>Upload Image</button>
+                  </form>
+                </div>
+              </div>
+            </example-template>
+            <!--END OF EXAMPLE 4 -->
           </section-template>
         </div>
 
         <!-- NAVIGATION  -->
+        <!-- TODO: make active each section when user scrolls until he reach that section -->
         <side-nav-template class="navigation-container">
           <div slot="side-nav-content-legend">
             <ul>
