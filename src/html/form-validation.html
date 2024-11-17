@@ -846,6 +846,62 @@
                   </form>
                 </div>
               </div>
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  <p>
+                    3 types of
+                    <span class="highlight-word-class">enctype</span> attribute:
+                  </p>
+                  <ul>
+                    <li>
+                      <p>
+                        Use
+                        <span class="highlight-word-class"
+                          >application/x-www-form-urlencoded</span
+                        >
+                        (default) when you don;t have file upload in your form
+                      </p>
+                      <p>OUTPUT: username=john&password=12345</p>
+                    </li>
+                    <li>
+                      <p>
+                        <span class="highlight-word-class"
+                          >multipart/form-data</span
+                        >
+                        Purpose: Used when the form includes file uploads. This
+                        encoding allows sending files as binary data along with
+                        other fields in a single request.
+                      </p>
+                      <p>
+                        OUTPUT:
+                        <br />
+                        Content-Disposition: form-data; name="file";
+                        filename="example.png" <br />
+                        Content-Type: image/png
+                      </p>
+                    </li>
+                    <li>
+                      <p>
+                        <span class="highlight-word-class">text/plain</span>
+                        Purpose: Sends the form data as plain text without any
+                        encoding or formatting.
+                      </p>
+                      <p>
+                        When to Use: Rarely used, as it offers no structure to
+                        the data and is typically less useful for server-side
+                        processing.
+                      </p>
+                      <p>
+                        OUTPUT:
+                        <br />
+                        username=john
+                        <br />
+                        password=12345
+                      </p>
+                    </li>
+                  </ul>
+                </div>
+              </notes-template>
             </example-template>
             <!--END OF EXAMPLE 4 -->
           </section-template>
