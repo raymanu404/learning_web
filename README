@@ -1,6 +1,6 @@
 <!-- TO KEEP SAME FORMAT TEMPLATE IN HTML USE THIS TEMPLATE FOR NEW SECTION WITH EXAMPLE AND NOTES -->
 
-  <section-template id="-section">
+        <section-template id="-section">
             <!-- SECTION TITLE -->
             <div slot="section-title-legend">TITLE</div>
 
@@ -12,10 +12,14 @@
             
               </div>
 
+            <!-- NOTES -->
               <notes-template slot="example-container-slot-legend">
                 <div slot="notes-slot-legend">
                   
                 </div>
               </notes-template>
+              <!--END OF  NOTES -->
+                
             </example-template>
-            </section-template>
+              <!--END OF EXAMPLE 1 -->
+        </section-template>

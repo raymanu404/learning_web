@@ -905,6 +905,166 @@
             </example-template>
             <!--END OF EXAMPLE 4 -->
           </section-template>
+
+          <section-template id="miscellaneous-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">MISCELLANEOUS</div>
+
+            <!--EXAMPLE 1 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">FORM FIELDS in depth </span>
+              <span slot="example-number-legend">1</span>
+              <div slot="example-container-slot-legend">
+                <div id="example-1-miscellaneous-section">
+                  <form id="example-1-miscellaneous-section-form">
+                    <div>
+                      <div>
+                        <label for="name-example-1"> Full name </label>
+                        <input
+                          type="text"
+                          id="name-example-1"
+                          name="name-example-1"
+                        />
+                      </div>
+                      <div>
+                        <label for="age-example-1"> What is your age? </label>
+                        <input
+                          type="number"
+                          id="age-example-1"
+                          name="age-example-1"
+                        />
+                      </div>
+                      <div>
+                        <label for="tel-example-1">
+                          Hello, can you give me your number?
+                        </label>
+                        <input
+                          type="tel"
+                          id="tel-example-1"
+                          name="tel-example-1"
+                        />
+                      </div>
+                      <div>
+                        <label for="start-date-example-1">
+                          When do you want to start the trip?
+                        </label>
+                        <input
+                          type="date"
+                          id="start-date-example-1"
+                          name="start-date-example-1"
+                        />
+                      </div>
+                      <div>
+                        <label for="attendees-example-1">
+                          How many attendees?
+                        </label>
+                        <select
+                          id="attendees-example-1"
+                          name="attendees-example-1"
+                        >
+                          <option value="1">1</option>
+                          <option value="2">2</option>
+                          <option value="3">3</option>
+                          <option value="4">4</option>
+                          <option value="5">5</option>
+                          <option value="more">More</option>
+                        </select>
+                      </div>
+                      <div>
+                        <label for="preference-example-1">
+                          What is your preference?
+                        </label>
+                        <div id="preference-example-1">
+                          <div>
+                            <label for="montain"> Montain </label>
+                            <input
+                              type="radio"
+                              name="preference-example-1"
+                              value="montain"
+                              id="montain"
+                            />
+                          </div>
+
+                          <div>
+                            <label for="sea"> Sea </label>
+                            <input
+                              type="radio"
+                              name="preference-example-1"
+                              value="sea"
+                              id="sea"
+                            />
+                          </div>
+
+                          <div>
+                            <label for="camping"> Camping </label>
+                            <input
+                              type="radio"
+                              name="preference-example-1"
+                              value="camping"
+                              id="camping"
+                            />
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <label for="accomodate-time-example-1">
+                          How much do you want to stay? (Days)
+                        </label>
+                        <input
+                          min="1"
+                          type="number"
+                          value="1"
+                          max="100"
+                          minlength="1"
+                          id="accomodate-time-example-1"
+                          name="accomodate-time-example-1"
+                          inputmode="numeric"
+                        />
+                      </div>
+                      <div>
+                        <label for="destination-example-1">
+                          Choose your Destination
+                        </label>
+                        <input
+                          list="destination-list"
+                          id="destination-example-1"
+                          name="destination-example-1"
+                        />
+                        <datalist id="destination-list">
+                          <option value="London"></option>
+                          <option value="New York"></option>
+                          <option value="Barcelona"></option>
+                          <option value="Rome"></option>
+                          <option value="Paris"></option>
+                        </datalist>
+                      </div>
+                      <div>
+                        <label for="rate-example-1">
+                          Give us your feedback (1 out of 10)
+                        </label>
+                        <input
+                          min="1"
+                          type="range"
+                          value="1"
+                          max="10"
+                          id="rate-example-1"
+                          name="rate-example-1"
+                        />
+                      </div>
+                    </div>
+                    <button>Save</button>
+                  </form>
+                </div>
+              </div>
+
+              <!-- NOTES -->
+              <!-- <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend"></div>
+              </notes-template> -->
+              <!--END OF  NOTES -->
+            </example-template>
+            <!--END OF EXAMPLE 1 -->
+          </section-template>
         </div>
 
         <!-- NAVIGATION  -->
@@ -923,6 +1083,9 @@
               </li>
               <li>
                 <a href="#form-validation-section">VALIDATION </a>
+              </li>
+              <li>
+                <a href="#miscellaneous-section">MISCELLANEOUS </a>
               </li>
             </ul>
           </div>
