@@ -90,3 +90,9 @@ input[name="destination-example-1"] {
 .display-block {
   display: block;
 }
+
+#preference-example-1 {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}

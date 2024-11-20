@@ -60,58 +60,35 @@ const formValidationExample3 = document.getElementById(
   "form-container-validation-example-3-id"
 )
 
-if (formValidationExample3) {
-  console.log(formValidationExample3.children)
-}
-
 const hiddenElemsLength = formValidationExample3?.children
 
-//CHALLENGE: SHOW INPUTS BY USER INTERACTIONS
+// 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS - DONE ✅
 
 //select options elements
-const option1 = document.getElementById(
-  "preference-example-1-option-1"
-) as HTMLInputElement
-const option2 = document.getElementById(
-  "preference-example-1-option-2"
-) as HTMLInputElement
-const option3 = document.getElementById(
-  "preference-example-1-option-3"
-) as HTMLInputElement
-
 const options = document.getElementsByName("preference-example-1")
-const optionsMap = []
+const inputOptions = document.getElementsByName(
+  "preference-example-1-input-container"
+)
 
-options.forEach((value) => optionsMap.push(value.id))
+const optionsArray = Array.from(options)
+const optionArrayIds = optionsArray.map((x) => x.id)
+const inputOptionsArray = Array.from(inputOptions)
 
 const optionClickHandler = (event: MouseEvent) => {
   const target = event.target
   if (target instanceof HTMLElement) {
     const { id } = target
-
-    // if (optionsMap.find(id.toString()) {
-    // }
+    const optionIdString = id.substring(id.indexOf("option"))
+    if (optionArrayIds.find((item) => item === id)) {
+      inputOptionsArray.forEach((input) => {
+        if (input.id.includes(optionIdString)) {
+          input.classList.add("display-block")
+        } else {
+          input.classList.remove("display-block")
+        }
+      })
+    }
   }
 }
 
 options.forEach((value) => value.addEventListener("click", optionClickHandler))
-
-//select inputs for each option
-const option1Input = document.getElementById(
-  "preference-example-1-option-1-input-container"
-)
-
-const option2Input = document.getElementById(
-  "preference-example-1-option-2-input-container"
-)
-
-const option3Input = document.getElementById(
-  "preference-example-1-option-3-input-container"
-)
-console.log("hello")
-
-console.log(options)
-// if (option1 && option1.checked) {
-//   console.log("hello")
-//   option1Input?.classList.add(".display-none")
-// }
