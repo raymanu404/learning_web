@@ -70,3 +70,23 @@ a {
 #testing-form-example-4-id div input:focus {
   outline: 4px solid #222;
 }
+
+input[name="destination-example-1"] {
+  font-size: 20px;
+}
+#example-1-miscellaneous-section-form {
+  width: 50%;
+}
+
+.form-field-display-inline {
+  display: flex;
+  justify-content: space-between;
+}
+
+.display-none {
+  display: none;
+}
+
+.display-block {
+  display: block;
+}

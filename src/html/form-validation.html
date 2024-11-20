@@ -917,8 +917,8 @@
               <div slot="example-container-slot-legend">
                 <div id="example-1-miscellaneous-section">
                   <form id="example-1-miscellaneous-section-form">
-                    <div>
-                      <div>
+                    <div class="form-container-parent">
+                      <div class="form-field-display-inline">
                         <label for="name-example-1"> Full name </label>
                         <input
                           type="text"
@@ -926,7 +926,7 @@
                           name="name-example-1"
                         />
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="age-example-1"> What is your age? </label>
                         <input
                           type="number"
@@ -934,7 +934,7 @@
                           name="age-example-1"
                         />
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="tel-example-1">
                           Hello, can you give me your number?
                         </label>
@@ -944,7 +944,7 @@
                           name="tel-example-1"
                         />
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="start-date-example-1">
                           When do you want to start the trip?
                         </label>
@@ -954,7 +954,7 @@
                           name="start-date-example-1"
                         />
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="attendees-example-1">
                           How many attendees?
                         </label>
@@ -970,43 +970,91 @@
                           <option value="more">More</option>
                         </select>
                       </div>
-                      <div>
-                        <label for="preference-example-1">
-                          What is your preference?
-                        </label>
-                        <div id="preference-example-1">
-                          <div>
-                            <label for="montain"> Montain </label>
+                      <div class="form-field-display-inline">
+                        <div>
+                          <label for="preference-example-1">
+                            What is your preference?
+                          </label>
+                          <div id="preference-example-1">
+                            <div>
+                              <label for="preference-example-1-option-1">
+                                Montain
+                              </label>
+                              <input
+                                type="radio"
+                                name="preference-example-1"
+                                value="montain"
+                                id="preference-example-1-option-1"
+                              />
+                            </div>
+
+                            <div>
+                              <label for="preference-example-1-option-2">
+                                Sea
+                              </label>
+                              <input
+                                type="radio"
+                                name="preference-example-1"
+                                value="sea"
+                                id="preference-example-1-option-2"
+                              />
+                            </div>
+
+                            <div>
+                              <label for="preference-example-1-option-3">
+                                Camping
+                              </label>
+                              <input
+                                type="radio"
+                                name="preference-example-1"
+                                value="camping"
+                                id="preference-example-1-option-3"
+                              />
+                            </div>
+                          </div>
+                        </div>
+                        <div>
+                          <div
+                            id="preference-example-1-option-1-input-container"
+                          >
+                            <label for="preference-example-1-option-1-input"
+                              >Write down what Montains do you want to
+                              visit?</label
+                            >
                             <input
-                              type="radio"
-                              name="preference-example-1"
-                              value="montain"
-                              id="montain"
+                              id="preference-example-1-option-1-input"
+                              type="text"
+                              placeholder="favourite montains"
                             />
                           </div>
-
-                          <div>
-                            <label for="sea"> Sea </label>
+                          <div
+                            id="preference-example-1-option-2-input-container"
+                          >
+                            <label for="preference-example-1-option-2-input"
+                              >What is your next trip?</label
+                            >
                             <input
-                              type="radio"
-                              name="preference-example-1"
-                              value="sea"
-                              id="sea"
+                              type="text"
+                              placeholder="favourite sea"
+                              id="preference-example-1-option-2-input"
                             />
                           </div>
-
-                          <div>
-                            <label for="camping"> Camping </label>
+                          <div
+                            id="preference-example-1-option-3-input-container"
+                          >
+                            <label for="preference-example-1-option-3-input"
+                              >Write down what is your next journey to
+                              camp?</label
+                            >
                             <input
-                              type="radio"
-                              name="preference-example-1"
-                              value="camping"
-                              id="camping"
+                              type="text"
+                              placeholder="camping places"
+                              id="preference-example-1-option-3-input"
                             />
                           </div>
                         </div>
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="accomodate-time-example-1">
                           How much do you want to stay? (Days)
                         </label>
@@ -1021,7 +1069,7 @@
                           inputmode="numeric"
                         />
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="destination-example-1">
                           Choose your Destination
                         </label>
@@ -1038,7 +1086,7 @@
                           <option value="Paris"></option>
                         </datalist>
                       </div>
-                      <div>
+                      <div class="form-field-display-inline">
                         <label for="rate-example-1">
                           Give us your feedback (1 out of 10)
                         </label>
@@ -1052,7 +1100,7 @@
                         />
                       </div>
                     </div>
-                    <button>Save</button>
+                    <button class="form-button">Save</button>
                   </form>
                 </div>
               </div>

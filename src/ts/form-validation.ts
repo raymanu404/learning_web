@@ -65,3 +65,53 @@ if (formValidationExample3) {
 }
 
 const hiddenElemsLength = formValidationExample3?.children
+
+//CHALLENGE: SHOW INPUTS BY USER INTERACTIONS
+
+//select options elements
+const option1 = document.getElementById(
+  "preference-example-1-option-1"
+) as HTMLInputElement
+const option2 = document.getElementById(
+  "preference-example-1-option-2"
+) as HTMLInputElement
+const option3 = document.getElementById(
+  "preference-example-1-option-3"
+) as HTMLInputElement
+
+const options = document.getElementsByName("preference-example-1")
+const optionsMap = []
+
+options.forEach((value) => optionsMap.push(value.id))
+
+const optionClickHandler = (event: MouseEvent) => {
+  const target = event.target
+  if (target instanceof HTMLElement) {
+    const { id } = target
+
+    // if (optionsMap.find(id.toString()) {
+    // }
+  }
+}
+
+options.forEach((value) => value.addEventListener("click", optionClickHandler))
+
+//select inputs for each option
+const option1Input = document.getElementById(
+  "preference-example-1-option-1-input-container"
+)
+
+const option2Input = document.getElementById(
+  "preference-example-1-option-2-input-container"
+)
+
+const option3Input = document.getElementById(
+  "preference-example-1-option-3-input-container"
+)
+console.log("hello")
+
+console.log(options)
+// if (option1 && option1.checked) {
+//   console.log("hello")
+//   option1Input?.classList.add(".display-none")
+// }
