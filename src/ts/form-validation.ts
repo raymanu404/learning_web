@@ -94,3 +94,7 @@ const optionClickHandler = (event: MouseEvent) => {
 options.forEach((value) => value.addEventListener("click", optionClickHandler))
 
 // 🟦#02.CHALLENGE: MAKE payment validation (maybe makes UI updates like card number to display with dashes, expiry date, security code etc...) from section: #miscellaneous-section example 2
+const paymentNameInput = document.getElementById('name-example-2')
+const paymentNumberInput = document.getElementById('name-example-2')
+const expiryInput = document.getElementById('name-example-2')
+const securityCodeInput = document.getElementById('name-example-2')
