@@ -60,8 +60,35 @@ const formValidationExample3 = document.getElementById(
   "form-container-validation-example-3-id"
 )
 
-if (formValidationExample3) {
-  console.log(formValidationExample3.children)
+const hiddenElemsLength = formValidationExample3?.children
+
+// 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS - DONE ✅
+
+//select options elements
+const options = document.getElementsByName("preference-example-1")
+const inputOptions = document.getElementsByName(
+  "preference-example-1-input-container"
+)
+
+const optionsArray = Array.from(options)
+const optionArrayIds = optionsArray.map((x) => x.id)
+const inputOptionsArray = Array.from(inputOptions)
+
+const optionClickHandler = (event: MouseEvent) => {
+  const target = event.target
+  if (target instanceof HTMLElement) {
+    const { id } = target
+    const optionIdString = id.substring(id.indexOf("option"))
+    if (optionArrayIds.find((item) => item === id)) {
+      inputOptionsArray.forEach((input) => {
+        if (input.id.includes(optionIdString)) {
+          input.classList.add("display-block")
+        } else {
+          input.classList.remove("display-block")
+        }
+      })
+    }
+  }
 }
 
-const hiddenElemsLength = formValidationExample3?.children
+options.forEach((value) => value.addEventListener("click", optionClickHandler))

@@ -1,0 +1,25 @@
+<!-- TO KEEP SAME FORMAT TEMPLATE IN HTML USE THIS TEMPLATE FOR NEW SECTION WITH EXAMPLE AND NOTES -->
+
+        <section-template id="-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">TITLE</div>
+
+            <!--EXAMPLE 1 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">INPUT & LABEL</span>
+              <span slot="example-number-legend">1</span>
+              <div slot="example-container-slot-legend">
+            
+              </div>
+
+            <!-- NOTES -->
+              <notes-template slot="example-container-slot-legend">
+                <div slot="notes-slot-legend">
+                  
+                </div>
+              </notes-template>
+              <!--END OF  NOTES -->
+                
+            </example-template>
+              <!--END OF EXAMPLE 1 -->
+        </section-template>
