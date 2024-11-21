@@ -915,7 +915,7 @@
               <span slot="example-slot-legend">FORM FIELDS in depth </span>
               <span slot="example-number-legend">1</span>
               <div slot="example-container-slot-legend">
-                <div id="example-1-miscellaneous-section">
+                <div class="example-form-container">
                   <form id="example-1-miscellaneous-section-form">
                     <div class="form-container-parent">
                       <div class="form-field-display-inline">
@@ -1109,14 +1109,78 @@
                   </form>
                 </div>
               </div>
-
-              <!-- NOTES -->
-              <!-- <notes-template slot="example-container-slot-legend">
-                <div slot="notes-slot-legend"></div>
-              </notes-template> -->
               <!--END OF  NOTES -->
             </example-template>
             <!--END OF EXAMPLE 1 -->
+
+              <!--EXAMPLE 2 -->
+              <example-template slot="section-example-container-legend">
+                <span slot="example-slot-legend">Payment fields</span>
+                <span slot="example-number-legend">2</span>
+                <div slot="example-container-slot-legend">
+                  <div class="example-form-container"> 
+                    <form>
+                      <div class="form-container">
+                        <div class="form-container-parent">
+                          <div class="display-flex-column">
+                            <label for="name-example-2"> Name </label>
+                            <input
+                              type="text"
+                              id="name-example-2"
+                              name="name-example-2"
+                              autocomplete="cc-name"
+                            />
+                          </div>
+                          <div class="display-flex-column">
+                            <label for="card-number-example-2"> Card number </label>
+                            <input
+                              type="number"
+                              id="card-number-example-2"
+                              name="card-number-example-2"
+                              autocomplete="cc-number"
+                              inputmode="numeric"
+                              required
+                              pattern="[0-9]+"
+                            />
+                          </div>
+                          <div class="inline-boxes-container">
+                            <div class="display-flex-column">
+                              <label for="expiry-date-example-2"> Expiry Date </label>
+                              <input
+                                type="text"
+                                id="expiry-date-example-2"
+                                name="expiry-date-example-2"
+                                autocomplete="cc-exp"
+                                placeholder="MM/YY"
+                                required
+                                pattern="[0-9/]+"
+                              />
+                            </div>
+                            <div class="display-flex-column">
+                              <label for="security-code-example-2"> Security Code </label>
+                              <input
+                                type="text"
+                                id="security-code-example-2"
+                                name="security-code-example-2"
+                                autocomplete="cc-csc"
+                                minlength="3"
+                                maxlength="4"
+                                required
+                              />
+                            </div>
+                          </div>
+                        </div>
+                       <div >
+                        <button class="form-button">
+                          Submit your payment
+                        </button>
+                       </div>
+                      </div>
+                    </form>
+                  </div>
+                </div>
+              </example-template>
+              <!--END OF EXAMPLE 1 -->
           </section-template>
         </div>
 

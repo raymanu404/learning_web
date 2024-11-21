@@ -62,7 +62,7 @@ const formValidationExample3 = document.getElementById(
 
 const hiddenElemsLength = formValidationExample3?.children
 
-// 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS - DONE ✅
+// 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS ✅
 
 //select options elements
 const options = document.getElementsByName("preference-example-1")
@@ -92,3 +92,5 @@ const optionClickHandler = (event: MouseEvent) => {
 }
 
 options.forEach((value) => value.addEventListener("click", optionClickHandler))
+
+// 🟦#02.CHALLENGE: MAKE payment validation (maybe makes UI updates like card number to display with dashes, expiry date, security code etc...) from section: #miscellaneous-section example 2
