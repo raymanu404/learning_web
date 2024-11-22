@@ -6,7 +6,7 @@
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/form-validation.css" />
     <script src="../../dist/ts/templates.js" defer></script>
-    <script src="../../dist/ts/form-validation.js" defer></script>
+    <script  type="module" src="../../dist/ts/form-validation.js" defer></script>
     <title>Form Validation Learning</title>
   </head>
   <body>
@@ -1130,6 +1130,7 @@
                               name="name-example-2"
                               autocomplete="cc-name"
                             />
+                            <span id="name-example-2-error-message" class="error-message-label"></span>
                           </div>
                           <div class="display-flex-column">
                             <label for="card-number-example-2"> Card number </label>
@@ -1142,7 +1143,8 @@
                               required
                               pattern="[0-9]+"
                             />
-                          </div>name-example-2
+                            <span id="card-number-example-2-error-message" class="error-message-label"></span>
+                          </div>
                           <div class="inline-boxes-container">
                             <div class="display-flex-column">
                               <label for="expiry-date-example-2"> Expiry Date </label>
@@ -1155,6 +1157,7 @@
                                 required
                                 pattern="[0-9/]+"
                               />
+                              <span id="expiry-date-example-2-error-message" class="error-message-label"></span>
                             </div>
                             <div class="display-flex-column">
                               <label for="security-code-example-2"> Security Code </label>
@@ -1167,11 +1170,12 @@
                                 maxlength="4"
                                 required
                               />
+                              <span id="security-code-example-2-error-message" class="error-message-label"></span>
                             </div>
                           </div>
                         </div>
                        <div >
-                        <button class="form-button">
+                        <button class="form-button" id="payment-example-2-button">
                           Submit your payment
                         </button>
                        </div>

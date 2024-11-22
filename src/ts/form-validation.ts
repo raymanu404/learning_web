@@ -94,7 +94,101 @@ const optionClickHandler = (event: MouseEvent) => {
 options.forEach((value) => value.addEventListener("click", optionClickHandler))
 
 // 🟦#02.CHALLENGE: MAKE payment validation (maybe makes UI updates like card number to display with dashes, expiry date, security code etc...) from section: #miscellaneous-section example 2
-const paymentNameInput = document.getElementById('name-example-2')
-const paymentNumberInput = document.getElementById('name-example-2')
-const expiryInput = document.getElementById('name-example-2')
-const securityCodeInput = document.getElementById('name-example-2')
+
+//TODO: EXTRACT ALL CONSTS AND REUSEABLE COMPS LATER
+// CREATE MAP BETWEEN PAYMENT INPUTS NAMES 
+const PAYMENT_INPUTS_MAPPER = {
+  NAME_ON_CARD : "name", 
+  CARD_NUMBER : "card-number", 
+  EXPIRY_DATE : "expiry-date", 
+  SECURITY_CODE : "security-code" 
+}
+
+const PAYMENT_ID_SUFFIX = "example-2"
+const ERROR_MESSAGE_SUFFIX = "error-message"
+
+const  PAYMENT_NAME_ON_CARD_INPUT_MIN_LENGTH = 1
+const  PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH = 50
+
+//PAYMENT INPUTS
+const paymentNameInput = document.getElementById(`${PAYMENT_INPUTS_MAPPER.NAME_ON_CARD}-${PAYMENT_ID_SUFFIX}`) as HTMLInputElement
+const paymentNumberInput = document.getElementById(`${PAYMENT_INPUTS_MAPPER.CARD_NUMBER}-${PAYMENT_ID_SUFFIX}`) as HTMLInputElement
+const expiryInput = document.getElementById(`${PAYMENT_INPUTS_MAPPER.EXPIRY_DATE}-${PAYMENT_ID_SUFFIX}`) as HTMLInputElement
+const securityCodeInput = document.getElementById(`${PAYMENT_INPUTS_MAPPER.SECURITY_CODE}-${PAYMENT_ID_SUFFIX}`) as HTMLInputElement
+
+//PAYMENT INPUTS ERROR MESSAGE LABELS
+const paymentNameErrorMessage = document.getElementById(`${PAYMENT_INPUTS_MAPPER.NAME_ON_CARD}-${PAYMENT_ID_SUFFIX}-${ERROR_MESSAGE_SUFFIX}`) as HTMLSpanElement
+const paymentNumberErrorMessage = document.getElementById(`${PAYMENT_INPUTS_MAPPER.CARD_NUMBER}-${PAYMENT_ID_SUFFIX}-${ERROR_MESSAGE_SUFFIX}`) as HTMLSpanElement
+const expiryErrorMessage = document.getElementById(`${PAYMENT_INPUTS_MAPPER.EXPIRY_DATE}-${PAYMENT_ID_SUFFIX}-${ERROR_MESSAGE_SUFFIX}`) as HTMLSpanElement
+const securityCodeErrorMessage = document.getElementById(`${PAYMENT_INPUTS_MAPPER.SECURITY_CODE}-${PAYMENT_ID_SUFFIX}-${ERROR_MESSAGE_SUFFIX}`) as HTMLSpanElement
+
+//PAYMENT SUBMIT BUTTON
+const paymentSubmitBtn = document.getElementById(`payment-${PAYMENT_ID_SUFFIX}-button`) as HTMLButtonElement
+
+
+//REGEX AND ERROR MESSAGES
+const nameInputReg = /^[A-Za-z\s]+$/
+const errorPaymentNameInputMessage = "Should have: uppercase and lowercase letters, spaces, wihtout special characters like (#@!_()[]./')"
+//Check validation for each input by onBlur method
+
+//SET VALIDATION FOR NAME ON CARD
+paymentNameInput.maxLength = PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH
+paymentNameInput?.addEventListener('blur', (event)=>{
+  paymentNameInput.setCustomValidity(errorPaymentNameInputMessage)
+  //TODO: refactor this method to be generic one
+  const target = event.target
+  if(target instanceof HTMLInputElement){
+    const {value} = target
+    if(value.length > 1){
+      paymentNameInput.pattern = nameInputReg.source
+      if(!nameInputReg.test(value)){
+        paymentNameErrorMessage.innerText = errorPaymentNameInputMessage 
+      }else{
+        paymentNameErrorMessage.innerText = ""
+      }
+    }
+
+    if(value.length === 0){
+      paymentNameInput.removeAttribute('pattern')
+      console.log("remove pattern")
+    }
+  }
+})
+
+paymentSubmitBtn.addEventListener('click', ()=>{
+  if(!nameInputReg.test(paymentNameInput.value) && paymentNameInput.hasAttribute('pattern')){
+    paymentNameInput.setCustomValidity(errorPaymentNameInputMessage) 
+  }else{
+    paymentNameInput.setCustomValidity("") 
+  }
+})
+
+//SET VALIDATION FOR CARD NUMBER
+// paymentNameInput.maxLength = PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH
+// paymentNameInput?.addEventListener('blur', (event)=>{
+//   const target = event.target
+//   if(target instanceof HTMLInputElement){
+//     const {value} = target
+//     if(value.length > 1){
+//       const errorPaymentNameInputMessage = "Should have: uppercase and lowercase letters, spaces, wihtout special characters like (#@!_()[]./')"
+//       const regexString = "^[A-Za-z\s]+$"
+//       const nameInputReg = new RegExp(regexString)
+//       paymentNameInput.pattern = regexString
+//       if(!nameInputReg.test(value)){
+//         paymentNameInput.setCustomValidity(errorPaymentNameInputMessage)
+//       }
+//     }
+
+//     if(value.length === 0){
+//       paymentNameInput.removeAttribute('pattern')
+//     }
+//   }
+// })
+
+// paymentNameInput?.addEventListener('change', (event)=> {
+//   const target = event.target
+//   if(target instanceof HTMLInputElement){
+//     const {value} = target
+  
+//   }
+// })
