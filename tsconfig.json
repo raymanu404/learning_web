@@ -20,7 +20,9 @@
     "baseUrl": "./",                        // Base directory for resolving non-relative module imports
     "paths": {                              // Define module resolution paths
       "@/*": ["src/*"]
-    }
+    },
+    "lib": ["es2021", "dom"], 
+
   },
   "include": ["src/**/*"],                // Files to include in the compilation (all files in `src/`)
   "exclude": ["node_modules","dist"]       // Files to exclude from the compilation

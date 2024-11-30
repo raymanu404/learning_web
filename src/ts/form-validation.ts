@@ -122,6 +122,9 @@ const ERROR_MESSAGE_SUFFIX = 'error-message';
 
 const PAYMENT_NAME_ON_CARD_INPUT_MIN_LENGTH = 1;
 const PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH = 50;
+const PAYMENT_CARD_NUMBER_INPUT_MAX_LENGTH = 19;
+const PAYMENT_EXPIRY_DATE_INPUT_MAX_LENGTH = 5;
+const PAYMENT_SECURITY_CODE_INPUT_MAX_LENGTH = 4;
 
 //PAYMENT INPUTS
 const paymentNameInput = document.getElementById(
@@ -132,11 +135,11 @@ const paymentNumberInput = document.getElementById(
   PAYMENT_FIELD_INPUTS_MAPPER.CARD_NUMBER,
 ) as HTMLInputElement;
 
-const expiryInput = document.getElementById(
+const paymentExpiryInput = document.getElementById(
   PAYMENT_FIELD_INPUTS_MAPPER.EXPIRY_DATE,
 ) as HTMLInputElement;
 
-const securityCodeInput = document.getElementById(
+const paymentSecurityCodeInput = document.getElementById(
   PAYMENT_FIELD_INPUTS_MAPPER.SECURITY_CODE,
 ) as HTMLInputElement;
 
@@ -187,6 +190,7 @@ interface PaymentFieldStateI {
   pattern: RegExp;
   errorMessage: string;
   labelElement: HTMLSpanElement;
+  inputElement: HTMLInputElement;
 }
 
 type FormFieldStateI = {
@@ -199,144 +203,207 @@ const formFieldDefault: FormFieldStateI = {
     isValid: false,
     errorMessage: errorPaymentNameInputMessage,
     labelElement: paymentNameErrorMessage,
+    inputElement: paymentNameInput,
   },
   'card-number-example-2': {
     pattern: cardNumberInputReg,
     isValid: false,
     errorMessage: errorPaymentCardNumberInputMessage,
     labelElement: paymentNumberErrorMessage,
+    inputElement: paymentNumberInput,
   },
   'expiry-date-example-2': {
     pattern: expiryDateInputReg,
     isValid: false,
     errorMessage: errorPaymentExpiryDateInputMessage,
     labelElement: expiryErrorMessage,
+    inputElement: paymentExpiryInput,
   },
   'security-code-example-2': {
     pattern: securityCodeInputReg,
     isValid: false,
     errorMessage: errorPaymentSecurityCodeInputMessage,
     labelElement: securityCodeErrorMessage,
+    inputElement: paymentSecurityCodeInput,
   },
 };
 
+const formFieldDefaultArray = Array.from(Object.entries(formFieldDefault));
+
+//TODO: check onblur for expiry date & security code
 const paymentInputOnBlurHandler = (event: FocusEvent) => {
   const target = event.target;
   if (target instanceof HTMLInputElement) {
     const { value, id, required } = target;
 
     const inputId = id as AllowedPaymentKeys;
-    const { pattern, errorMessage } = formFieldDefault[inputId];
+    const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
 
-    switch (inputId) {
-      case 'name-example-2': {
-        paymentNameInput.pattern = pattern.source;
-      }
-
-      case 'card-number-example-2': {
-        paymentNumberInput.pattern = pattern.source;
-        const valueWithoutDashes = paymentNumberInput.value.replace('-', '');
-        if (valueWithoutDashes.length % 4 === 0) {
-          paymentNumberInput.innerHTML = '-';
-        }
-      }
-
-      case 'expiry-date-example-2': {
-        expiryInput.pattern = pattern.source;
-      }
-
-      case 'security-code-example-2': {
-        securityCodeInput.pattern = pattern.source;
-      }
-    }
-
-    if (!pattern.test(value) && (value.length > 1 || required)) {
+    formFieldDefault[inputId].inputElement.pattern = pattern.source;
+    if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
       formFieldDefault[inputId].labelElement.innerText = errorMessage;
+      formFieldDefault[inputId].isValid = true;
     } else {
       formFieldDefault[inputId].labelElement.innerText = '';
+      formFieldDefault[inputId].isValid = false;
     }
   }
 };
 
-const paymentInputOnChangeHandler = (event: Event) => {
+// const paymentNameOnCardInputOnBlurHandler = (event: FocusEvent) => {
+//   const target = event.target;
+//   if (target instanceof HTMLInputElement) {
+//     const { value, id, required } = target;
+
+//     const inputId = id as AllowedPaymentKeys;
+//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
+
+//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
+
+//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
+//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
+//       formFieldDefault[inputId].isValid = true;
+//     } else {
+//       formFieldDefault[inputId].labelElement.innerText = '';
+//       formFieldDefault[inputId].isValid = false;
+//     }
+//   }
+// };
+
+// const paymentCardNumberInputOnBlurHandler = (event: FocusEvent) => {
+//   const target = event.target;
+//   if (target instanceof HTMLInputElement) {
+//     const { value, id, required } = target;
+
+//     const inputId = id as AllowedPaymentKeys;
+//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
+
+//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
+
+//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
+//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
+//       formFieldDefault[inputId].isValid = true;
+//     } else {
+//       formFieldDefault[inputId].labelElement.innerText = '';
+//       formFieldDefault[inputId].isValid = false;
+//     }
+//   }
+// };
+
+// const paymentExpiryDateInputOnBlurHandler = (event: FocusEvent) => {
+//   const target = event.target;
+//   if (target instanceof HTMLInputElement) {
+//     const { value, id, required } = target;
+
+//     const inputId = id as AllowedPaymentKeys;
+//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
+
+//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
+
+//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
+//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
+//       formFieldDefault[inputId].isValid = true;
+//     } else {
+//       formFieldDefault[inputId].labelElement.innerText = '';
+//       formFieldDefault[inputId].isValid = false;
+//     }
+//   }
+// };
+
+// const paymentSecurityCodeInputOnBlurHandler = (event: FocusEvent) => {
+//   const target = event.target;
+//   if (target instanceof HTMLInputElement) {
+//     const { value, id, required } = target;
+
+//     const inputId = id as AllowedPaymentKeys;
+//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
+
+//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
+
+//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
+//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
+//       formFieldDefault[inputId].isValid = true;
+//     } else {
+//       formFieldDefault[inputId].labelElement.innerText = '';
+//       formFieldDefault[inputId].isValid = false;
+//     }
+//   }
+// };
+
+const paymentCardNumberInputOnChangeHandler = (event: Event) => {
   const target = event.target;
   if (target instanceof HTMLInputElement) {
-    const { value, id, required } = target;
-    const inputId = id as AllowedPaymentKeys;
-    const { pattern, errorMessage } = formFieldDefault[inputId];
-    console.log(value);
+    const { value } = target;
+    const localValue = value;
+    const valueWithoutDashes = localValue.replaceAll('-', '');
 
-    switch (inputId) {
-      case 'name-example-2': {
-      }
+    if (
+      valueWithoutDashes.length % 4 === 0 &&
+      localValue.length > 0 &&
+      localValue.length < PAYMENT_CARD_NUMBER_INPUT_MAX_LENGTH
+    ) {
+      paymentNumberInput.value = localValue + '-';
+    }
+  }
+};
 
-      case 'card-number-example-2': {
-        const valueWithoutDashes = paymentNumberInput.value.replace('-', '');
-        if (valueWithoutDashes.length % 4 === 0) {
-          paymentNumberInput.innerHTML = '-';
-        }
-      }
+const paymentExpiryDateInputOnChangeHandler = (event: Event) => {
+  const target = event.target;
+  if (target instanceof HTMLInputElement) {
+    const { value } = target;
+    const localValue = value;
+    const valueWithoutSlash = localValue.replace('/', '');
 
-      case 'expiry-date-example-2': {
-      }
-
-      case 'security-code-example-2': {
-      }
+    if (
+      valueWithoutSlash.length % 2 === 0 &&
+      localValue.length > 0 &&
+      localValue.length < PAYMENT_EXPIRY_DATE_INPUT_MAX_LENGTH
+    ) {
+      paymentExpiryInput.value = localValue + '/';
     }
   }
 };
 
 //SET VALIDATION FOR NAME ON CARD
 paymentNameInput.maxLength = PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH;
+paymentNumberInput.maxLength = PAYMENT_CARD_NUMBER_INPUT_MAX_LENGTH;
+paymentExpiryInput.maxLength = PAYMENT_EXPIRY_DATE_INPUT_MAX_LENGTH;
+paymentSecurityCodeInput.maxLength = PAYMENT_SECURITY_CODE_INPUT_MAX_LENGTH;
 
 paymentNameInput?.addEventListener('blur', paymentInputOnBlurHandler);
-paymentNameInput?.addEventListener('change', paymentInputOnChangeHandler);
 
-// paymentNumberInput?.addEventListener('blur', paymentInputOnBlurHandler);
-// paymentNumberInput?.addEventListener('change', paymentInputOnChangeHandler);
+paymentNumberInput?.addEventListener('blur', paymentInputOnBlurHandler);
+paymentNumberInput?.addEventListener(
+  'input',
+  paymentCardNumberInputOnChangeHandler,
+);
 
-// expiryInput?.addEventListener('blur', paymentInputOnBlurHandler);
-// expiryInput?.addEventListener('change', paymentInputOnChangeHandler);
+paymentExpiryInput?.addEventListener('blur', paymentInputOnBlurHandler);
+paymentExpiryInput?.addEventListener(
+  'input',
+  paymentExpiryDateInputOnChangeHandler,
+);
 
-// securityCodeInput?.addEventListener('blur', paymentInputOnBlurHandler);
-// securityCodeInput?.addEventListener('change', paymentInputOnChangeHandler);
+paymentSecurityCodeInput?.addEventListener('blur', paymentInputOnBlurHandler);
 
 paymentSubmitBtn.addEventListener('click', () => {
   // if (
-  //   !nameInputReg.test(paymentNameInput.value) &&
-  //   paymentNameInput.hasAttribute('pattern')
+  //   !formFieldDefaultArray.every(
+  //     (x) => x[1].isValid && x[1].errorMessage.length > 0,
+  //   ) &&
+  //   formFieldDefaultArray.every((x) => x[1].inputElement.pattern)
   // ) {
-  //   paymentNameInput.setCustomValidity(errorPaymentNameInputMessage);
+  //   formFieldDefaultArray.forEach(([key, value]) => {
+  //     const { errorMessage, isValid } = value;
+  //     if (!isValid) {
+  //       value.inputElement.setCustomValidity(errorMessage);
+  //     } else {
+  //       value.inputElement.setCustomValidity('');
+  //     }
+  //   });
   // } else {
-  //   paymentNameInput.setCustomValidity('');
+  //   formFieldDefaultArray.forEach(([_, value]) => {
+  //     value.inputElement.setCustomValidity('');
+  //   });
+  // }
 });
-
-//SET VALIDATION FOR CARD NUMBER
-// paymentNameInput.maxLength = PAYMENT_NAME_ON_CARD_INPUT_MAX_LENGTH
-// paymentNameInput?.addEventListener('blur', (event)=>{
-//   const target = event.target
-//   if(target instanceof HTMLInputElement){
-//     const {value} = target
-//     if(value.length > 1){
-//       const errorPaymentNameInputMessage = "Should have: uppercase and lowercase letters, spaces, wihtout special characters like (#@!_()[]./')"
-//       const regexString = "^[A-Za-z\s]+$"
-//       const nameInputReg = new RegExp(regexString)
-//       paymentNameInput.pattern = regexString
-//       if(!nameInputReg.test(value)){
-//         paymentNameInput.setCustomValidity(errorPaymentNameInputMessage)
-//       }
-//     }
-
-//     if(value.length === 0){
-//       paymentNameInput.removeAttribute('pattern')
-//     }
-//   }
-// })
-
-// paymentNameInput?.addEventListener('change', (event)=> {
-//   const target = event.target
-//   if(target instanceof HTMLInputElement){
-//     const {value} = target
-
-//   }
-// })
