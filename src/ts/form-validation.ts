@@ -16,6 +16,8 @@ usernameInput?.addEventListener('invalid', () => {
   );
 });
 
+const currentYearDigits = new Date().getFullYear().toString().substring(2);
+
 const formInput3 = document.getElementById('username-3') as HTMLInputElement;
 const errorMessage = document.getElementById(
   'username3-validation',
@@ -62,7 +64,7 @@ const formValidationExample3 = document.getElementById(
 
 const hiddenElemsLength = formValidationExample3?.children;
 
-// 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS ✅
+// ✅#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS
 
 //select options elements
 const options = document.getElementsByName('preference-example-1');
@@ -93,9 +95,8 @@ const optionClickHandler = (event: MouseEvent) => {
 
 options.forEach((value) => value.addEventListener('click', optionClickHandler));
 
-// 🟦#02.CHALLENGE: MAKE payment validation (maybe makes UI updates like card number to display with dashes, expiry date, security code etc...) from section: #miscellaneous-section example 2
+// ✅ #02.CHALLENGE: MAKE payment validation (maybe makes UI updates like card number to display with dashes, expiry date, security code etc...) from section: #miscellaneous-section example 2
 
-//TODO: EXTRACT ALL CONSTS AND REUSEABLE COMPS LATER
 // CREATE MAP BETWEEN PAYMENT INPUTS NAMES
 const PAYMENT_INPUTS_MAPPER = {
   NAME_ON_CARD: 'name',
@@ -168,10 +169,10 @@ const paymentSubmitBtn = document.getElementById(
 //REGEX AND ERROR MESSAGES
 const nameInputReg = /^[A-Za-z\s]+$/;
 const cardNumberInputReg = /^\d{4}-\d{4}-\d{4}-\d{4}$/;
-const expiryDateInputReg = new RegExp(
-  `^(0[1-9]|1[0-2])/(${24}[0-9]|[3-9][0-9])$`,
-);
-const securityCodeInputReg = /^\d$/;
+// const expiryDateInputReg = new RegExp(
+//   `^(0[1-9]|1[0-2])/(${24}[0-9]|[3-9][0-9])$`,
+// );
+// const securityCodeInputReg = /^\d$/;
 
 // ERROR MESSAGES
 const errorPaymentNameInputMessage =
@@ -187,7 +188,7 @@ const errorPaymentSecurityCodeInputMessage =
 
 interface PaymentFieldStateI {
   isValid: boolean;
-  pattern: RegExp;
+  pattern?: RegExp;
   errorMessage: string;
   labelElement: HTMLSpanElement;
   inputElement: HTMLInputElement;
@@ -213,14 +214,12 @@ const formFieldDefault: FormFieldStateI = {
     inputElement: paymentNumberInput,
   },
   'expiry-date-example-2': {
-    pattern: expiryDateInputReg,
     isValid: false,
     errorMessage: errorPaymentExpiryDateInputMessage,
     labelElement: expiryErrorMessage,
     inputElement: paymentExpiryInput,
   },
   'security-code-example-2': {
-    pattern: securityCodeInputReg,
     isValid: false,
     errorMessage: errorPaymentSecurityCodeInputMessage,
     labelElement: securityCodeErrorMessage,
@@ -230,105 +229,51 @@ const formFieldDefault: FormFieldStateI = {
 
 const formFieldDefaultArray = Array.from(Object.entries(formFieldDefault));
 
-//TODO: check onblur for expiry date & security code
 const paymentInputOnBlurHandler = (event: FocusEvent) => {
   const target = event.target;
   if (target instanceof HTMLInputElement) {
     const { value, id, required } = target;
 
     const inputId = id as AllowedPaymentKeys;
-    const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
+    const { pattern, errorMessage } = formFieldDefault[inputId];
 
-    formFieldDefault[inputId].inputElement.pattern = pattern.source;
-    if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
+    if (pattern) {
+      formFieldDefault[inputId].inputElement.pattern = pattern?.source;
+
+      if (pattern.test(value) && (value.length > 1 || required)) {
+        formFieldDefault[inputId].isValid = true;
+      } else {
+        formFieldDefault[inputId].isValid = false;
+      }
+    } else {
+      if (inputId === 'expiry-date-example-2') {
+        const [month, year] = value.split('/');
+
+        if (month && +month <= 12 && year && +year > +currentYearDigits) {
+          formFieldDefault[inputId].isValid = true;
+        } else {
+          formFieldDefault[inputId].isValid = false;
+        }
+      } else if (inputId === 'security-code-example-2') {
+        if (
+          Number.isInteger(+value) &&
+          (value.length === 3 || value.length === 4)
+        ) {
+          formFieldDefault[inputId].isValid = true;
+        } else {
+          formFieldDefault[inputId].isValid = false;
+        }
+      }
+    }
+
+    console.log(formFieldDefault[inputId].isValid);
+    if (!formFieldDefault[inputId].isValid) {
       formFieldDefault[inputId].labelElement.innerText = errorMessage;
-      formFieldDefault[inputId].isValid = true;
     } else {
       formFieldDefault[inputId].labelElement.innerText = '';
-      formFieldDefault[inputId].isValid = false;
     }
   }
 };
-
-// const paymentNameOnCardInputOnBlurHandler = (event: FocusEvent) => {
-//   const target = event.target;
-//   if (target instanceof HTMLInputElement) {
-//     const { value, id, required } = target;
-
-//     const inputId = id as AllowedPaymentKeys;
-//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
-
-//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
-
-//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
-//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
-//       formFieldDefault[inputId].isValid = true;
-//     } else {
-//       formFieldDefault[inputId].labelElement.innerText = '';
-//       formFieldDefault[inputId].isValid = false;
-//     }
-//   }
-// };
-
-// const paymentCardNumberInputOnBlurHandler = (event: FocusEvent) => {
-//   const target = event.target;
-//   if (target instanceof HTMLInputElement) {
-//     const { value, id, required } = target;
-
-//     const inputId = id as AllowedPaymentKeys;
-//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
-
-//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
-
-//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
-//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
-//       formFieldDefault[inputId].isValid = true;
-//     } else {
-//       formFieldDefault[inputId].labelElement.innerText = '';
-//       formFieldDefault[inputId].isValid = false;
-//     }
-//   }
-// };
-
-// const paymentExpiryDateInputOnBlurHandler = (event: FocusEvent) => {
-//   const target = event.target;
-//   if (target instanceof HTMLInputElement) {
-//     const { value, id, required } = target;
-
-//     const inputId = id as AllowedPaymentKeys;
-//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
-
-//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
-
-//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
-//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
-//       formFieldDefault[inputId].isValid = true;
-//     } else {
-//       formFieldDefault[inputId].labelElement.innerText = '';
-//       formFieldDefault[inputId].isValid = false;
-//     }
-//   }
-// };
-
-// const paymentSecurityCodeInputOnBlurHandler = (event: FocusEvent) => {
-//   const target = event.target;
-//   if (target instanceof HTMLInputElement) {
-//     const { value, id, required } = target;
-
-//     const inputId = id as AllowedPaymentKeys;
-//     const { pattern, errorMessage, isValid } = formFieldDefault[inputId];
-
-//     formFieldDefault[inputId].inputElement.pattern = pattern.source;
-
-//     if (!pattern.test(value) && (value.length > 1 || required) && !isValid) {
-//       formFieldDefault[inputId].labelElement.innerText = errorMessage;
-//       formFieldDefault[inputId].isValid = true;
-//     } else {
-//       formFieldDefault[inputId].labelElement.innerText = '';
-//       formFieldDefault[inputId].isValid = false;
-//     }
-//   }
-// };
 
 const paymentCardNumberInputOnChangeHandler = (event: Event) => {
   const target = event.target;
@@ -385,25 +330,3 @@ paymentExpiryInput?.addEventListener(
 );
 
 paymentSecurityCodeInput?.addEventListener('blur', paymentInputOnBlurHandler);
-
-paymentSubmitBtn.addEventListener('click', () => {
-  // if (
-  //   !formFieldDefaultArray.every(
-  //     (x) => x[1].isValid && x[1].errorMessage.length > 0,
-  //   ) &&
-  //   formFieldDefaultArray.every((x) => x[1].inputElement.pattern)
-  // ) {
-  //   formFieldDefaultArray.forEach(([key, value]) => {
-  //     const { errorMessage, isValid } = value;
-  //     if (!isValid) {
-  //       value.inputElement.setCustomValidity(errorMessage);
-  //     } else {
-  //       value.inputElement.setCustomValidity('');
-  //     }
-  //   });
-  // } else {
-  //   formFieldDefaultArray.forEach(([_, value]) => {
-  //     value.inputElement.setCustomValidity('');
-  //   });
-  // }
-});
