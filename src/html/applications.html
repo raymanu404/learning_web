@@ -1,18 +1,172 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0&icon_names=close"
+    />
+    <link
+      rel="stylesheet"
+      type="text/css"
+      href="../css/final-form-challenge-styles.css"
+    />
+
+    <script
+      type="module"
+      src="../../dist/ts/final-form-challenge.js"
+      defer
+    ></script>
+
+    <script src="../../dist/ts/templates.js" defer></script>
     <title>Applications</title>
   </head>
   <body>
-    <header>
-      <nav></nav>
-    </header>
-    <main></main>
-    <section></section>
-    <section></section>
-    <section></section>
-    <footer></footer>
+    <div class="wrapper">
+      <main-nav-template>
+        <ul slot="main-nav-content-legend">
+          <li><a href="index.html">HTML Basis</a></li>
+          <li><a href="form-validation.html">Form Validation</a></li>
+        </ul>
+      </main-nav-template>
+      <main>
+        <!-- MAiN CONTAINER -->
+        <!-- TODO:MAKE CARDS HERE FOR EACH PROJECT/DEMO/CHALLENGES -->
+        <div class="main-container">
+          <!-- FINAL FORM CHALLENGE PAYMENT, ADDRESS, NAME, EMAIL, PASSWORD, CHECKBOXES, RADIO BUTTONS, FILE INPUTS -->
+          <section-template id="final-form-challenge-section">
+            <!-- SECTION TITLE -->
+            <div slot="section-title-legend">FINAL FORM</div>
+            <div
+              slot="section-example-container-legend"
+              id="final_form_container_main"
+            >
+              <button id="final_challenge_button" class="form-button">
+                Open Final Form
+              </button>
+
+              <div id="backdrop" class="hidden"></div>
+              <dialog id="final_form_dialog">
+                <div id="close_button_container">
+                  <button id="close_button" class="form-button">
+                    <span class="material-symbols-outlined"> X </span>
+                  </button>
+                </div>
+                <form>
+                  <!-- CONTAINER -->
+                  <div id="final_form_container">
+                    <!-- CONTAINER OF MAIN -->
+                    <div class="main_container_class">
+                      <!-- ROW 1 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                      <!-- ROW 2 -->
+                      <div class="row_form_class">
+                        <label for="firstname_input_ch3"> FIRST NAME </label>
+                        <input
+                          type="text"
+                          id="firstname_input_ch3"
+                          name="firstname_input_ch3"
+                          placeholder="John"
+                        />
+                      </div>
+                    </div>
+
+                    <!-- CONTAINER OF BOTTOM -->
+                    <div class="bottom_container_class">
+                      <button id="submit_final_form_button" class="form-button">
+                        Submit your form
+                      </button>
+                      <button id="reset_final_form_button" class="form-button">
+                        Reset
+                      </button>
+                    </div>
+                  </div>
+                </form>
+              </dialog>
+            </div>
+          </section-template>
+        </div>
+      </main>
+    </div>
   </body>
 </html>
