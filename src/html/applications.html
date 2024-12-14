@@ -20,7 +20,18 @@
       defer
     ></script>
 
-    <script src="../../dist/ts/templates.js" defer></script>
+    <!-- IMPORT TEMPLATES -->
+    <script src="../../dist/ts/templates/common/templates.js" defer></script>
+    <script
+      src="../../dist/ts/templates/FormChallenge/AdressInfoContainerPage.js"
+      defer
+    ></script>
+    <script
+      src="../../dist/ts/templates/FormChallenge/UserInfoContainerPage.js"
+      defer
+    ></script>
+    <!-- END OF IMPORTS -->
+
     <title>Applications</title>
   </head>
   <body>
@@ -58,107 +69,136 @@
                   <!-- CONTAINER -->
                   <div id="final_form_container">
                     <!-- CONTAINER OF MAIN -->
-                    <div class="main_container_class">
-                      <!-- ROW 1 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
+                    <user-info-container-page-template
+                      class="main_container_class"
+                    >
+                      <div slot="user-info-container-page-slot">
+                        <div>
+                          <div
+                            class="side_page_container_class"
+                            id="page_container_1"
+                          >
+                            <!-- ROW 1 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                            <!-- ROW 2 -->
+                            <div class="row_form_class">
+                              <label for="firstname_input_ch3">
+                                FIRST NAME
+                              </label>
+                              <input
+                                type="text"
+                                id="firstname_input_ch3"
+                                name="firstname_input_ch3"
+                                placeholder="John"
+                              />
+                            </div>
+                          </div>
+                        </div>
                       </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                      <!-- ROW 2 -->
-                      <div class="row_form_class">
-                        <label for="firstname_input_ch3"> FIRST NAME </label>
-                        <input
-                          type="text"
-                          id="firstname_input_ch3"
-                          name="firstname_input_ch3"
-                          placeholder="John"
-                        />
-                      </div>
-                    </div>
+                    </user-info-container-page-template>
 
                     <!-- CONTAINER OF BOTTOM -->
                     <div class="bottom_container_class">
-                      <button id="submit_final_form_button" class="form-button">
+                      <!-- <button id="submit_final_form_button" class="form-button">
                         Submit your form
                       </button>
                       <button id="reset_final_form_button" class="form-button">
                         Reset
-                      </button>
+                      </button> -->
                     </div>
                   </div>
                 </form>
