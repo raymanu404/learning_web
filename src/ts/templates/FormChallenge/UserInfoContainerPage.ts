@@ -13,7 +13,10 @@ async function injectHTML(
 
     if (targetElement) {
       const contentConvertedStart = htmlContent.search('script');
-      const HtmlContentConverted = htmlContent.slice(0, contentConvertedStart);
+      const HtmlContentConverted = htmlContent.slice(
+        0,
+        contentConvertedStart - 1,
+      );
       targetElement.innerHTML = HtmlContentConverted.toString(); // Inject into innerHTML
     }
   } catch (error) {
@@ -25,21 +28,22 @@ class UserInfoContainerPageTemplate extends HTMLElement {
   shadow: ShadowRoot;
   constructor() {
     super();
-    this.shadow = new ShadowRoot();
+    this.shadow = this.attachShadow({ mode: 'open' });
   }
 
   // Lifecycle method called when the element is added to the DOM (same like in react)
   async connectedCallback() {
-    console.log('Custom element added to DOM');
+    // console.log('Custom element added to DOM');
     const template = document.createElement('template');
 
     // Inject HTML content into the element
     await injectHTML('userInfoContainerPage.html ', template);
-    console.log(template.innerHTML);
+    // console.log(template.innerHTML);
 
-    this.shadow.appendChild(template.cloneNode(true));
+    const content = template.content;
+    this.shadow.appendChild(content.cloneNode(true));
 
-    console.log('Custom element Done');
+    // console.log('Custom element Done');
   }
 }
 

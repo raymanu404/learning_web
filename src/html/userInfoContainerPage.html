@@ -1,6 +1,29 @@
-<!-- PAGE CONTAINER 1 -->
-<slot name="user-info-container-page-slot">
-  <div>
+<html>
+  <head>
+    <style>
+      input {
+        font: 1em sans-serif;
+      }
+
+      input[type='number']::-webkit-inner-spin-button,
+      input[type='number']::-webkit-outer-spin-button {
+        -webkit-appearance: none;
+        margin: 0; /* Remove margin for consistency */
+      }
+      .side_page_container_class {
+        display: flex;
+        flex-direction: column;
+        gap: 30px;
+        width: 100%;
+        padding: 30px;
+        width: 80%;
+        justify-content: center;
+        align-items: center;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- PAGE CONTAINER 1 -->
     <div class="side_page_container_class" id="page_container_1">
       <!-- ROW 1 -->
       <div class="row_form_class">
@@ -93,5 +116,5 @@
         />
       </div>
     </div>
-  </div>
-</slot>
+  </body>
+</html>
