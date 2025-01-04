@@ -50,15 +50,12 @@ const getRouteQueryParams = (searchValue: string): string[] => {
 
 const injectQueryParams = (queryKey: ParamQueryEnum, value: any) => {
   const url = new URL(window.location.href);
-  console.log(value);
   const searchParams = url.searchParams;
 
   searchParams.set(queryKey, value);
 
   // Update the browser's URL without reloading
   history.pushState({}, '', `${url.pathname}?${searchParams.toString()}`);
-
-  console.log(history.state);
 };
 
 const openDialogFn = () => {
