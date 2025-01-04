@@ -4,7 +4,7 @@
 //TYPES
 //#################################################
 enum ParamQueryEnum {
-  DIALOG = 'dialog',
+  DIALOG = 'isDialog',
 }
 
 //#################################################
@@ -48,11 +48,26 @@ const getRouteQueryParams = (searchValue: string): string[] => {
   return dialogParamPairKey;
 };
 
+const injectQueryParams = (queryKey: ParamQueryEnum, value: any) => {
+  const url = new URL(window.location.href);
+  console.log(value);
+  const searchParams = url.searchParams;
+
+  searchParams.set(queryKey, value);
+
+  // Update the browser's URL without reloading
+  history.pushState({}, '', `${url.pathname}?${searchParams.toString()}`);
+
+  console.log(history.state);
+};
+
 const openDialogFn = () => {
   dialog.open = true;
 
   backdrop?.classList.remove('hidden');
   side_nav?.classList.add('hidden');
+
+  injectQueryParams(ParamQueryEnum.DIALOG, true);
 };
 
 const closeDialogFn = () => {
@@ -60,6 +75,8 @@ const closeDialogFn = () => {
 
   side_nav?.classList.remove('hidden');
   backdrop?.classList.add('hidden');
+
+  injectQueryParams(ParamQueryEnum.DIALOG, false);
 };
 
 //#################################################
@@ -68,7 +85,6 @@ const closeDialogFn = () => {
 
 window.addEventListener('DOMContentLoaded', () => {
   const [keyParam, valueParam] = getRouteQueryParams(ParamQueryEnum.DIALOG);
-
   if (
     valueParam &&
     parseStringToBoolean(valueParam) &&
@@ -82,4 +98,6 @@ openDialogButton?.addEventListener('click', () => {
   openDialogFn();
 });
 
-closeDialogButton?.addEventListener('click', () => {});
+closeDialogButton?.addEventListener('click', () => {
+  closeDialogFn();
+});
