@@ -7,6 +7,19 @@ enum ParamQueryEnum {
   DIALOG = 'isDialog',
 }
 
+enum PageStepEnum {
+  PLUS = '+',
+  MINUS = '-',
+}
+
+//#################################################
+//CONSTANTS
+//#################################################
+
+let CURRENT_PAGE_DIALOG = 1;
+const MIN_PAGE_DIALOG_COUNT = 1;
+const MAX_PAGE_DIALOG_COUNT = 3;
+
 //#################################################
 //HTML ELEMENTS
 //#################################################
@@ -14,14 +27,21 @@ enum ParamQueryEnum {
 const openDialogButton = document.getElementById(
   'final_challenge_button',
 ) as HTMLButtonElement;
-const closeDialogButton = document.getElementById(
-  'close_button',
-) as HTMLButtonElement;
+
 const dialog = document.getElementById(
   'final_form_dialog',
 ) as HTMLDialogElement;
+
 const backdrop = document.getElementById('backdrop');
 const side_nav = document.getElementById('side-nav-id');
+
+const previousPageDialogButton = document.getElementById(
+  'previous_page_button',
+) as HTMLButtonElement;
+
+const nextPageDialogButton = document.getElementById(
+  'next_page_button',
+) as HTMLButtonElement;
 
 //#################################################
 //FUNCTIONS
@@ -76,6 +96,25 @@ const closeDialogFn = () => {
   injectQueryParams(ParamQueryEnum.DIALOG, false);
 };
 
+const changePageHandler = (sign: PageStepEnum) => {
+  switch (sign) {
+    case PageStepEnum.PLUS: {
+      if (CURRENT_PAGE_DIALOG < MAX_PAGE_DIALOG_COUNT) {
+        CURRENT_PAGE_DIALOG++;
+      }
+      break;
+    }
+    case PageStepEnum.MINUS: {
+      if (CURRENT_PAGE_DIALOG > MIN_PAGE_DIALOG_COUNT) {
+        CURRENT_PAGE_DIALOG--;
+      }
+      break;
+    }
+    default:
+      CURRENT_PAGE_DIALOG;
+  }
+};
+
 //#################################################
 //EVENTS
 //#################################################
@@ -91,10 +130,21 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-openDialogButton?.addEventListener('click', () => {
+const closeDialogButton = document.getElementById(
+  'close_button',
+) as HTMLButtonElement;
+
+openDialogButton?.addEventListener('click', (event) => {
+  event.preventDefault();
   openDialogFn();
 });
 
-closeDialogButton?.addEventListener('click', () => {
-  closeDialogFn();
+previousPageDialogButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  changePageHandler(PageStepEnum.MINUS);
+});
+
+nextPageDialogButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  changePageHandler(PageStepEnum.PLUS);
 });

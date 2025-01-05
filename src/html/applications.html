@@ -15,6 +15,11 @@
     />
 
     <script
+      src="https://kit.fontawesome.com/e4aae046c0.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script
       type="module"
       src="../../dist/ts/final-form-challenge.js"
       defer
@@ -60,12 +65,14 @@
 
               <div id="backdrop" class="hidden"></div>
               <dialog id="final_form_dialog">
-                <div id="close_button_container">
-                  <button id="close_button" class="form-button">
-                    <span class="material-symbols-outlined"> X </span>
-                  </button>
-                </div>
                 <form>
+                  <div id="close_button_container">
+                    <button id="close_button" class="form-button">
+                      <span class="material-symbols-outlined">
+                        <i class="fa-solid fa-xmark"></i>
+                      </span>
+                    </button>
+                  </div>
                   <!-- CONTAINER -->
                   <div id="final_form_container">
                     <!-- CONTAINER OF MAIN -->
@@ -77,19 +84,15 @@
                     <!-- CONTAINER OF BOTTOM -->
                     <div class="bottom_container_class">
                       <div>
-                        <button id="final_challenge_button" class="form-button">
-                          Open Final Form
-                        </button>
-                        <button id="final_challenge_button" class="form-button">
-                          Open Final Form
+                        <button id="previous_page_button" class="form-button">
+                          <i class="fa-solid fa-arrow-left"></i>
                         </button>
                       </div>
-                      <!-- <button id="submit_final_form_button" class="form-button">
-                        Submit your form
-                      </button>
-                      <button id="reset_final_form_button" class="form-button">
-                        Reset
-                      </button> -->
+                      <div>
+                        <button id="next_page_button" class="form-button">
+                          <i class="fa-solid fa-arrow-right"></i>
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </form>

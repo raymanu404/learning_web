@@ -1,4 +1,5 @@
 // Fetch the HTML file and inject its content
+//TODO export this later
 async function injectHTML(
   filePath: string,
   targetElement: HTMLTemplateElement | null,

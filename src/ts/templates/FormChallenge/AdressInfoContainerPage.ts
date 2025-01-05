@@ -1,35 +1,49 @@
+//TODO export this later
+async function inject1HTML(
+  filePath: string,
+  targetElement: HTMLTemplateElement | null,
+) {
+  try {
+    const response = await fetch(filePath);
+    if (!response.ok) {
+      throw new Error(`Failed to load HTML file: ${response.statusText}`);
+    }
+
+    const htmlContent = await response.text(); // Get HTML as string
+
+    if (targetElement) {
+      const contentConvertedStart = htmlContent.search('script');
+      const HtmlContentConverted = htmlContent.slice(
+        0,
+        contentConvertedStart - 1,
+      );
+      targetElement.innerHTML = HtmlContentConverted.toString(); // Inject into innerHTML
+    }
+  } catch (error) {
+    console.error('Error injecting HTML:', error);
+  }
+}
+
 class AddressInfoContainerPageTemplate extends HTMLElement {
+  shadow: ShadowRoot;
   constructor() {
     super();
-    const mainNavTemplate = document.createElement('template');
-    mainNavTemplate.innerHTML = `
-    //   <style>
-  
-    //     header ul {
-    //       margin: 0;
-    //     }
+    this.shadow = this.attachShadow({ mode: 'open' });
+  }
 
-    //     .main-navigation {
-    //       height: 50px;
-    //       display: flex;
-    //       align-items: center;
-    //     }
-    //   </style>
+  // Lifecycle method called when the element is added to the DOM (same like in react)
+  async connectedCallback() {
+    // console.log('Custom element added to DOM');
+    const template = document.createElement('template');
 
-    //   <header>
-    //     <section class="main-navigation">
-    //       <nav aria-label="Main Navigation">
-    //         <slot name="main-nav-content-legend"> 
-    //         </slot>
-    //       </nav>
-    //     </section>
-    //   </header>
-    `;
+    // Inject HTML content into the element
+    await inject1HTML('adressInfoContainerPage.html ', template);
+    // console.log(template.innerHTML);
 
-    const templateContent = mainNavTemplate.content;
-    const shadowRoot = this.attachShadow({ mode: 'open' });
+    const content = template.content;
+    this.shadow.appendChild(content.cloneNode(true));
 
-    shadowRoot.appendChild(templateContent.cloneNode(true));
+    // console.log('Custom element Done');
   }
 }
 

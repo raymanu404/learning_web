@@ -17,7 +17,8 @@ form {
 #final_form_container {
   display: flex;
   flex-direction: column;
-  align-items: flex-start;
+  align-items: center;
+  justify-content: center;
   background-color: white;
   border-radius: 10px;
   /* box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2); */
@@ -48,7 +49,7 @@ button {
 }
 
 #close_button_container {
-  right: 15px;
+  right: 0.5rem;
   position: absolute;
   border-radius: 20px;
   border: none;
@@ -57,10 +58,7 @@ button {
 .main_container_class {
   display: flex;
   flex-direction: column;
-  gap: 30px;
-  width: 100%;
   overflow-y: auto;
-  margin-top: 30px;
   min-height: 70vh;
 }
 
@@ -68,9 +66,9 @@ button {
   height: 60px;
   width: 100%;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   flex-direction: row;
-  gap: 20px;
+  gap: 40px;
 }
 
 .row_form_class {
