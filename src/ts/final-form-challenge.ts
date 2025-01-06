@@ -22,8 +22,8 @@ enum PageStepEnum {
 //CONSTANTS
 //#################################################
 
-let CURRENT_PAGE_DIALOG = 1;
-const MIN_PAGE_DIALOG_COUNT = 1;
+let CURRENT_PAGE_DIALOG = 0;
+const MIN_PAGE_DIALOG_COUNT = 0;
 const MAX_PAGE_DIALOG_COUNT = 3;
 
 //#################################################
@@ -60,6 +60,9 @@ const addressInfoContainerPage = document.getElementById(
 const paymentInfoContainerPage = document.getElementById(
   'payment_info_template_id',
 );
+const startFormContainerPage = document.getElementById(
+  'start_form_template_id',
+);
 
 //#################################################
 //FUNCTIONS
@@ -84,6 +87,7 @@ const closeDialogFn = () => {
 };
 
 const formPagesArray = [
+  startFormContainerPage,
   userInfoContainerPage,
   addressInfoContainerPage,
   paymentInfoContainerPage,
@@ -102,8 +106,11 @@ const showPageInfoContainerPage = (showPageById: string) => {
 };
 
 const changePageHandler = (current_step: number) => {
-  console.log(current_step);
   switch (current_step) {
+    case 0: {
+      showPageInfoContainerPage('start_form_template_id');
+      break;
+    }
     case 1: {
       showPageInfoContainerPage('user_info_template_id');
       break;

@@ -35,11 +35,19 @@
     <script src="../../dist/ts/common/templates.js" defer></script>
     <script
       type="module"
-      src="../../dist/ts/templates/FormChallenge/AdressInfoContainerPage.js"
+      src="../../dist/ts/templates/FormChallenge/StartFormContainerPage.js"
     ></script>
     <script
       type="module"
       src="../../dist/ts/templates/FormChallenge/UserInfoContainerPage.js"
+    ></script>
+    <script
+      type="module"
+      src="../../dist/ts/templates/FormChallenge/AdressInfoContainerPage.js"
+    ></script>
+    <script
+      type="module"
+      src="../../dist/ts/templates/FormChallenge/PaymentInfoContainerPage.js"
     ></script>
     <!-- END OF IMPORTS -->
 
@@ -83,9 +91,14 @@
                   <div id="final_form_container">
                     <!-- CONTAINER OF MAIN -->
                     <div class="main_container_class">
+                      <start-form-container-page-template
+                        id="start_form_template_id"
+                        class="display-block"
+                      >
+                      </start-form-container-page-template>
                       <user-info-container-page-template
                         id="user_info_template_id"
-                        class="display-block"
+                        class="display-none"
                       >
                       </user-info-container-page-template>
 
