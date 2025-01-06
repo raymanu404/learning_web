@@ -1,8 +1,3 @@
-body {
-}
-
-#final_form_container_main {
-}
 dialog {
   border: none;
   background-color: transparent;
@@ -59,7 +54,7 @@ button {
   display: flex;
   flex-direction: column;
   overflow-y: auto;
-  min-height: 70vh;
+  height: 75vh;
 }
 
 .bottom_container_class {

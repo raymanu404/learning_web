@@ -25,15 +25,21 @@
       defer
     ></script>
 
+    <script
+      src="../../dist/ts/templates/common/functions.js"
+      type="module"
+      defer
+    ></script>
+
     <!-- IMPORT TEMPLATES -->
     <script src="../../dist/ts/templates/common/templates.js" defer></script>
     <script
+      type="module"
       src="../../dist/ts/templates/FormChallenge/AdressInfoContainerPage.js"
-      defer
     ></script>
     <script
+      type="module"
       src="../../dist/ts/templates/FormChallenge/UserInfoContainerPage.js"
-      defer
     ></script>
     <!-- END OF IMPORTS -->
 
@@ -76,10 +82,25 @@
                   <!-- CONTAINER -->
                   <div id="final_form_container">
                     <!-- CONTAINER OF MAIN -->
-                    <user-info-container-page-template
-                      class="main_container_class"
-                    >
-                    </user-info-container-page-template>
+                    <div class="main_container_class">
+                      <user-info-container-page-template
+                        id="user_info_template_id"
+                        class="display-block"
+                      >
+                      </user-info-container-page-template>
+
+                      <address-info-container-page-template
+                        id="address_info_template_id"
+                        class="display-none"
+                      >
+                      </address-info-container-page-template>
+
+                      <payment-info-container-page-template
+                        id="payment_info_template_id"
+                        class="display-none"
+                      >
+                      </payment-info-container-page-template>
+                    </div>
 
                     <!-- CONTAINER OF BOTTOM -->
                     <div class="bottom_container_class">

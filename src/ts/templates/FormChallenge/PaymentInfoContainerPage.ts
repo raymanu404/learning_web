@@ -1,6 +1,6 @@
 import { injectHTML } from '../common/functions.js';
 
-class UserInfoContainerPageTemplate extends HTMLElement {
+class PaymentInfoContainerPageTemplate extends HTMLElement {
   shadow: ShadowRoot;
   constructor() {
     super();
@@ -13,7 +13,10 @@ class UserInfoContainerPageTemplate extends HTMLElement {
     const template = document.createElement('template');
 
     // Inject HTML content into the element
-    await injectHTML('final_form_pages/userInfoContainerPage.html ', template);
+    await injectHTML(
+      'final_form_pages/paymentInfoContainerPage.html ',
+      template,
+    );
     // console.log(template.innerHTML);
 
     const content = template.content;
@@ -24,6 +27,6 @@ class UserInfoContainerPageTemplate extends HTMLElement {
 }
 
 customElements.define(
-  'user-info-container-page-template',
-  UserInfoContainerPageTemplate,
+  'payment-info-container-page-template',
+  PaymentInfoContainerPageTemplate,
 );

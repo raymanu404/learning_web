@@ -43,6 +43,18 @@ const nextPageDialogButton = document.getElementById(
   'next_page_button',
 ) as HTMLButtonElement;
 
+const closeDialogButton = document.getElementById(
+  'close_button',
+) as HTMLButtonElement;
+
+const userInfoContainerPage = document.getElementById('user_info_template_id');
+const addressInfoContainerPage = document.getElementById(
+  'address_info_template_id',
+);
+const paymentInfoContainerPage = document.getElementById(
+  'payment_info_template_id',
+);
+
 //#################################################
 //FUNCTIONS
 //#################################################
@@ -96,7 +108,47 @@ const closeDialogFn = () => {
   injectQueryParams(ParamQueryEnum.DIALOG, false);
 };
 
-const changePageHandler = (sign: PageStepEnum) => {
+const formPagesArray = [
+  userInfoContainerPage,
+  addressInfoContainerPage,
+  paymentInfoContainerPage,
+];
+
+const showPageInfoContainerPage = (showPageById: string) => {
+  formPagesArray.forEach((elem) => {
+    if (elem?.id === showPageById) {
+      elem.classList.remove('display-none');
+      elem.classList.add('display-block');
+    } else {
+      elem?.classList.remove('display-block');
+      elem?.classList.add('display-none');
+    }
+  });
+};
+
+const changePageHandler = (current_step: number) => {
+  console.log(current_step);
+  switch (current_step) {
+    case 1: {
+      showPageInfoContainerPage('user_info_template_id');
+      break;
+    }
+    case 2: {
+      showPageInfoContainerPage('address_info_template_id');
+      break;
+    }
+    case 3: {
+      showPageInfoContainerPage('payment_info_template_id');
+      break;
+    }
+    default: {
+      showPageInfoContainerPage('user_info_template_id');
+      break;
+    }
+  }
+};
+
+const updateContainerPageHandler = (sign: PageStepEnum) => {
   switch (sign) {
     case PageStepEnum.PLUS: {
       if (CURRENT_PAGE_DIALOG < MAX_PAGE_DIALOG_COUNT) {
@@ -113,6 +165,8 @@ const changePageHandler = (sign: PageStepEnum) => {
     default:
       CURRENT_PAGE_DIALOG;
   }
+
+  changePageHandler(CURRENT_PAGE_DIALOG);
 };
 
 //#################################################
@@ -130,21 +184,22 @@ window.addEventListener('DOMContentLoaded', () => {
   }
 });
 
-const closeDialogButton = document.getElementById(
-  'close_button',
-) as HTMLButtonElement;
-
 openDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
   openDialogFn();
 });
 
+closeDialogButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  closeDialogFn();
+});
+
 previousPageDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
-  changePageHandler(PageStepEnum.MINUS);
+  updateContainerPageHandler(PageStepEnum.MINUS);
 });
 
 nextPageDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
-  changePageHandler(PageStepEnum.PLUS);
+  updateContainerPageHandler(PageStepEnum.PLUS);
 });

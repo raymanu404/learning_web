@@ -1,28 +1,4 @@
-//TODO export this later
-async function inject1HTML(
-  filePath: string,
-  targetElement: HTMLTemplateElement | null,
-) {
-  try {
-    const response = await fetch(filePath);
-    if (!response.ok) {
-      throw new Error(`Failed to load HTML file: ${response.statusText}`);
-    }
-
-    const htmlContent = await response.text(); // Get HTML as string
-
-    if (targetElement) {
-      const contentConvertedStart = htmlContent.search('script');
-      const HtmlContentConverted = htmlContent.slice(
-        0,
-        contentConvertedStart - 1,
-      );
-      targetElement.innerHTML = HtmlContentConverted.toString(); // Inject into innerHTML
-    }
-  } catch (error) {
-    console.error('Error injecting HTML:', error);
-  }
-}
+import { injectHTML } from '../common/functions.js';
 
 class AddressInfoContainerPageTemplate extends HTMLElement {
   shadow: ShadowRoot;
@@ -37,7 +13,10 @@ class AddressInfoContainerPageTemplate extends HTMLElement {
     const template = document.createElement('template');
 
     // Inject HTML content into the element
-    await inject1HTML('adressInfoContainerPage.html ', template);
+    await injectHTML(
+      'final_form_pages/adressInfoContainerPage.html ',
+      template,
+    );
     // console.log(template.innerHTML);
 
     const content = template.content;
