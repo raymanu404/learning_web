@@ -71,3 +71,11 @@ button {
   border-color: black;
   border: 2px black solid;
 }
+
+.submit_button_final_form {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+  align-items: center;
+  width: 200px;
+}

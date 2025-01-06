@@ -64,6 +64,22 @@ const startFormContainerPage = document.getElementById(
   'start_form_template_id',
 );
 
+const startFormButtonContainer = document.getElementById(
+  'start_form_container_button_id',
+);
+
+const startFormButton = document.getElementById('start_form_button');
+
+const navigationButtonsContainer = document.getElementById(
+  'navigation_bottom_container_id',
+);
+const submitFormContainer = document.getElementById(
+  'submit_form_container_button_id',
+);
+const submitFormButton = document.getElementById(
+  'submit_challenge_form_button',
+);
+
 //#################################################
 //FUNCTIONS
 //#################################################
@@ -93,8 +109,26 @@ const formPagesArray = [
   paymentInfoContainerPage,
 ];
 
+const formButtonsArray = [
+  startFormButtonContainer,
+  navigationButtonsContainer,
+  submitFormContainer,
+];
+
 const showPageInfoContainerPage = (showPageById: string) => {
   formPagesArray.forEach((elem) => {
+    if (elem?.id === showPageById) {
+      elem.classList.remove('display-none');
+      elem.classList.add('display-block');
+    } else {
+      elem?.classList.remove('display-block');
+      elem?.classList.add('display-none');
+    }
+  });
+};
+
+const showBottomContainerPage = (showPageById: string) => {
+  formButtonsArray.forEach((elem) => {
     if (elem?.id === showPageById) {
       elem.classList.remove('display-none');
       elem.classList.add('display-block');
@@ -109,10 +143,12 @@ const changePageHandler = (current_step: number) => {
   switch (current_step) {
     case 0: {
       showPageInfoContainerPage('start_form_template_id');
+      showBottomContainerPage('start_form_container_button_id');
       break;
     }
     case 1: {
       showPageInfoContainerPage('user_info_template_id');
+      showBottomContainerPage('navigation_bottom_container_id');
       break;
     }
     case 2: {
@@ -121,6 +157,7 @@ const changePageHandler = (current_step: number) => {
     }
     case 3: {
       showPageInfoContainerPage('payment_info_template_id');
+      showBottomContainerPage('submit_form_container_button_id');
       break;
     }
     default: {
@@ -176,6 +213,11 @@ closeDialogButton?.addEventListener('click', (event) => {
   closeDialogFn();
 });
 
+startFormButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  updateContainerPageHandler(PageStepEnum.PLUS);
+});
+
 previousPageDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
   updateContainerPageHandler(PageStepEnum.MINUS);
@@ -184,4 +226,10 @@ previousPageDialogButton?.addEventListener('click', (event) => {
 nextPageDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
   updateContainerPageHandler(PageStepEnum.PLUS);
+});
+
+submitFormButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  alert('just do nothing!');
+  closeDialogFn();
 });
