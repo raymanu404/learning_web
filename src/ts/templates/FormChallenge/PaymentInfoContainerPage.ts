@@ -1,4 +1,4 @@
-import { injectHTML } from '../common/functions.js';
+import { injectHTML } from '../../common/utils.js';
 
 class PaymentInfoContainerPageTemplate extends HTMLElement {
   shadow: ShadowRoot;
