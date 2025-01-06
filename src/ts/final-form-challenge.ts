@@ -79,6 +79,7 @@ const submitFormContainer = document.getElementById(
 const submitFormButton = document.getElementById(
   'submit_challenge_form_button',
 );
+const previousButton = document.getElementById('previous_page_button_submit');
 
 //#################################################
 //FUNCTIONS
@@ -153,6 +154,7 @@ const changePageHandler = (current_step: number) => {
     }
     case 2: {
       showPageInfoContainerPage('address_info_template_id');
+      showBottomContainerPage('navigation_bottom_container_id');
       break;
     }
     case 3: {
@@ -185,6 +187,14 @@ const updateContainerPageHandler = (sign: PageStepEnum) => {
       CURRENT_PAGE_DIALOG;
   }
 
+  changePageHandler(CURRENT_PAGE_DIALOG);
+};
+
+const submitFormHandler = () => {
+  //check validations blbla
+  alert('just do nothing!');
+  closeDialogFn();
+  CURRENT_PAGE_DIALOG = 0;
   changePageHandler(CURRENT_PAGE_DIALOG);
 };
 
@@ -223,6 +233,11 @@ previousPageDialogButton?.addEventListener('click', (event) => {
   updateContainerPageHandler(PageStepEnum.MINUS);
 });
 
+previousButton?.addEventListener('click', (event) => {
+  event.preventDefault();
+  updateContainerPageHandler(PageStepEnum.MINUS);
+});
+
 nextPageDialogButton?.addEventListener('click', (event) => {
   event.preventDefault();
   updateContainerPageHandler(PageStepEnum.PLUS);
@@ -230,6 +245,5 @@ nextPageDialogButton?.addEventListener('click', (event) => {
 
 submitFormButton?.addEventListener('click', (event) => {
   event.preventDefault();
-  alert('just do nothing!');
-  closeDialogFn();
+  submitFormHandler();
 });
