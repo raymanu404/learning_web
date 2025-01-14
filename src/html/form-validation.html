@@ -1,12 +1,18 @@
-<!DOCTYPE html>
+<!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/form-validation.css" />
-    <script src="../../dist/ts/templates.js" defer></script>
-    <script src="../../dist/ts/form-validation.js" defer></script>
+
+    <script src="../../dist/ts/common/templates.js" defer></script>
+    <script type="module" src="../../dist/ts/form-validation.js" defer></script>
+    <script
+      type="module"
+      src="../../dist/ts/final-form-challenge.js"
+      defer
+    ></script>
     <title>Form Validation Learning</title>
   </head>
   <body>
@@ -915,7 +921,7 @@
               <span slot="example-slot-legend">FORM FIELDS in depth </span>
               <span slot="example-number-legend">1</span>
               <div slot="example-container-slot-legend">
-                <div id="example-1-miscellaneous-section">
+                <div class="example-form-container">
                   <form id="example-1-miscellaneous-section-form">
                     <div class="form-container-parent">
                       <div class="form-field-display-inline">
@@ -1109,20 +1115,255 @@
                   </form>
                 </div>
               </div>
-
-              <!-- NOTES -->
-              <!-- <notes-template slot="example-container-slot-legend">
-                <div slot="notes-slot-legend"></div>
-              </notes-template> -->
               <!--END OF  NOTES -->
             </example-template>
             <!--END OF EXAMPLE 1 -->
+
+            <!--EXAMPLE 2 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">Payment fields</span>
+              <span slot="example-number-legend">2</span>
+              <div slot="example-container-slot-legend">
+                <div class="example-form-container">
+                  <form>
+                    <div class="form-container">
+                      <div class="form-container-parent">
+                        <div class="display-flex-column">
+                          <label for="name-example-2"> Name on card </label>
+                          <input
+                            type="text"
+                            id="name-example-2"
+                            name="name-example-2"
+                            autocomplete="cc-name"
+                            placeholder="John Doe"
+                          />
+                          <span
+                            id="name-example-2-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="card-number-example-2">
+                            Card number*
+                          </label>
+                          <input
+                            type="text"
+                            id="card-number-example-2"
+                            name="card-number-example-2"
+                            autocomplete="cc-number"
+                            inputmode="numeric"
+                            placeholder="1234-1234-1223-1225-1251"
+                            required
+                          />
+                          <span
+                            id="card-number-example-2-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="inline-boxes-container">
+                          <div class="display-flex-column">
+                            <label for="expiry-date-example-2">
+                              Expiry Date*
+                            </label>
+                            <input
+                              type="text"
+                              id="expiry-date-example-2"
+                              name="expiry-date-example-2"
+                              autocomplete="cc-exp"
+                              placeholder="MM/YY"
+                              required
+                            />
+                            <span
+                              id="expiry-date-example-2-error-message"
+                              class="error-message-label"
+                            ></span>
+                          </div>
+                          <div class="display-flex-column">
+                            <label for="security-code-example-2">
+                              Security Code*
+                            </label>
+                            <input
+                              type="text"
+                              id="security-code-example-2"
+                              name="security-code-example-2"
+                              autocomplete="cc-csc"
+                              minlength="3"
+                              maxlength="4"
+                              inputmode="numeric"
+                              placeholder="000"
+                              required
+                            />
+                            <span
+                              id="security-code-example-2-error-message"
+                              class="error-message-label"
+                            ></span>
+                          </div>
+                        </div>
+                      </div>
+                      <div>
+                        <button
+                          class="form-button"
+                          id="payment-example-2-button"
+                        >
+                          Submit your payment
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </example-template>
+            <!--END OF EXAMPLE 2 -->
+
+            <!--EXAMPLE 3 -->
+            <example-template slot="section-example-container-legend">
+              <span slot="example-slot-legend">ADDRESS FORM</span>
+              <span slot="example-number-legend">3</span>
+              <div slot="example-container-slot-legend">
+                <div class="example-form-container">
+                  <form>
+                    <div class="form-container">
+                      <div class="form-container-parent">
+                        <div class="display-flex-column">
+                          <label for="name-example-3">Name*</label>
+                          <input
+                            type="text"
+                            id="name-example-3"
+                            name="name-example-3"
+                            autocomplete="cc-name"
+                            placeholder="John Doe"
+                            required
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="name-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="address-line-1-example-3"
+                            >Adress Line 1*</label
+                          >
+                          <input
+                            type="text"
+                            id="address-line-1-example-3"
+                            name="address-line-1-example-3"
+                            autocomplete="address-line1"
+                            placeholder="Address line 1"
+                            required
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="address-line-1-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="name-example-3">Adress line 2</label>
+                          <input
+                            type="text"
+                            id="address-line-2-example-3"
+                            name="address-line-2-example-3"
+                            autocomplete="address-level2"
+                            placeholder="Address line 2"
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="address-line-2-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="zip-code-example-3">Zip code</label>
+                          <input
+                            type="text"
+                            id="zip-code-example-3"
+                            name="zip-code-example-3"
+                            autocomplete="postal-code"
+                            placeholder="zip-code"
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="zip-code-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="city-example-3">City*</label>
+                          <input
+                            type="text"
+                            id="city-example-3"
+                            name="city-example-3"
+                            autocomplete="city"
+                            placeholder="City"
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="city-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="county-example-3">County *</label>
+                          <input
+                            type="text"
+                            id="county-example-3"
+                            name="county-example-3"
+                            autocomplete="region"
+                            placeholder="county/region"
+                            enterkeyhint="next"
+                          />
+                          <span
+                            id="county-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                        <div class="display-flex-column">
+                          <label for="country-example-3">Country *</label>
+                          <select
+                            id="country-example-3"
+                            autocomplete="country"
+                            name="country-example-3"
+                            enterkeyhint="done"
+                            required
+                          >
+                            <option></option>
+                            <option value="AF">Afghanistan</option>
+                            <option value="AX">Åland Islands</option>
+                            <option value="AL">Albania</option>
+                            <option value="DZ">Algeria</option>
+                            <option value="AS">American Samoa</option>
+                            <option value="AD">Andorra</option>
+                            <option value="AO">Angola</option>
+                            <option value="AI">Anguilla</option>
+                            <option value="RO">Romania</option>
+                          </select>
+                          <span
+                            id="county-example-3-error-message"
+                            class="error-message-label"
+                          ></span>
+                        </div>
+                      </div>
+                      <div>
+                        <button
+                          class="form-button"
+                          id="payment-example-3-button"
+                        >
+                          Submit your payment
+                        </button>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+            </example-template>
+            <!--END OF EXAMPLE 3 -->
           </section-template>
         </div>
 
         <!-- NAVIGATION  -->
         <!-- TODO: make active each section when user scrolls until he reach that section -->
-        <side-nav-template class="navigation-container">
+        <side-nav-template class="navigation-container" id="side-nav-id">
           <div slot="side-nav-content-legend">
             <ul>
               <li>
