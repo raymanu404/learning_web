@@ -6,6 +6,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <link rel="stylesheet" type="text/css" href="../css/learning-css.css">
+
+    <script src="../../dist/ts/learning-css.js" defer></script>
+    <script src="../../dist/ts/common/templates.js" defer></script>
     <title>Learning CSS</title>
 </head>
 
@@ -18,6 +22,70 @@
                 <li><a href="applications.html">Applications</a></li>
             </ul>
         </main-nav-template>
+        <main>
+            <div class="main-container">
+                <section-template id="box-model-section">
+                    <!-- SECTION TITLE -->
+
+                    <div slot="section-title-legend">BOX MODEL</div>
+                    <!-- EXTERNAL NOTES -->
+                    <div slot="external-notes-container-legend-up">
+                        <notes-template slot="example-container-slot-legend">
+                            <div slot="notes-slot-legend">
+                                <p>The most important layout, is used by default, when you give width or height for a
+                                    div, or not</p>
+                            </div>
+                        </notes-template>
+                    </div>
+
+                    <!--EXAMPLE 1 -->
+                    <example-template slot="section-example-container-legend">
+                        <h4 slot="example-number-legend">width:min-content</h4>
+                        <div slot="example-container-slot-legend">
+                            <label for="switch-box-model-example-id">
+                                <span class="intrinsic-class" id="intrinsic-example1">Intrinsic</span>
+                                <span class="extrinsic-class" id="extrinsic-example1">Extrinsic</span>
+                            </label>
+                            <input type="checkbox" id="switch-box-model-example1-id" role="switch" checked />
+                            <div class=" box-model-example" id="box-model-example1">
+                                <p>Css is awesome</p>
+                            </div>
+
+                        </div>
+                    </example-template>
+                    <!-- END OF EXAMPLE -->
+
+                    <!--EXAMPLE 2 -->
+                    <example-template slot="section-example-container-legend">
+                        <h4 slot="example-number-legend">width:max-content</h4>
+                        <div slot="example-container-slot-legend">
+                            <label for="switch-box-model-example-id">
+                                <span class="intrinsic-class" id="intrinsic-example2">Intrinsic</span>
+                                <span class="extrinsic-class" id="extrinsic-example2">Extrinsic</span>
+                            </label>
+                            <input type="checkbox" id="switch-box-model-example2-id" role="switch" checked />
+                            <div class="box-model-example" id="box-model-example2">
+                                <p>Css is awesome</p>
+                            </div>
+
+                        </div>
+                    </example-template>
+                    <!-- END OF EXAMPLE -->
+                </section-template>
+                <!-- END OF SECTION -->
+
+            </div>
+            <!-- END OF MAIN-->
+
+            <!-- NAVIGATION  -->
+            <side-nav-template class="navigation-container">
+                <div slot="side-nav-content-legend">
+                    <ul>
+                        <li><a href="#box-model-section">BOX MODEL</a></li>
+                    </ul>
+                </div>
+            </side-nav-template>
+        </main>
     </div>
 </body>
 

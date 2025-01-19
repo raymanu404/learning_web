@@ -1,0 +1,36 @@
+body {
+  font-family: 'Times New Roman', Times, serif;
+  margin: 0;
+}
+
+.box-model-example {
+  width: 80px;
+  border: 2px solid blue;
+  margin: 20px 0;
+}
+.box-model-example p {
+  font-size: 20px;
+  text-transform: uppercase;
+}
+
+#box-model-example1[data-sizing='intrinsic'] {
+  width: min-content;
+}
+
+#box-model-example2[data-sizing='intrinsic'] {
+  width: max-content;
+}
+
+.intrinsic-class[data-display='checked'] {
+  border: 2px solid green;
+  padding: 10px 20px;
+  border-radius: 50%;
+  color: #232323;
+}
+
+.extrinsic-class[data-display='checked'] {
+  border: 2px solid red;
+  padding: 10px 20px;
+  border-radius: 50%;
+  color: #232323;
+}
