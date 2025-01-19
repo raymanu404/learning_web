@@ -143,10 +143,14 @@ class CustomNotesTemplate extends HTMLElement {
           background-color: aquamarine;
           padding: 10px 20px;
           margin: 10px 0;
+          box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+          border-radius:10px;
         }
       h3 {
         color: rgb(53, 15, 223);
       }
+
+
 
     </style>
       <div class="section-notes-container">
@@ -170,6 +174,8 @@ class CustomExampleTemplate extends HTMLElement {
         .example-container {
           padding: 10px 30px;
           background-color: rgb(42, 227, 227);
+          box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
+          border-radius:10px;
         }
       </style>
       <div class="example-container">
