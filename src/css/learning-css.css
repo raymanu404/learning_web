@@ -48,3 +48,17 @@ body {
   flex-direction: column;
   gap: 20px;
 }
+
+.accordion-button {
+  border-radius: 20px;
+}
+
+.special_span_class {
+  font-size: 17px;
+  font-weight: 500;
+  letter-spacing: 1px;
+}
+
+notes-template div {
+  padding: 0 20px;
+}

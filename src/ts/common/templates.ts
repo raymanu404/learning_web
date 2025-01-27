@@ -290,12 +290,14 @@ class SideNavigationTemplate extends HTMLElement {
         position: fixed;
         margin-right: 20px;
         padding: 20px;
+       
       }
 
       .right-navigation {
         background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
         padding: 5px 10px;
         font-size: 20px;
+        border-radius:10px;
       }
 
   

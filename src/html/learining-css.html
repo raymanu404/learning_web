@@ -12,7 +12,8 @@
     <link rel="stylesheet" type="text/css" href="../css/learning-css.css">
 
     <script src="../../dist/ts/learning-css.js" defer></script>
-    <script src="../../dist/ts/common/templates.js" defer></script>
+    <script type="module" src="../../dist/ts/common/templates.js" defer></script>
+    <script type="module" src="../../dist/ts/templates/CssModels/BoxModel.js" defer></script>
 
     <title>Learning CSS</title>
 </head>
@@ -36,15 +37,16 @@
                     <div slot="external-notes-container-legend-up">
                         <notes-template slot="example-container-slot-legend">
                             <div slot="notes-slot-legend">
-                                <p>The most important layout, is used by default, when you give width or height for a
-                                    div, or not</p>
+                                <span class="special_span_class">The most important layout, is used by default, when you
+                                    give width or height for a
+                                    div, or not</span>
                             </div>
                         </notes-template>
                     </div>
 
                     <div class="accordion accordion-flush" id="accordionFlushExample"
                         slot="section-example-container-legend">
-                        <div class="accordion-item">
+                        <div class="accordion-item accordion-item-class">
                             <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne" aria-expanded="false"
@@ -105,17 +107,33 @@
                                     The areas of the box mode
                                 </button>
                             </h2>
-                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse show"
                                 aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
                                 <div class="accordion-body">
                                     <!--EXAMPLE 2 -->
                                     <example-template slot="section-example-container-legend">
+
                                         <h4 slot="example-number-legend"></h4>
                                         <div slot="example-container-slot-legend">
-
+                                            <box-model-template slot="box-model-container">
+                                                <div slot="content-container">
+                                                    <span>content area</span>
+                                                    <span>MUSIC CONNECTS PEOPLE</span>
+                                                </div>
+                                            </box-model-template>
                                         </div>
                                     </example-template>
                                     <!-- END OF EXAMPLE -->
+                                    <notes-template slot="example-container-slot-legend">
+                                        <div slot="notes-slot-legend">
+                                            <span class="special_span_class">
+                                                Because the CSS uses the default box-sizing: content-box, the
+                                                applied
+                                                width is the width of the content, and padding and
+                                                border on both sides are added to that
+                                            </span>
+                                        </div>
+                                    </notes-template>
                                 </div>
                             </div>
                         </div>

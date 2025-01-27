@@ -1,0 +1,55 @@
+<html lang="en">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="../css/index.css" />
+    <style>
+        body {
+            overflow: hidden;
+        }
+
+        .margin_container {
+            margin: 40px;
+            color: #000;
+            border: 30px solid #23c9ff;
+        }
+
+        .border_container {
+            border: 10px solid white;
+        }
+
+        .padding_container {
+            padding: 30px;
+            background-color: blueviolet;
+        }
+
+        .content_container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            background-color: aqua;
+            height: 100px;
+            color: #232323;
+        }
+    </style>
+</head>
+
+<body>
+    <div>
+        <slot name="box-model-container">
+            <span>margin area</span>
+            <div class="margin_container">
+                <span>border area</span>
+                <div class="border_container">
+                    <span>outline area</span>
+                    <div class="padding_container">
+                        <span>padding area</span>
+                        <slot class="content_container" name="content-container">
+                        </slot>
+                    </div>
+                </div>
+            </div>
+        </slot>
+    </div>
+</body>
+
+</html>
