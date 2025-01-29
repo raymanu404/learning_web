@@ -2,6 +2,7 @@
 async function injectHTML(
   filePath: string,
   targetElement: HTMLTemplateElement | null,
+  isScriptTagRequired?: boolean,
 ) {
   try {
     const response = await fetch(filePath);
@@ -17,7 +18,9 @@ async function injectHTML(
         0,
         contentConvertedStart - 1,
       );
-      targetElement.innerHTML = HtmlContentConverted.toString(); // Inject into innerHTML
+      targetElement.innerHTML = !!isScriptTagRequired
+        ? htmlContent.toString()
+        : HtmlContentConverted.toString(); // Inject into innerHTML
     }
   } catch (error) {
     console.error('Error injecting HTML:', error);

@@ -1,3 +1,5 @@
+import { injectHTML } from './utils.js';
+
 //<!-- TEMPLATE IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
 class StarRatingTemplate extends HTMLElement {
   constructor() {
@@ -232,7 +234,7 @@ class SectionTemplate extends HTMLElement {
         <div class="example-section-container">
           <slot name="external-notes-container-legend-up"> </slot>
           <slot name="section-example-container-legend">
-            <div class="example-container">DEFAULT DIV</div>
+            <div class="example-container"></div>
           </slot>
           <slot name="external-notes-container-legend-down"> </slot>
         </div>

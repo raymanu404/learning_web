@@ -13,7 +13,7 @@ class BoxModelTemplate extends HTMLElement {
     const template = document.createElement('template');
 
     // Inject HTML content into the element
-    await injectHTML('css_models/box-model.html', template);
+    await injectHTML('common/box-model.html', template);
     // console.log(template.innerHTML);
 
     const content = template.content;

@@ -1,250 +1,453 @@
 <!doctype html>
 <html lang="en">
-  <head>
+
+<head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
-      crossorigin="anonymous"
-    />
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous" />
 
     <link rel="stylesheet" type="text/css" href="../css/index.css" />
     <link rel="stylesheet" type="text/css" href="../css/learning-css.css" />
     <link rel="stylesheet" type="text/css" href="../css/general_box_sizing_rules.css" />
 
     <script src="../../dist/ts/learning-css.js" defer></script>
-    <script
-      type="module"
-      src="../../dist/ts/common/templates.js"
-      defer
-    ></script>
-    <script
-      type="module"
-      src="../../dist/ts/templates/CssModels/BoxModel.js"
-      defer
-    ></script>
+    <script type="module" src="../../dist/ts/common/templates.js" defer></script>
+    <script type="module" src="../../dist/ts/templates/CssModels/BoxModel.js" defer></script>
 
     <title>Learning CSS</title>
-  </head>
+</head>
 
-  <body>
+<body>
     <div class="wrapper">
-      <main-nav-template>
-        <ul slot="main-nav-content-legend">
-          <li><a href="index.html">Home</a></li>
-          <li><a href="form-validation.html">Form Validation</a></li>
-          <li><a href="applications.html">Applications</a></li>
-        </ul>
-      </main-nav-template>
-      <main>
-        <div class="main-container">
-          <section-template id="box-model-section">
-            <!-- SECTION TITLE -->
-
-            <div slot="section-title-legend">BOX MODEL</div>
-            <!-- EXTERNAL NOTES -->
-            <div slot="external-notes-container-legend-up">
-              <notes-template slot="example-container-slot-legend">
-                <div slot="notes-slot-legend">
-                  <span class="special_span_class"
-                    >The most important layout, is used by default, when you
-                    give width or height for a div, or not</span
-                  >
-                </div>
-              </notes-template>
-            </div>
-
-            <div
-              class="accordion accordion-flush"
-              id="accordionFlushExample"
-              slot="section-example-container-legend"
-            >
-              <div class="accordion-item accordion-item-class">
-                <h2
-                  class="accordion-header accordion-header-custom"
-                  id="flush-headingOne"
-                >
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseOne"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseOne"
-                  >
-                    Content and sizing
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseOne"
-                  class="accordion-collapse collapse"
-                  aria-labelledby="flush-headingOne"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body accordion-body-container">
-                    <!--EXAMPLE 1 -->
-                    <example-template slot="section-example-container-legend">
-                      <h4 slot="example-number-legend">width:min-content</h4>
-                      <div slot="example-container-slot-legend">
-                        <label for="switch-box-model-example-id">
-                          <span class="intrinsic-class" id="intrinsic-example1"
-                            >Intrinsic</span
-                          >
-                          <span class="extrinsic-class" id="extrinsic-example1"
-                            >Extrinsic</span
-                          >
-                        </label>
-                        <input
-                          type="checkbox"
-                          class="form-check-input"
-                          id="switch-box-model-example1-id"
-                          role="switch"
-                          checked
-                        />
-                        <div class="box-model-example" id="box-model-example1">
-                          <p>Css is awesome</p>
-                        </div>
-                      </div>
-                    </example-template>
-                    <!-- END OF EXAMPLE -->
-
-                    <!--EXAMPLE 2 -->
-                    <example-template slot="section-example-container-legend">
-                      <h4 slot="example-number-legend">width:max-content</h4>
-                      <div slot="example-container-slot-legend">
-                        <label for="switch-box-model-example-id">
-                          <span class="intrinsic-class" id="intrinsic-example2"
-                            >Intrinsic</span
-                          >
-                          <span class="extrinsic-class" id="extrinsic-example2"
-                            >Extrinsic</span
-                          >
-                        </label>
-                        <input
-                          type="checkbox"
-                          class="form-check-input"
-                          id="switch-box-model-example2-id"
-                          role="switch"
-                          checked
-                        />
-                        <div class="box-model-example" id="box-model-example2">
-                          <p>Css is awesome</p>
-                        </div>
-                      </div>
-                    </example-template>
-                    <!-- END OF EXAMPLE -->
-                  </div>
-                </div>
-              </div>
-            </div>
-
-            <div
-              class="accordion accordion-flush"
-              id="accordionFlushExample"
-              slot="section-example-container-legend"
-            >
-              <div class="accordion-item">
-                <h2 class="accordion-header" id="flush-headingTwo">
-                  <button
-                    class="accordion-button collapsed"
-                    type="button"
-                    data-bs-toggle="collapse"
-                    data-bs-target="#flush-collapseTwo"
-                    aria-expanded="false"
-                    aria-controls="flush-collapseTwo"
-                  >
-                    The areas of the box mode
-                  </button>
-                </h2>
-                <div
-                  id="flush-collapseTwo"
-                  class="accordion-collapse collapse show"
-                  aria-labelledby="flush-headingTwo"
-                  data-bs-parent="#accordionFlushExample"
-                >
-                  <div class="accordion-body">
-                    <!--EXAMPLE 2 -->
-                    <example-template slot="section-example-container-legend">
-                      <h4 slot="example-number-legend"></h4>
-                      <div slot="example-container-slot-legend">
-                        <box-model-template slot="box-model-container">
-                          <div slot="content-container">
-                            <span>MUSIC CONNECTS PEOPLE</span>
-                          </div>
-                        </box-model-template>
-                      </div>
-                    </example-template>
-                    <!-- END OF EXAMPLE -->
-
-                     <notes-template slot="example-container-slot-legend">
-                      <div slot="notes-slot-legend">
-                        <ol>
-                          <li>
-                            <h4>Content area</h4>
-                            <span class="special_span_class">
-                              The content box is the area that the content lives
-                              in. The content can control the size of its
-                              parent, so this is usually the most variably sized
-                              area.
-                            </span>
-                          </li>
-                          <li>
-                            <h4>Padding area</h4>
-                            <span class="special_span_class">
-                             The padding box surrounds the content box and is the space created by the padding property. Because padding is inside the box, the box's background is visible in the space it creates. If the box has overflow rules set, such as overflow: auto or overflow: scroll, the scrollbars also occupy this space.
-                            </span>
-                          </li>
-                          <li>
-                            <h4>Border area</h4>
-                            <span class="special_span_class">
-                             The border box surrounds the padding box, and its space is defined by the border value, which creates a visual frame for the element. The element's border edge is the limit of what you can see.
-                            </span>
-                          </li>
-                          <li>
-                            <h4>Margin area</h4>
-                            <span class="special_span_class">
-                            The final area, the margin box, is the space around your box, defined by the box's margin rule. Properties such as outline and box-shadow occupy this space too because they're painted on top of the element and don't affect the size of the box
-                            </span>
-                          </li>
-                        </ul>
-                      </div>
-                    </notes-template>
-                    <notes-template slot="example-container-slot-legend">
-                      <div slot="notes-slot-legend">
-                        <span class="special_span_class">
-                          Because the CSS uses the default box-sizing:
-                          content-box, the applied width is the width of the
-                          content, and padding and border on both sides are
-                          added to that
-                        </span>
-                      </div>
-                    </notes-template>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </section-template>
-          <!-- END OF SECTION -->
-        </div>
-        <!-- END OF MAIN-->
-
-        <!-- NAVIGATION  -->
-        <side-nav-template class="navigation-container">
-          <div slot="side-nav-content-legend">
-            <ul>
-              <li><a href="#box-model-section">BOX MODEL</a></li>
+        <main-nav-template>
+            <ul slot="main-nav-content-legend">
+                <li><a href="index.html">Home</a></li>
+                <li><a href="form-validation.html">Form Validation</a></li>
+                <li><a href="applications.html">Applications</a></li>
             </ul>
-          </div>
-        </side-nav-template>
-      </main>
+        </main-nav-template>
+        <main>
+            <div class="main-container">
+                <section-template id="box-model-section">
+                    <!-- SECTION TITLE -->
+
+                    <div slot="section-title-legend">BOX MODEL</div>
+                    <!-- EXTERNAL NOTES -->
+                    <div slot="external-notes-container-legend-up">
+                        <notes-template slot="example-container-slot-legend">
+                            <div slot="notes-slot-legend">
+                                <span class="special_span_class">The most important layout, is used by default, when you
+                                    give width or height for a div, or not</span>
+                            </div>
+                        </notes-template>
+                    </div>
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample"
+                        slot="section-example-container-legend">
+                        <div class="accordion-item accordion-item-class">
+                            <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Content and sizing
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body accordion-body-container">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <h4 slot="example-number-legend">width:min-content</h4>
+                                        <div slot="example-container-slot-legend">
+                                            <label for="switch-box-model-example-id">
+                                                <span class="intrinsic-class" id="intrinsic-example1">Intrinsic</span>
+                                                <span class="extrinsic-class" id="extrinsic-example1">Extrinsic</span>
+                                            </label>
+                                            <input type="checkbox" class="form-check-input"
+                                                id="switch-box-model-example1-id" role="switch" checked />
+                                            <div class="box-model-example" id="box-model-example1">
+                                                <p>Css is awesome</p>
+                                            </div>
+                                        </div>
+                                    </example-template>
+                                    <!-- END OF EXAMPLE -->
+
+                                    <!--EXAMPLE 2 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <h4 slot="example-number-legend">width:max-content</h4>
+                                        <div slot="example-container-slot-legend">
+                                            <label for="switch-box-model-example-id">
+                                                <span class="intrinsic-class" id="intrinsic-example2">Intrinsic</span>
+                                                <span class="extrinsic-class" id="extrinsic-example2">Extrinsic</span>
+                                            </label>
+                                            <input type="checkbox" class="form-check-input"
+                                                id="switch-box-model-example2-id" role="switch" checked />
+                                            <div class="box-model-example" id="box-model-example2">
+                                                <p>Css is awesome</p>
+                                            </div>
+                                        </div>
+                                    </example-template>
+                                    <!-- END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="accordion accordion-flush" id="accordionFlushExample"
+                        slot="section-example-container-legend">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingTwo">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo">
+                                    The areas of the box mode
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingTwo" data-bs-parent="#accordionFlushExample">
+                                <div class="accordion-body">
+                                    <!--EXAMPLE 2 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <h4 slot="example-number-legend"></h4>
+                                        <div slot="example-container-slot-legend">
+                                            <box-model-template slot="box-model-container">
+                                                <div slot="content-container">
+                                                    <span>MUSIC CONNECTS PEOPLE</span>
+                                                </div>
+                                            </box-model-template>
+                                        </div>
+                                    </example-template>
+                                    <!-- END OF EXAMPLE -->
+
+                                    <notes-template slot="example-container-slot-legend">
+                                        <div slot="notes-slot-legend">
+                                            <ol>
+                                                <li>
+                                                    <h4>Content area</h4>
+                                                    <span class="special_span_class">
+                                                        The content box is the area that the content lives
+                                                        in. The content can control the size of its
+                                                        parent, so this is usually the most variably sized
+                                                        area.
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <h4>Padding area</h4>
+                                                    <span class="special_span_class">
+                                                        The padding box surrounds the content box and is the space
+                                                        created by the padding property. Because padding is inside the
+                                                        box, the box's background is visible in the space it creates. If
+                                                        the box has overflow rules set, such as overflow: auto or
+                                                        overflow: scroll, the scrollbars also occupy this space.
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <h4>Border area</h4>
+                                                    <span class="special_span_class">
+                                                        The border box surrounds the padding box, and its space is
+                                                        defined by the border value, which creates a visual frame for
+                                                        the element. The element's border edge is the limit of what you
+                                                        can see.
+                                                    </span>
+                                                </li>
+                                                <li>
+                                                    <h4>Margin area</h4>
+                                                    <span class="special_span_class">
+                                                        The final area, the margin box, is the space around your box,
+                                                        defined by the box's margin rule. Properties such as outline and
+                                                        box-shadow occupy this space too because they're painted on top
+                                                        of the element and don't affect the size of the box
+                                                    </span>
+                                                </li>
+                                                </ul>
+                                        </div>
+                                    </notes-template>
+                                    <notes-template slot="example-container-slot-legend">
+                                        <div slot="notes-slot-legend">
+                                            <span class="special_span_class">
+                                                Because the CSS uses the default box-sizing:
+                                                content-box, the applied width is the width of the
+                                                content, and padding and border on both sides are
+                                                added to that
+                                            </span>
+                                        </div>
+                                    </notes-template>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section-template>
+                <!-- END OF SECTION -->
+
+                <!-- SECTION -->
+                <section-template id="selectors-section">
+                    <!-- SECTION TITLE -->
+                    <div slot="section-title-legend">SELECTORS</div>
+                    <div class="accordion accordion-flush" id="accordionFlushExampleSelectors"
+                        slot="section-example-container-legend">
+                        <div class="accordion-item accordion-item-class">
+                            <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne-selectors-section" aria-expanded="false"
+                                    aria-controls="flush-collapseOne-selectors-section">
+                                    Simple Selectors
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne-selectors-section" class="accordion-collapse collapse show"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExampleSelectors">
+                                <div class="accordion-body accordion-body-container">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <div slot="example-container-slot-legend">
+                                            <p>
+                                                We have multiple types to select an element or group of elements as
+                                                follows:
+                                            </p>
+                                            <ul>
+                                                <li>
+                                                    <div>
+                                                        <h5>Universal Selector</h5>
+                                                        <div class="code_segment_class">
+                                                            *
+                                                            {
+                                                            <br>
+                                                            &#8194;color:red
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    This rule causes every HTML element on the page
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5>Type Selector</h5>
+                                                        <div class="code_segment_class">
+                                                            section
+                                                            {
+                                                            <br>
+                                                            &#8194;color:red
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    A type selector matches a HTML element directly
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5>Class Selector</h5>
+                                                        <div class="code_segment_class">
+                                                            .my_class
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <div class="code_segment_class separator"
+                                                            id="class_selector_code">
+
+                                                        </div>
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    Any element that has the class applied to it, you
+                                                                    can put multiple css classes
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5>ID Selector</h5>
+                                                        <div class="code_segment_class">
+                                                            #my_id
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <div class="code_segment_class separator" id="id_selector_code">
+
+                                                        </div>
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    An HTML element with an id attribute should be the
+                                                                    only element on a page with that ID value. avoid
+                                                                    applying styles with the id selector as it means you
+                                                                    can't re-use those styles elsewhere
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5>Attribute Selector</h5>
+                                                        <div class="code_segment_class">
+                                                            [data-type='primary']
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <div class="code_segment_class separator"
+                                                            id="attribute_selector_code">
+
+                                                        </div>
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    You can look for elements that have a certain HTML
+                                                                    attribute, or have a certain value for an HTML
+                                                                    attribute by wrapping the selector with square
+                                                                    brackets ([ ])
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                        <div class="code_segment_class">
+                                                            [data-type]
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <div class="code_segment_class separator"
+                                                            id="attribute_selector_code2">
+                                                        </div>
+
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    Instead of looking for a specific value of
+                                                                    data-type, you can also look for elements with the
+                                                                    attribute present,
+                                                                    regardless of its value.
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+
+                                                        <div class="code_segment_class">
+                                                            [data-type='primary' s]
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            &#8194;padding: 2em;
+                                                            <br>
+                                                            }
+                                                        </div>
+                                                        <div class="code_segment_class separator"
+                                                            id="attribute_selector_code3">
+                                                        </div>
+
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    case-sensitive attribute selectors by
+                                                                    adding an <span
+                                                                        class="highlight-word-class">s</span> operator
+                                                                    to your attribute selector.
+
+                                                                </span>
+                                                                <span class="special_span_class">
+                                                                    case insensitivity attribute selectors by
+                                                                    adding an <span
+                                                                        class="highlight-word-class">i</span> operator
+                                                                    to your attribute selector.
+                                                                </span>
+                                                                <span class="special_span_class">
+                                                                    Along with case operators, you have access to
+                                                                    operators that match portions of strings inside
+                                                                    attribute values.
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                                <li>
+                                                    <div>
+                                                        <h5>Grouping Selectors</h5>
+                                                        <div class="code_segment_class">
+                                                            strong,
+                                                            em,
+                                                            section,
+                                                            .my_class,
+                                                            #my_id,
+                                                            [lang]
+                                                            {
+                                                            <br>
+                                                            &#8194;color:white
+                                                            <br>
+                                                            }
+                                                        </div>
+
+                                                        <notes-template slot="example-container-slot-legend">
+                                                            <div slot="notes-slot-legend">
+                                                                <span class="special_span_class">
+                                                                    A selector doesn't have to match only a single
+                                                                    element. You can group multiple selectors by
+                                                                    separating them with commas:
+                                                                </span>
+                                                            </div>
+                                                        </notes-template>
+                                                    </div>
+                                                </li>
+                                            </ul>
+                                        </div>
+                                    </example-template>
+                                    <!-- END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section-template>
+                <!-- END OF SECTION -->
+            </div>
+            <!-- END OF MAIN-->
+
+            <!-- NAVIGATION  -->
+            <side-nav-template class="navigation-container">
+                <div slot="side-nav-content-legend">
+                    <ul>
+                        <li><a href="#box-model-section">BOX MODEL</a></li>
+                        <li><a href="#selectors-section">SELECTORS</a></li>
+                    </ul>
+                </div>
+            </side-nav-template>
+        </main>
     </div>
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
-      crossorigin="anonymous"
-    ></script>
-  </body>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM"
+        crossorigin="anonymous"></script>
+</body>
+
 </html>

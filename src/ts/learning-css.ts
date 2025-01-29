@@ -14,6 +14,27 @@ const extrinsicSpan1 = document.querySelector('#extrinsic-example1');
 
 const intrinsicSpan2 = document.querySelector('#intrinsic-example2');
 const extrinsicSpan2 = document.querySelector('#extrinsic-example2');
+
+const classSelectorCode = document.querySelector(
+  '#class_selector_code',
+) as HTMLElement;
+
+const idSelectorCode = document.querySelector(
+  '#id_selector_code',
+) as HTMLElement;
+
+const attributeSelectorCode = document.querySelector(
+  '#attribute_selector_code',
+) as HTMLElement;
+
+const attributeSelectorCode2 = document.querySelector(
+  '#attribute_selector_code2',
+) as HTMLElement;
+
+const attributeSelectorCode3 = document.querySelector(
+  '#attribute_selector_code3',
+) as HTMLElement;
+
 const checked1 = switchMBoxModel1Btn.checked;
 const checked2 = switchMBoxModel2Btn.checked;
 
@@ -41,6 +62,59 @@ const switchIntrinsicFn = (
 
 switchIntrinsicFn(checked1, boxModelExample1, intrinsicSpan1, extrinsicSpan1);
 switchIntrinsicFn(checked2, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
+
+const simpleSelectorCodesContent: {
+  htmlElement: HTMLElement | null;
+  codeText: string;
+}[] = [
+  {
+    htmlElement: classSelectorCode,
+    codeText: `<div class="my-class"></div>
+              <button class="my-class"></button>
+              <p class="my-class"></p>`,
+  },
+  {
+    htmlElement: idSelectorCode,
+    codeText: `<div id="my_id"></div>`,
+  },
+  {
+    htmlElement: attributeSelectorCode,
+    codeText: `<div data-type="primary"></div>`,
+  },
+  {
+    htmlElement: attributeSelectorCode2,
+    codeText: `<div data-type="primary"></div>
+               <div data-type="secondary"></div>`,
+  },
+  {
+    htmlElement: attributeSelectorCode3,
+    codeText: `/* A href that contains "example.com" */
+                [href*='example.com'] {
+                  color: red;
+                }
+
+                /* A href that starts with https */
+                [href^='https'] {
+                  color: green;
+                }
+
+                /* A href that ends with .com */
+                [href$='.com'] {
+                  color: blue;
+                }`,
+  },
+];
+//  ,
+//    `<div id="rad"></div>`,
+//    `<div data-type="primary"></div>`,
+//    `<div data-type="primary"></div>
+// <div data-type="secondary"></div>`,
+
+simpleSelectorCodesContent.forEach((elem) => {
+  if (elem && elem.htmlElement) {
+    elem.htmlElement.innerText = elem.codeText;
+  }
+});
 
 //HTML EVENTS
 switchMBoxModel1Btn.addEventListener('input', () => {

@@ -62,3 +62,22 @@ body {
 notes-template div {
   padding: 0 20px;
 }
+
+example-template ul li {
+  list-style-type: square;
+  padding: 20px 0;
+}
+
+.separator {
+  margin: 10px 0;
+}
+
+.code_segment_class {
+  background-color: rgba(51, 49, 56, 0.7);
+  color: rgba(255, 255, 250);
+  padding: 10px 20px;
+  font-size: 16px;
+  font-family: 'Times New Roman', Times, serif;
+  letter-spacing: 1.5px;
+  word-spacing: 2px;
+}
