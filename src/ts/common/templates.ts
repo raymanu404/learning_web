@@ -152,7 +152,9 @@ class CustomNotesTemplate extends HTMLElement {
         color: rgb(53, 15, 223);
       }
 
-
+      slot {
+        margin: 10px 0;
+      }
 
     </style>
       <div class="section-notes-container">

@@ -104,11 +104,6 @@ const simpleSelectorCodesContent: {
                 }`,
   },
 ];
-//  ,
-//    `<div id="rad"></div>`,
-//    `<div data-type="primary"></div>`,
-//    `<div data-type="primary"></div>
-// <div data-type="secondary"></div>`,
 
 simpleSelectorCodesContent.forEach((elem) => {
   if (elem && elem.htmlElement) {

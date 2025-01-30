@@ -188,15 +188,17 @@
                     <div class="accordion accordion-flush" id="accordionFlushExampleSelectors"
                         slot="section-example-container-legend">
                         <div class="accordion-item accordion-item-class">
-                            <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
+                            <h2 class="accordion-header accordion-header-custom"
+                                id="flush-headingOne-selectors-section">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
                                     data-bs-target="#flush-collapseOne-selectors-section" aria-expanded="false"
                                     aria-controls="flush-collapseOne-selectors-section">
                                     Simple Selectors
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne-selectors-section" class="accordion-collapse collapse show"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#accordionFlushExampleSelectors">
+                            <div id="flush-collapseOne-selectors-section" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne-selectors-section"
+                                data-bs-parent="#accordionFlushExampleSelectors">
                                 <div class="accordion-body accordion-body-container">
                                     <!--EXAMPLE 1 -->
                                     <example-template slot="section-example-container-legend">
@@ -423,6 +425,63 @@
                                                 </li>
                                             </ul>
                                         </div>
+                                    </example-template>
+                                    <!-- END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="accordion-item accordion-item-class">
+                            <h2 class="accordion-header accordion-header-custom"
+                                id="flush-headingTwo-selectors-section">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseTwo-selectors-section" aria-expanded="false"
+                                    aria-controls="flush-collapseTwo-selectors-section">
+                                    Pseudo-classes & pseudo-elements
+                                </button>
+                            </h2>
+                            <div id="flush-collapseTwo-selectors-section" class="accordion-collapse collapse show"
+                                aria-labelledby="flush-headingTwo-selectors-section"
+                                data-bs-parent="#accordionFlushExampleSelectors">
+                                <div class="accordion-body accordion-body-container">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <div slot="example-container-slot-legend">
+                                            <span slot="example-slot-legend"
+                                                class="highlight-title-class">PSEUDO-CLASSES</span>
+                                            <div>
+                                                <ul>
+                                                    <li>
+                                                        <div>
+                                                            <h5>Universal Selector</h5>
+                                                            <div class="code_segment_class">
+                                                                *
+                                                                {
+                                                                <br>
+                                                                &#8194;color:red
+                                                                <br>
+                                                                }
+                                                            </div>
+                                                            <notes-template slot="example-container-slot-legend">
+                                                                <div slot="notes-slot-legend">
+                                                                    <span class="special_span_class">
+                                                                        This rule causes every HTML element on the page
+                                                                    </span>
+                                                                </div>
+                                                            </notes-template>
+                                                        </div>
+                                                    </li>
+                                                </ul>
+                                            </div>
+                                        </div>
+
+                                        <!-- NOTES -->
+                                        <notes-template slot="example-container-slot-legend">
+                                            <div slot="notes-slot-legend">
+
+                                            </div>
+                                        </notes-template>
+                                        <!--END OF  NOTES -->
                                     </example-template>
                                     <!-- END OF EXAMPLE -->
                                 </div>

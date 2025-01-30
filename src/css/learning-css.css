@@ -72,6 +72,12 @@ example-template ul li {
   margin: 10px 0;
 }
 
+.accordion-flush {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
 .code_segment_class {
   background-color: rgba(51, 49, 56, 0.7);
   color: rgba(255, 255, 250);
@@ -80,4 +86,6 @@ example-template ul li {
   font-family: 'Times New Roman', Times, serif;
   letter-spacing: 1.5px;
   word-spacing: 2px;
+  box-shadow: 0px 10px 15px -3px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
 }
