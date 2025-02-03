@@ -440,7 +440,7 @@
                                     Pseudo-classes & pseudo-elements
                                 </button>
                             </h2>
-                            <div id="flush-collapseTwo-selectors-section" class="accordion-collapse collapse show"
+                            <div id="flush-collapseTwo-selectors-section" class="accordion-collapse collapse"
                                 aria-labelledby="flush-headingTwo-selectors-section"
                                 data-bs-parent="#accordionFlushExampleSelectors">
                                 <div class="accordion-body accordion-body-container">
@@ -453,19 +453,43 @@
                                                 <ul>
                                                     <li>
                                                         <div>
-                                                            <h5>Universal Selector</h5>
-                                                            <div class="code_segment_class">
-                                                                *
-                                                                {
-                                                                <br>
-                                                                &#8194;color:red
-                                                                <br>
-                                                                }
+                                                            <h5>Pseudo Classes</h5>
+                                                            <div class="code_segment_class"
+                                                                id="code_segment_selectors_section_example1">
+
                                                             </div>
                                                             <notes-template slot="example-container-slot-legend">
                                                                 <div slot="notes-slot-legend">
                                                                     <span class="special_span_class">
-                                                                        This rule causes every HTML element on the page
+                                                                        Pseudo classes are various states for some html
+                                                                        elements (for hovering)
+
+                                                                    </span>
+                                                                    <span>For more details about pseudo-classes, check
+                                                                        this link <a
+                                                                            href="https://web.dev/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"
+                                                                            class="special_link_class"
+                                                                            target="_blank">Pseudo-classes</a></span>
+                                                                </div>
+                                                            </notes-template>
+                                                        </div>
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <h5>Pseudo Elements</h5>
+                                                            <div class="code_segment_class"
+                                                                id="code_segment_selectors_section_example2">
+
+                                                            </div>
+                                                            <notes-template slot="example-container-slot-legend">
+                                                                <div slot="notes-slot-legend">
+                                                                    <span class="special_span_class">
+                                                                        Pseudo-elements, act as if they are inserting a
+                                                                        new element with CSS
+                                                                    </span>
+                                                                    <span class="special_span_class">
+                                                                        Double colon (::) is the distinguish syntax
+                                                                        unlike pseudo-classes (which is with a colon :)
                                                                     </span>
                                                                 </div>
                                                             </notes-template>
@@ -476,11 +500,12 @@
                                         </div>
 
                                         <!-- NOTES -->
-                                        <notes-template slot="example-container-slot-legend">
+                                        <!-- <notes-template slot="example-container-slot-legend">
                                             <div slot="notes-slot-legend">
-
+                                                <span class="special_span_class">
+                                                </span>
                                             </div>
-                                        </notes-template>
+                                        </notes-template> -->
                                         <!--END OF  NOTES -->
                                     </example-template>
                                     <!-- END OF EXAMPLE -->
