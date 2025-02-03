@@ -468,7 +468,7 @@
                                                                     <span>For more details about pseudo-classes, check
                                                                         this link <a
                                                                             href="https://web.dev/learn/css/pseudo-classes#focus_focus-within_and_focus-visible"
-                                                                            class="special_link_class"
+                                                                            class="link-primary"
                                                                             target="_blank">Pseudo-classes</a></span>
                                                                 </div>
                                                             </notes-template>
@@ -498,15 +498,6 @@
                                                 </ul>
                                             </div>
                                         </div>
-
-                                        <!-- NOTES -->
-                                        <!-- <notes-template slot="example-container-slot-legend">
-                                            <div slot="notes-slot-legend">
-                                                <span class="special_span_class">
-                                                </span>
-                                            </div>
-                                        </notes-template> -->
-                                        <!--END OF  NOTES -->
                                     </example-template>
                                     <!-- END OF EXAMPLE -->
                                 </div>
@@ -515,6 +506,109 @@
                     </div>
                 </section-template>
                 <!-- END OF SECTION -->
+
+                <!-- CASCADE ALGORITHM SECTION -->
+                <section-template id="cascade-section">
+                    <!-- SECTION TITLE -->
+                    <div slot="section-title-legend">CASCADE ALGORITHM</div>
+                    <div slot="external-notes-container-legend-up">
+                        <!-- NOTES -->
+                        <notes-template slot="example-container-slot-legend">
+                            <div slot="notes-slot-legend">
+                                <span class="special_span_class">Cascade is the algorithm for solving
+                                    conflicts where <span class="highlight-word-class">MULTIPLE</span>
+                                    CSS rules are applied to an HTML Element
+                                </span>
+                            </div>
+                        </notes-template>
+                        <!--END OF  NOTES -->
+                    </div>
+
+                    <div class="accordion accordion-flush" id="cascade-section-accordion-container-id"
+                        slot="section-example-container-legend">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="cascade-section-head-id">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne-cascade-section" aria-expanded="false"
+                                    aria-controls="flush-collapseOne-cascade-section">
+                                    Position and order of appearance
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne-cascade-section" class="accordion-collapse collapse show"
+                                aria-labelledby="cascade-section-head-id"
+                                data-bs-parent="#cascade-section-accordion-container-id">
+                                <div class="accordion-body">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <div slot="example-container-slot-legend" class="d-flex flex-column gap-5">
+                                            <div>
+                                                <div class="code_segment_class"
+                                                    id="code_segment_cascade_section_example1">
+                                                </div>
+                                            </div>
+
+                                            <div>
+                                                <span class="special_span_class">For this example, if browser does not
+                                                    support <span class="highlight-word-class">clamp()</span>
+                                                    we should provide fallback value, like first statement of font-size
+                                                </span>
+                                                <div class="code_segment_class"
+                                                    id="code_segment_cascade_section_example2">
+                                                </div>
+                                            </div>
+                                            <div>
+                                                <span class="special_span_class">We also have external links that
+                                                    provide css content, style tag, and inline styles via <span
+                                                        class="highlight-word-class">styles</span> attribute</span>
+                                                <span>Further more, below we have the order of each set of rules from
+                                                    CSS</span>
+                                                <ol>
+                                                    <li>
+                                                        <span class="special_span_class">inline style override css rules
+                                                            regardless of its position via<span
+                                                                class="highlight-word-class">styles</span>
+                                                            attribute</span> (Except the case when we have
+                                                        !important)</span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="special_span_class">
+                                                            style tag has the 2nd priority (we assume if we have all 3
+                                                            types of css rules which are applied in same html doc), if
+                                                            we have multiple style tags, <span
+                                                                class="highlight-word-class">LAST</span> style tag would
+                                                            be applied
+                                                        </span>
+                                                    </li>
+                                                    <li>
+                                                        <span class="special_span_class">
+                                                            Link tag, external css rules, from files, from external
+                                                            links
+                                                        </span>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                        <!-- NOTES -->
+                                        <notes-template slot="example-container-slot-legend">
+                                            <div slot="notes-slot-legend">
+                                                <span class="special_span_class">
+                                                    Last rule that was declared, won! This theory is applied regardless
+                                                    of source of css rules (inline style, style tag, link )
+                                                </span>
+                                            </div>
+                                        </notes-template>
+                                        <!--END OF  NOTES -->
+
+                                    </example-template>
+                                    <!--END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section-template>
+                <!-- END OF SECTION -->
+
             </div>
             <!-- END OF MAIN-->
 
@@ -522,8 +616,9 @@
             <side-nav-template class="navigation-container">
                 <div slot="side-nav-content-legend">
                     <ul>
-                        <li><a href="#box-model-section">BOX MODEL</a></li>
-                        <li><a href="#selectors-section">SELECTORS</a></li>
+                        <li><a href="#box-model-section" class="link-primary">BOX MODEL</a></li>
+                        <li><a href="#selectors-section" class="link-primary">SELECTORS</a></li>
+                        <li><a href="#cascade-section" class="link-primary">CASCADE</a></li>
                     </ul>
                 </div>
             </side-nav-template>

@@ -1,5 +1,4 @@
 <!-- TO KEEP SAME FORMAT TEMPLATE IN HTML USE THIS TEMPLATE FOR NEW SECTION WITH EXAMPLE AND NOTES -->
-
         <section-template id="-section">
             <!-- SECTION TITLE -->
             <div slot="section-title-legend">TITLE</div>
@@ -26,9 +25,53 @@
 
 
 
+              <!--  SECTION -->
+                <section-template id="-section">
+                    <!-- SECTION TITLE -->
+                    <div slot="section-title-legend">SECTION TITLE</div>
+                    <div class="accordion accordion-flush" id="unique-id" slot="section-example-container-legend">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne-unique-name" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Accordion Item #1
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne-unique-name" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#unique-id">
+                                <div class="accordion-body">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <span slot="example-slot-legend">INPUT & LABEL</span>
+                                        <span slot="example-number-legend">1</span>
+                                        <div slot="example-container-slot-legend">
+
+                                        </div>
+
+                                        <!-- NOTES -->
+                                        <notes-template slot="example-container-slot-legend">
+                                            <div slot="notes-slot-legend">
+
+                                            </div>
+                                        </notes-template>
+                                        <!--END OF  NOTES -->
+
+                                    </example-template>
+                                    <!--END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section-template>
+                <!-- END OF SECTION -->
+
+
 FOR CHALLENGES WE USE THIS FORMAT
 // 🟦#01.CHALLENGE: SHOW INPUTS BY USER INTERACTIONS 
 
-//🟦#02.CHALLENGE: CLOSE ALL ACCORDION TABS ON LEARNING-CSS.HTML PAGE, WHEN USER SCROLLS BETWEEN SECTIONS
+//🟦#02.TRACK CURRENT STATE CHALLENGE: CLOSE ALL ACCORDION TABS ON LEARNING-CSS.HTML PAGE, WHEN USER SCROLLS BETWEEN SECTIONS
+//🟦#03: OPEN EACH SECTION WHERE I USED ACCORDION (add show class) WHEN USER CLICKS ON SPECIFIC SECTION FROM SIDE NAV
+
 
 //IF CHALLENGE IS COMPLETED 🟦 -> ✅

@@ -43,6 +43,14 @@ const code_segment_selectors_section_example2 = document.querySelector(
   '#code_segment_selectors_section_example2',
 ) as HTMLElement;
 
+const code_segment_cascade_section_example1 = document.querySelector(
+  '#code_segment_cascade_section_example1',
+) as HTMLElement;
+
+const code_segment_cascade_section_example2 = document.querySelector(
+  '#code_segment_cascade_section_example2',
+) as HTMLElement;
+
 const checked1 = switchMBoxModel1Btn.checked;
 const checked2 = switchMBoxModel2Btn.checked;
 
@@ -114,28 +122,50 @@ const simpleSelectorCodesContent: {
   {
     htmlElement: code_segment_selectors_section_example1,
     codeText: `
-    /* Our link is hovered */
-    a:hover {
-      outline: 1px dotted green;
-    }
+              /* Our link is hovered */
+              a:hover {
+                outline: 1px dotted green;
+              }
 
-    /* Sets all even paragraphs to have a different background */
-    p:nth-child(even) {
-      background: floralwhite;
-    }
+              /* Sets all even paragraphs to have a different background */
+              p:nth-child(even) {
+                background: floralwhite;
+              }
     `,
   },
   {
     htmlElement: code_segment_selectors_section_example2,
     codeText: `
-      .my-element::before {
-      content: 'Prefix - ';
-    }
+              .my-element::before {
+              content: 'Prefix - ';
+            }
 
-    /* Your list will now either have red dots, or red numbers */
-    li::marker {
-      color: red;
-    }
+            /* Your list will now either have red dots, or red numbers */
+            li::marker {
+              color: red;
+            }
+    `,
+  },
+  {
+    htmlElement: code_segment_cascade_section_example1,
+    codeText: `
+       button {
+        color: red;
+      }
+
+      button {
+        color: blue;
+      }  
+
+    `,
+  },
+  {
+    htmlElement: code_segment_cascade_section_example2,
+    codeText: `
+      .my-element {
+        font-size: 1.5rem;
+        font-size: clamp(1.5rem, 1rem + 3vw, 2rem);
+      }
     `,
   },
 ];
