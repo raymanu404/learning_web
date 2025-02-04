@@ -81,6 +81,7 @@ example-template ul li {
   display: flex;
   flex-direction: column;
   gap: 30px;
+  z-index: -1;
 }
 
 .code_segment_class {
@@ -102,4 +103,8 @@ example-template ul li {
 
 .special_link_class:hover {
   opacity: 0.9;
+}
+
+side-nav-template div ul {
+  list-style-type: none;
 }

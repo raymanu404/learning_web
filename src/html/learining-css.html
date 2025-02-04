@@ -780,7 +780,7 @@
                                     Origin & Importance
                                 </button>
                             </h2>
-                            <div id="flush-cascade-section-example-3" class="accordion-collapse collapse show"
+                            <div id="flush-cascade-section-example-3" class="accordion-collapse collapse "
                                 aria-labelledby="cascade-section-head-id-example-2"
                                 data-bs-parent="#cascade-section-accordion-container-id">
                                 <div class="accordion-body d-flex flex-column gap-4">
@@ -831,6 +831,47 @@
                 </section-template>
                 <!-- END OF SECTION -->
 
+                <!--  SECTION -->
+                <section-template id="layout-section">
+                    <!-- SECTION TITLE -->
+                    <div slot="section-title-legend">LAYOUT</div>
+                    <div class="accordion accordion-flush" id="unique-id" slot="section-example-container-legend">
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flush-headingOne">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-collapseOne-unique-name" aria-expanded="false"
+                                    aria-controls="flush-collapseOne">
+                                    Accordion Item #1
+                                </button>
+                            </h2>
+                            <div id="flush-collapseOne-unique-name" class="accordion-collapse collapse"
+                                aria-labelledby="flush-headingOne" data-bs-parent="#unique-id">
+                                <div class="accordion-body">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <span slot="example-slot-legend">INPUT & LABEL</span>
+                                        <span slot="example-number-legend">1</span>
+                                        <div slot="example-container-slot-legend">
+
+                                        </div>
+
+                                        <!-- NOTES -->
+                                        <notes-template slot="example-container-slot-legend">
+                                            <div slot="notes-slot-legend">
+
+                                            </div>
+                                        </notes-template>
+                                        <!--END OF  NOTES -->
+
+                                    </example-template>
+                                    <!--END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section-template>
+                <!-- END OF SECTION -->
+
             </div>
             <!-- END OF MAIN-->
 
@@ -841,6 +882,7 @@
                         <li><a href="#box-model-section" class="link-primary">BOX MODEL</a></li>
                         <li><a href="#selectors-section" class="link-primary">SELECTORS</a></li>
                         <li><a href="#cascade-section" class="link-primary">CASCADE</a></li>
+                        <li><a href="#layout-section" class="link-primary">LAYOUT</a></li>
                     </ul>
                 </div>
             </side-nav-template>
