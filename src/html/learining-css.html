@@ -617,28 +617,182 @@
                                     Specificity
                                 </button>
                             </h2>
-                            <div id="flush-cascade-section-example-2" class="accordion-collapse collapse show"
+                            <div id="flush-cascade-section-example-2" class="accordion-collapse collapse "
                                 aria-labelledby="cascade-section-head-id-example-2"
                                 data-bs-parent="#cascade-section-accordion-container-id">
-                                <div class="accordion-body">
+                                <div class="accordion-body d-flex flex-column gap-4">
+                                    <!--EXAMPLE 1 -->
+                                    <example-template slot="section-example-container-legend">
+                                        <div slot="example-container-slot-legend" class="d-flex flex-column gap-5">
+                                            <!-- NOTES -->
+                                            <notes-template slot="example-container-slot-legend">
+                                                <div slot="notes-slot-legend">
+                                                    <span class="special_span_class">
+                                                        Determines which CSS selector is the most specific based on 3
+                                                        categories:
+                                                    </span>
+                                                    <ol>
+                                                        <li>
+                                                            <h5>Id like specificity - (A) - which has the high score
+                                                                of
+                                                                specificity (1, 0, 0)</h5>
+                                                        </li>
+                                                        <li>
+                                                            <h5>Class / pseudo-class / attribute selector - (B) -
+                                                                (0, 1,
+                                                                0)</h5>
+                                                        </li>
+                                                        <li>
+                                                            <h5>Element or pseudo-element(div, pseudo- (C) - (0, 0,
+                                                                1)
+                                                            </h5>
+                                                        </li>
+                                                    </ol>
+
+                                                    <span class="special_span_class">
+                                                        A universal selector <span
+                                                            class="highlight-word-class">(*)</span> adds no specificity,
+                                                        leaving its value
+                                                        at the initial specificity of (0,0,0).
+                                                    </span>
+                                                </div>
+                                            </notes-template>
+                                            <!--END OF  NOTES -->
+                                            <div>
+                                                <ol>
+                                                    <li>
+                                                        <div>
+                                                            <h5>Id selector (this has the highest score for specificity
+                                                                order calculation)</h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <h5>
+                                                                Class Selector
+                                                            </h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                            <h5>
+                                                                Pseudo - class attribute
+                                                            </h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                            <h5>
+                                                                Attribute selector
+                                                            </h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                        </div>
+
+                                                    </li>
+                                                    <li>
+                                                        <div>
+                                                            <h5>
+                                                                Element selector
+                                                            </h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                            <h5>
+                                                                Pseudo-Element selector
+                                                            </h5>
+                                                            <div class="code_segment_class"
+                                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                            </div>
+                                                        </div>
+                                                    </li>
+                                                </ol>
+                                            </div>
+                                        </div>
+
+                                    </example-template>
+                                    <!--END OF EXAMPLE -->
+
+                                    <!-- EXAMPLE -->
+                                    <example-template slot="section-example-container-legend">
+                                        <div slot="example-container-slot-legend" class="d-flex flex-column gap-5">
+                                            <h5>Complex Example</h5>
+                                            <span class="special_span_class">For this example, we have a score of <span
+                                                    class="highlight-word-class">(0, 3,
+                                                    1)</span>, because, we have <span
+                                                    class="highlight-word-class">div</span> which
+                                                means 1 point for C category, <span
+                                                    class="highlight-word-class">.my-special-class</span>,<span
+                                                    class="highlight-word-class">.other-special-class</span> and <span
+                                                    class="highlight-word-class">:hover</span> which means 3 points for
+                                                B category</span>
+                                            <div class="code_segment_class"
+                                                data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                            </div>
+                                            <span class="special_span_class">So, for this example from below, we have a
+                                                score of <span class="highlight-word-class">(0, 3, 0)</span>
+                                                <div class="code_segment_class"
+                                                    data-code-segment="code_segment_cascade_section_specificity_example">
+
+                                                </div>
+                                                <!-- NOTES -->
+                                                <notes-template slot="example-container-slot-legend">
+                                                    <div slot="notes-slot-legend">
+                                                        <span class="special_span_class">
+                                                            So, the winner for those 2 complex examples is the first
+                                                            one,
+                                                            with the high score of (0,3,1) points, div made the
+                                                            difference
+                                                        </span>
+                                                        <span class="special_span_class">
+                                                            If the score was equal, the last position/order or other
+                                                            rules
+                                                            come in these scenarios!!!
+                                                        </span>
+                                                    </div>
+                                                </notes-template>
+                                                <!--END OF  NOTES -->
+
+                                        </div>
+                                    </example-template>
+                                    <!--END OF EXAMPLE -->
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END OF ACCORDION ITEM -->
+
+                        <!--  ACCORDION ITEM -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="cascade-section-head-id-example-2">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#flush-cascade-section-example-2" aria-expanded="false"
+                                    aria-controls="flush-cascade-section-example-2">
+                                    Origin
+                                </button>
+                            </h2>
+                            <div id="flush-cascade-section-example-2" class="accordion-collapse collapse "
+                                aria-labelledby="cascade-section-head-id-example-2"
+                                data-bs-parent="#cascade-section-accordion-container-id">
+                                <div class="accordion-body d-flex flex-column gap-4">
                                     <!--EXAMPLE 1 -->
                                     <example-template slot="section-example-container-legend">
                                         <div slot="example-container-slot-legend" class="d-flex flex-column gap-5">
 
                                         </div>
 
-                                        <!-- NOTES -->
-                                        <notes-template slot="example-container-slot-legend">
-                                            <div slot="notes-slot-legend">
-                                                <span class="special_span_class">
-
-                                                </span>
-                                            </div>
-                                        </notes-template>
-                                        <!--END OF  NOTES -->
-
                                     </example-template>
                                     <!--END OF EXAMPLE -->
+
                                 </div>
                             </div>
                         </div>

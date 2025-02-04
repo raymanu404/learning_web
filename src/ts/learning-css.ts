@@ -51,6 +51,11 @@ const code_segment_cascade_section_example2 = document.querySelector(
   '#code_segment_cascade_section_example2',
 ) as HTMLElement;
 
+const code_segment_cascade_section_specificity_Elements =
+  document.querySelectorAll(
+    '[data-code-segment="code_segment_cascade_section_specificity_example"]',
+  ) as NodeListOf<HTMLElement>;
+
 const checked1 = switchMBoxModel1Btn.checked;
 const checked2 = switchMBoxModel2Btn.checked;
 
@@ -170,11 +175,46 @@ const simpleSelectorCodesContent: {
   },
 ];
 
+const code_segment_cascade_section_specificity_example_Text_List = [
+  `#my-id{
+            background:blue
+          }`,
+  `.my-class {
+            color: red;
+          }`,
+  `:hover {
+          color: red;
+        }`,
+  `[href='#'] {
+          color: red;
+        }`,
+  `div {
+          color: red;
+        }`,
+  `
+        ::selection {
+          color: red;
+        }`,
+  `div .my-special-class .other-special-class:hover{
+    color:white
+    background:aqua
+   }`,
+  `.my-special-class .other-special-class:hover{
+    color:black
+    background:yellow
+   }`,
+];
+
 const injectTextCodeIntoElements = () => {
   simpleSelectorCodesContent.forEach((elem) => {
     if (elem && elem.htmlElement) {
       elem.htmlElement.innerText = elem.codeText;
     }
+  });
+
+  code_segment_cascade_section_specificity_Elements.forEach((elem, index) => {
+    elem.innerText =
+      code_segment_cascade_section_specificity_example_Text_List[index];
   });
 };
 
