@@ -180,29 +180,33 @@ const code_segment_cascade_section_specificity_example_Text_List = [
             background:blue
           }`,
   `.my-class {
-            color: red;
-          }`,
+                  color: red;
+                }`,
   `:hover {
-          color: red;
-        }`,
+                color: red;
+              }`,
   `[href='#'] {
-          color: red;
-        }`,
+                color: red;
+              }`,
   `div {
-          color: red;
-        }`,
+                color: red;
+              }`,
   `
         ::selection {
           color: red;
         }`,
   `div .my-special-class .other-special-class:hover{
-    color:white
-    background:aqua
-   }`,
+      color:white
+      background:aqua
+    }`,
   `.my-special-class .other-special-class:hover{
-    color:black
-    background:yellow
-   }`,
+      color:black
+      background:yellow
+    }`,
+  `.my-special-class {
+      color:black !important;
+      background:yellow;
+    }`,
 ];
 
 const injectTextCodeIntoElements = () => {

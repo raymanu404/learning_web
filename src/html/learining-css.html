@@ -775,24 +775,54 @@
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="cascade-section-head-id-example-2">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-cascade-section-example-2" aria-expanded="false"
-                                    aria-controls="flush-cascade-section-example-2">
-                                    Origin
+                                    data-bs-target="#flush-cascade-section-example-3" aria-expanded="false"
+                                    aria-controls="flush-cascade-section-example-3">
+                                    Origin & Importance
                                 </button>
                             </h2>
-                            <div id="flush-cascade-section-example-2" class="accordion-collapse collapse "
+                            <div id="flush-cascade-section-example-3" class="accordion-collapse collapse show"
                                 aria-labelledby="cascade-section-head-id-example-2"
                                 data-bs-parent="#cascade-section-accordion-container-id">
                                 <div class="accordion-body d-flex flex-column gap-4">
                                     <!--EXAMPLE 1 -->
                                     <example-template slot="section-example-container-legend">
                                         <div slot="example-container-slot-legend" class="d-flex flex-column gap-5">
+                                            <notes-template slot="example-container-slot-legend">
+                                                <div slot="notes-slot-legend">
+                                                    <span class="special_span_class">
+                                                        The order of when CSS appears and
+                                                        where
+                                                        it
+                                                        comes from, whether that is a browser style, CSS from a browser
+                                                        extension, or
+                                                        your authored CSS
+                                                    </span>
+                                                    <span>
+                                                        The order of importance, from least important, to most important
+                                                        is as follows
+                                                    </span>
+                                                    <ol>
+                                                        <li>normal rule type, such as font-size, background, color etc
+                                                        </li>
+                                                        <li><span class="highlight-word-class">animation</span> rule
+                                                            type</li>
+                                                        <li><span class="highlight-word-class">!important</span> rule
+                                                            type (following the same order as origin
+                                                        </li>
+                                                        <li><span class="highlight-word-class">transition</span> rule
+                                                            type</li>
+                                                    </ol>
+                                                </div>
+                                            </notes-template>
+                                            <div>
+                                                <div class="code_segment_class"
+                                                    data-code-segment="code_segment_cascade_section_specificity_example">
 
+                                                </div>
+                                            </div>
                                         </div>
-
                                     </example-template>
                                     <!--END OF EXAMPLE -->
-
                                 </div>
                             </div>
                         </div>
