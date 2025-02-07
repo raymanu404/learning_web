@@ -1,0 +1,4 @@
+const BOX_SHADOW_CONST = `0px 10px 15px -3px rgba(0,0,0,0.1)`;
+const BORDER_RADIUS_PX_VALUE_CONST = `10px;`;
+
+export { BOX_SHADOW_CONST, BORDER_RADIUS_PX_VALUE_CONST };

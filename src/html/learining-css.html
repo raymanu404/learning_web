@@ -44,8 +44,11 @@
                         </notes-template>
                     </div>
 
+                    <!-- ACCORDION GROUP -->
                     <div class="accordion accordion-flush" id="accordionFlushExample"
                         slot="section-example-container-legend">
+
+                        <!-- ACCORDION ITEM -->
                         <div class="accordion-item accordion-item-class">
                             <h2 class="accordion-header accordion-header-custom" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -524,9 +527,11 @@
                         <!--END OF  NOTES -->
                     </div>
 
-                    <!--ACCORDION ITEM -->
+                    <!--ACCORDION GROUP -->
                     <div class="accordion accordion-flush" id="cascade-section-accordion-container-id"
                         slot="section-example-container-legend">
+
+                        <!-- ACCORDION ITEM -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="cascade-section-head-id-example-1">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -576,7 +581,8 @@
                                                             style tag has the 2nd priority (we assume if we have all 3
                                                             types of css rules which are applied in same html doc), if
                                                             we have multiple style tags, <span
-                                                                class="highlight-word-class">LAST</span> style tag would
+                                                                class="highlight-word-class">LAST</span>
+                                                            style tag would
                                                             be applied
                                                         </span>
                                                     </li>
@@ -651,7 +657,8 @@
 
                                                     <span class="special_span_class">
                                                         A universal selector <span
-                                                            class="highlight-word-class">(*)</span> adds no specificity,
+                                                            class="highlight-word-class">(*)</span> adds
+                                                        no specificity,
                                                         leaving its value
                                                         at the initial specificity of (0,0,0).
                                                     </span>
@@ -729,7 +736,8 @@
                                             <span class="special_span_class">For this example, we have a score of <span
                                                     class="highlight-word-class">(0, 3,
                                                     1)</span>, because, we have <span
-                                                    class="highlight-word-class">div</span> which
+                                                    class="highlight-word-class">div</span>
+                                                which
                                                 means 1 point for C category, <span
                                                     class="highlight-word-class">.my-special-class</span>,<span
                                                     class="highlight-word-class">.other-special-class</span> and <span
@@ -828,14 +836,20 @@
                         </div>
                         <!-- END OF ACCORDION ITEM -->
                     </div>
+                    <!-- END OF ACCORDION GROUP -->
                 </section-template>
                 <!-- END OF SECTION -->
+
 
                 <!--  SECTION -->
                 <section-template id="layout-section">
                     <!-- SECTION TITLE -->
                     <div slot="section-title-legend">LAYOUT</div>
+
+                    <!-- ACCORDION GROUP -->
                     <div class="accordion accordion-flush" id="unique-id" slot="section-example-container-legend">
+
+                        <!-- ACCORDION ITEM -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
@@ -844,13 +858,11 @@
                                     Accordion Item #1
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne-unique-name" class="accordion-collapse collapse"
+                            <div id="flush-collapseOne-unique-name" class="accordion-collapse collapse show"
                                 aria-labelledby="flush-headingOne" data-bs-parent="#unique-id">
                                 <div class="accordion-body">
                                     <!--EXAMPLE 1 -->
                                     <example-template slot="section-example-container-legend">
-                                        <span slot="example-slot-legend">INPUT & LABEL</span>
-                                        <span slot="example-number-legend">1</span>
                                         <div slot="example-container-slot-legend">
 
                                         </div>
@@ -868,10 +880,13 @@
                                 </div>
                             </div>
                         </div>
+                        <!-- END OF ACCORDION ITEM -->
+
                     </div>
+                    <!-- END OF ACCORDION GROUP -->
+
                 </section-template>
                 <!-- END OF SECTION -->
-
             </div>
             <!-- END OF MAIN-->
 

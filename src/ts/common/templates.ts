@@ -1,4 +1,6 @@
-import { injectHTML } from './utils.js';
+// import { injectHTML } from './utils.js';
+
+import { BORDER_RADIUS_PX_VALUE_CONST, BOX_SHADOW_CONST } from './constants';
 
 //<!-- TEMPLATE IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
 class StarRatingTemplate extends HTMLElement {
@@ -91,7 +93,7 @@ class CustomCard extends HTMLElement {
           border: 1px solid #ccc;
           border-radius: 8px;
           padding: 16px;
-          box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+          box-shadow: ${BOX_SHADOW_CONST};
           max-width: 300px;
           font-family: Arial, sans-serif;
         }
@@ -145,8 +147,8 @@ class CustomNotesTemplate extends HTMLElement {
           background-color: aquamarine;
           padding: 10px 20px;
           margin: 10px 0;
-          box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-          border-radius:10px;
+          box-shadow: ${BOX_SHADOW_CONST};
+          border-radius:${BORDER_RADIUS_PX_VALUE_CONST}
         }
       h3 {
         color: rgb(53, 15, 223);
@@ -178,8 +180,8 @@ class CustomExampleTemplate extends HTMLElement {
         .example-container {
           padding: 10px 30px;
           background-color: rgb(42, 227, 227);
-          box-shadow: 0px 10px 15px -3px rgba(0,0,0,0.1);
-          border-radius:10px;
+          box-shadow: ${BOX_SHADOW_CONST};
+          border-radius:${BORDER_RADIUS_PX_VALUE_CONST}
         }
       </style>
       <div class="example-container">
@@ -264,6 +266,7 @@ class MainNavTemplate extends HTMLElement {
           height: 50px;
           display: flex;
           align-items: center;
+
         }
       </style>
 
@@ -301,7 +304,7 @@ class SideNavigationTemplate extends HTMLElement {
         background-image: linear-gradient(120deg, #84fab0 0%, #8fd3f4 100%);
         padding: 5px 10px;
         font-size: 20px;
-        border-radius:10px;
+        border-radius:${BORDER_RADIUS_PX_VALUE_CONST}
       }
 
   
