@@ -109,3 +109,36 @@ example-template ul li {
 side-nav-template div ul {
   list-style-type: none;
 }
+
+.display-flex-layout-class {
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+}
+
+.display-flex-layout-class div {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+  color: #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+  flex-shrink: 3;
+  flex-basis: auto;
+}
+
+.display-grid-layout-class {
+  column-count: 3;
+}
+
+.display-grid-layout-class div {
+  height: 100px;
+  width: 100px;
+  background-color: aqua;
+  color: #232323;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
