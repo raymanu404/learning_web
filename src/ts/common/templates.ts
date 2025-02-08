@@ -1,6 +1,6 @@
 // import { injectHTML } from './utils.js';
 
-import { BORDER_RADIUS_PX_VALUE_CONST, BOX_SHADOW_CONST } from './constants';
+import { BORDER_RADIUS_PX_VALUE_CONST, BOX_SHADOW_CONST } from './constants.js';
 
 //<!-- TEMPLATE IS NOT RENDERED INTO SCREEN, WE NEED JS TO RENDER IT IN REAL DOM, UNTIL THEN THIS IS JUST IN SHADOW DOM  -->
 class StarRatingTemplate extends HTMLElement {
