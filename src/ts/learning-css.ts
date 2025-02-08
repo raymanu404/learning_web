@@ -56,6 +56,18 @@ const code_segment_cascade_section_specificity_Elements =
     '[data-code-segment="code_segment_cascade_section_specificity_example"]',
   ) as NodeListOf<HTMLElement>;
 
+const flex_section_dropdown_values = document.querySelector(
+  '[data-dropdown-custom="flex-dropdown-flex-direction-example"]',
+) as HTMLUListElement;
+
+const flex_section_buttonDisplayValue = document.querySelector(
+  '[data-dropdown-button="display-value"]',
+) as HTMLButtonElement;
+
+const flex_layout_container = document.querySelector(
+  '[data-flex-layout="flex-direction"]',
+) as HTMLButtonElement;
+
 const checked1 = switchMBoxModel1Btn.checked;
 const checked2 = switchMBoxModel2Btn.checked;
 
@@ -209,6 +221,55 @@ const code_segment_cascade_section_specificity_example_Text_List = [
     }`,
 ];
 
+const flexDirectionElemValues = () => {
+  const flexDirectionDropdownValues: {
+    values: string[];
+    elements: HTMLLIElement[];
+  } = { elements: [], values: [] };
+
+  for (let i = 0; i < flex_section_dropdown_values.children.length; i++) {
+    const element = flex_section_dropdown_values.children.item(
+      i,
+    ) as HTMLLIElement;
+
+    if (element.textContent)
+      flexDirectionDropdownValues.values.push(
+        element.textContent?.replaceAll(' ', '').toLocaleLowerCase(),
+      );
+
+    flexDirectionDropdownValues.elements.push(element);
+  }
+
+  return flexDirectionDropdownValues;
+};
+
+const generateFlexItems = (container: HTMLElement, MAX_LENGTH = 9) => {
+  for (let i = 1; i <= MAX_LENGTH; i++) {
+    // generate children here
+    //  <div>
+    //                                                     <span class="special_span_class">ITEM 1</span>
+    //                                                 </div>
+    // const node: Node = {};
+    // container.appendChild();
+  }
+};
+
+const changeFlexDirectionLayout = (value: string) => {
+  flex_layout_container.style.flexDirection = value.toLocaleLowerCase();
+};
+
+const { elements, values } = flexDirectionElemValues();
+
+elements.forEach((elem) => {
+  elem.addEventListener('click', () => {
+    flex_section_buttonDisplayValue.innerText = elem.innerText;
+
+    changeFlexDirectionLayout(elem.innerText);
+
+    console.log(flex_layout_container.style.flexDirection);
+  });
+});
+
 const injectTextCodeIntoElements = () => {
   simpleSelectorCodesContent.forEach((elem) => {
     if (elem && elem.htmlElement) {
@@ -234,3 +295,5 @@ switchMBoxModel2Btn.addEventListener('input', () => {
   const checked = switchMBoxModel2Btn.checked;
   switchIntrinsicFn(checked, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
 });
+
+console.log();

@@ -847,19 +847,21 @@
                     <div slot="section-title-legend">LAYOUT</div>
 
                     <!-- ACCORDION GROUP -->
-                    <div class="accordion accordion-flush" id="unique-id" slot="section-example-container-legend">
+                    <div class="accordion accordion-flush" id="layout-section-accordion-group-example-1"
+                        slot="section-example-container-legend">
 
                         <!-- ACCORDION ITEM -->
                         <div class="accordion-item">
                             <h2 class="accordion-header" id="flush-headingOne">
                                 <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
-                                    data-bs-target="#flush-collapseOne-unique-name" aria-expanded="false"
-                                    aria-controls="flush-collapseOne">
+                                    data-bs-target="#some-random-id-don-t-take-in-serious-really" aria-expanded="false"
+                                    aria-controls="some-other-unique">
                                     Overview Display property
                                 </button>
                             </h2>
-                            <div id="flush-collapseOne-unique-name" class="accordion-collapse collapse show"
-                                aria-labelledby="flush-headingOne" data-bs-parent="#unique-id">
+                            <div id="some-random-id-don-t-take-in-serious-really" class="accordion-collapse collapse "
+                                aria-labelledby="flush-headingOne"
+                                data-bs-parent="#layout-section-accordion-group-example-1">
                                 <div class="accordion-body ">
                                     <!-- NOTES -->
                                     <notes-template slot="example-container-slot-legend">
@@ -953,6 +955,115 @@
                                             </div>
                                         </example-template>
                                         <!--END OF EXAMPLE -->
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END OF ACCORDION ITEM -->
+
+                    </div>
+                    <!-- END OF ACCORDION GROUP -->
+
+                    <!-- ACCORDION GROUP -->
+                    <div class="accordion accordion-flush" id="layout-section-accordion-group-example-2"
+                        slot="section-example-container-legend">
+
+                        <!-- ACCORDION ITEM -->
+                        <div class="accordion-item">
+                            <h2 class="accordion-header" id="flex-section-layout-accordtion-group">
+                                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                                    data-bs-target="#some-other-unique-unique-name" aria-expanded="false"
+                                    aria-controls="some-other-unique">
+                                    <span class="highlight-title-class">FLEX</span>
+                                </button>
+                            </h2>
+                            <div id="some-other-unique-unique-name" class="accordion-collapse collapse show"
+                                aria-labelledby="flex-section-layout-accordtion-group"
+                                data-bs-parent="#layout-section-accordion-group-example-2">
+                                <div class="accordion-body ">
+                                    <!-- NOTES -->
+                                    <notes-template slot="example-container-slot-legend">
+                                        <div slot="notes-slot-legend" class="d-flex flex-column gap-3">
+                                            <span class="special_span_class"> <span
+                                                    class=" highlight-word-class">Flex-direction</span>: column
+                                                / row /
+                                                column-reverse / row-reverse
+                                            </span>
+                                            <span class="special_span_class"> <span
+                                                    class=" highlight-word-class">Flex-wrap</span>: wrap
+                                                / nowrap
+                                            </span>
+                                        </div>
+                                    </notes-template>
+                                    <!--END OF  NOTES -->
+
+                                    <div class="d-flex flex-column gap-4">
+                                        <!--EXAMPLE 1 -->
+                                        <example-template slot="section-example-container-legend">
+                                            <div slot="example-container-slot-legend" class="d-flex flex-column g-4">
+                                                <div>
+                                                    <h5 class="special_span_class">FLEX-DIRECTION</h5>
+                                                    <div class="dropdown flexDirectionDropDown_class">
+                                                        <button
+                                                            class="btn btn-primary dropdown-toggle special_button_class"
+                                                            type="button" id="dropdownMenuFlexDirection"
+                                                            data-bs-toggle="dropdown" aria-expanded="false"
+                                                            data-dropdown-button="display-value">
+                                                            Flex-direction
+                                                        </button>
+                                                        <ul class="dropdown-menu dropdown-menu-custom"
+                                                            data-dropdown-custom='flex-dropdown-flex-direction-example'
+                                                            aria-labelledby="dropdownMenuFlexDirection">
+                                                            <li
+                                                                class="dropdown-item  btn-secondary dropdown-item-custom">
+                                                                COLUMN</li>
+                                                            <li
+                                                                class="dropdown-item  btn-secondary dropdown-item-custom">
+                                                                COLUMN-REVERSE</li>
+                                                            <li
+                                                                class="dropdown-item  btn-secondary dropdown-item-custom">
+                                                                ROW</li>
+                                                            <li
+                                                                class="dropdown-item  btn-secondary dropdown-item-custom">
+                                                                ROW-REVERSE</li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                                <div class="display-flex-layout-class"
+                                                    data-flex-layout="flex-direction">
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                    <div>
+                                                        <span class="special_span_class">ITEM 1</span>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </example-template>
+                                        <!--END OF EXAMPLE -->
+
+
                                     </div>
                                 </div>
                             </div>
