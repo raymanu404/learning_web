@@ -122,7 +122,6 @@ side-nav-template div ul {
 .display-flex-layout-class {
   display: flex;
   gap: 30px;
-  flex-wrap: wrap;
 }
 
 .display-flex-layout-class div {

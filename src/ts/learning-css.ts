@@ -1,3 +1,6 @@
+//TYPES
+type FlexSectionType = 'flex-direction' | 'flex-wrap' | 'default';
+
 //HTML ELEMENTS
 const switchMBoxModel1Btn = document.querySelector(
   '#switch-box-model-example1-id',
@@ -56,12 +59,20 @@ const code_segment_cascade_section_specificity_Elements =
     '[data-code-segment="code_segment_cascade_section_specificity_example"]',
   ) as NodeListOf<HTMLElement>;
 
-const flex_section_dropdown_values = document.querySelector(
+const flex_section_dropdown_values_flexDirection = document.querySelector(
   '[data-dropdown-custom="flex-dropdown-flex-direction-example"]',
 ) as HTMLUListElement;
 
-const flex_section_buttonDisplayValue = document.querySelector(
-  '[data-dropdown-button="display-value"]',
+const flex_section_dropdown_values_flexWrap = document.querySelector(
+  '[data-dropdown-custom="flex-dropdown-flex-wrap-example"]',
+) as HTMLUListElement;
+
+const flex_section_buttonDisplayValue_flex_direction = document.querySelector(
+  '[data-dropdown-button="display-value-flex-direction"]',
+) as HTMLButtonElement;
+
+const flex_section_buttonDisplayValue_flex_wrap = document.querySelector(
+  '[data-dropdown-button="display-value-flex-wrap"]',
 ) as HTMLButtonElement;
 
 const flex_layout_container = document.querySelector(
@@ -92,9 +103,6 @@ const switchIntrinsicFn = (
     intrinsicSpan?.removeAttribute('data-display');
   }
 };
-
-switchIntrinsicFn(checked1, boxModelExample1, intrinsicSpan1, extrinsicSpan1);
-switchIntrinsicFn(checked2, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
 
 const simpleSelectorCodesContent: {
   htmlElement: HTMLElement | null;
@@ -221,7 +229,9 @@ const code_segment_cascade_section_specificity_example_Text_List = [
     }`,
 ];
 
-const flexDirectionElemValues = () => {
+const flexDirectionElemValues = (
+  flex_section_dropdown_values: HTMLUListElement,
+) => {
   const flexDirectionDropdownValues: {
     values: string[];
     elements: HTMLLIElement[];
@@ -231,7 +241,6 @@ const flexDirectionElemValues = () => {
     const element = flex_section_dropdown_values.children.item(
       i,
     ) as HTMLLIElement;
-
     if (element.textContent)
       flexDirectionDropdownValues.values.push(
         element.textContent?.replaceAll(' ', '').toLocaleLowerCase(),
@@ -246,29 +255,24 @@ const flexDirectionElemValues = () => {
 const generateFlexItems = (container: HTMLElement, MAX_LENGTH = 9) => {
   for (let i = 1; i <= MAX_LENGTH; i++) {
     // generate children here
-    //  <div>
-    //                                                     <span class="special_span_class">ITEM 1</span>
-    //                                                 </div>
-    // const node: Node = {};
-    // container.appendChild();
+    const htmlDivElemFlexDirectionSection = `
+    <div>
+      <span class="special_span_class">ITEM ${i}</span>
+    </div>
+    `;
+
+    const parser = new DOMParser();
+    const document = parser.parseFromString(
+      htmlDivElemFlexDirectionSection,
+      'text/html',
+    );
+
+    const createdNode = document.body.firstChild;
+    if (createdNode) {
+      container.appendChild(createdNode);
+    }
   }
 };
-
-const changeFlexDirectionLayout = (value: string) => {
-  flex_layout_container.style.flexDirection = value.toLocaleLowerCase();
-};
-
-const { elements, values } = flexDirectionElemValues();
-
-elements.forEach((elem) => {
-  elem.addEventListener('click', () => {
-    flex_section_buttonDisplayValue.innerText = elem.innerText;
-
-    changeFlexDirectionLayout(elem.innerText);
-
-    console.log(flex_layout_container.style.flexDirection);
-  });
-});
 
 const injectTextCodeIntoElements = () => {
   simpleSelectorCodesContent.forEach((elem) => {
@@ -283,7 +287,70 @@ const injectTextCodeIntoElements = () => {
   });
 };
 
+const changeFlexStyleLayout = (
+  container: HTMLElement,
+  value: string,
+  type: FlexSectionType,
+) => {
+  switch (type) {
+    case 'flex-direction': {
+      container.style.flexDirection = value.toLocaleLowerCase();
+      break;
+    }
+    case 'flex-wrap': {
+      container.style.flexWrap = value.toLocaleLowerCase();
+      break;
+    }
+    case 'default': {
+      flex_section_buttonDisplayValue_flex_direction.innerText = 'ROW';
+      flex_section_buttonDisplayValue_flex_wrap.innerText = 'WRAP';
+      break;
+    }
+    default: {
+      container.style.flexDirection = value.toLocaleLowerCase();
+    }
+  }
+};
+
+const changeDropDownFlexDisplayValues = (
+  flex_section_dropdown_values: HTMLUListElement,
+  type: FlexSectionType,
+  flex_section_buttonDisplayValue: HTMLButtonElement,
+) => {
+  const { elements } = flexDirectionElemValues(flex_section_dropdown_values);
+
+  elements.forEach((elem) => {
+    elem.addEventListener('click', () => {
+      const value = elem.innerText;
+      flex_section_buttonDisplayValue.innerText = value;
+
+      changeFlexStyleLayout(flex_layout_container, value, type);
+    });
+  });
+};
+
+changeFlexStyleLayout(flex_layout_container, 'row', 'flex-direction');
+changeFlexStyleLayout(flex_layout_container, 'wrap', 'flex-wrap');
+changeFlexStyleLayout(flex_layout_container, '', 'default');
+
+switchIntrinsicFn(checked1, boxModelExample1, intrinsicSpan1, extrinsicSpan1);
+switchIntrinsicFn(checked2, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
+
+changeDropDownFlexDisplayValues(
+  flex_section_dropdown_values_flexDirection,
+  'flex-direction',
+  flex_section_buttonDisplayValue_flex_direction,
+);
+
+changeDropDownFlexDisplayValues(
+  flex_section_dropdown_values_flexWrap,
+  'flex-wrap',
+  flex_section_buttonDisplayValue_flex_wrap,
+);
+
 injectTextCodeIntoElements();
+
+generateFlexItems(flex_layout_container);
 
 //HTML EVENTS
 switchMBoxModel1Btn.addEventListener('input', () => {
@@ -295,5 +362,3 @@ switchMBoxModel2Btn.addEventListener('input', () => {
   const checked = switchMBoxModel2Btn.checked;
   switchIntrinsicFn(checked, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
 });
-
-console.log();
