@@ -204,3 +204,7 @@ main-nav-template {
   box-shadow: var(--primary-box-shadow);
   border-radius: var(--primary-border-radius);
 }
+
+section-title-legend {
+  text-transform: capitalize;
+}

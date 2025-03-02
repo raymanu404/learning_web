@@ -79,6 +79,10 @@ const flex_layout_container = document.querySelector(
   '[data-flex-layout="flex-direction"]',
 ) as HTMLButtonElement;
 
+const switch_writing_mode_miscellaneous_section = document.querySelector(
+  '#switch-logical-props-miscellaneous-section',
+) as HTMLInputElement;
+
 const checked1 = switchMBoxModel1Btn.checked;
 const checked2 = switchMBoxModel2Btn.checked;
 
@@ -362,3 +366,17 @@ switchMBoxModel2Btn.addEventListener('input', () => {
   const checked = switchMBoxModel2Btn.checked;
   switchIntrinsicFn(checked, boxModelExample2, intrinsicSpan2, extrinsicSpan2);
 });
+
+switch_writing_mode_miscellaneous_section.addEventListener(
+  'change',
+  (ev: Event) => {
+    const { checked } = ev.target as HTMLInputElement;
+    const container = document.querySelector(
+      '.writing-mode-container-miscellaneous-section',
+    ) as HTMLDivElement;
+
+    const value = checked ? 'horizontal-tb' : 'vertical-rl';
+
+    container.style.setProperty('writing-mode', value);
+  },
+);

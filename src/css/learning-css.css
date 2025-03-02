@@ -208,3 +208,22 @@ side-nav-template div ul {
   color: var(--primary-drop-down-color);
   border: 2px solid grey;
 }
+
+.writing-mode-container-miscellaneous-section {
+  display: flex;
+  gap: 20px;
+}
+
+.writing-mode-section {
+  border: 1px solid var(--primary-drop-down-color);
+  color: #333138;
+  max-height: 10rem;
+  max-width: 20rem;
+}
+
+.writing-mode-section div {
+  background-color: #8fd3f4;
+  border-bottom: 1px solid #040403;
+  height: 20px;
+  margin-block-start: 1em;
+}
